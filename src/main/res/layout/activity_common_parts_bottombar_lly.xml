@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="@dimen/dimen_height_bottombar_54dp"
+    android:background="@color/color_bottombar_bg_black"
+    android:layout_gravity="bottom"
+    >
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        >
+        <RadioButton
+            style="@style/style_common_bottom_rb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/selector_rb_dt_common_bottom_first"
+            android:drawablePadding="@dimen/dimen_1dp"
+            android:text="@string/string_bottom_first_shouye"
+            />
+        <RadioButton
+            style="@style/style_common_bottom_rb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/selector_rb_dt_common_bottom_second"
+            android:drawablePadding="@dimen/dimen_1dp"
+            android:text="@string/string_bottom_second_dingcan"
+            />
+        <RadioButton
+            style="@style/style_common_bottom_rb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/selector_rb_dt_common_bottom_third"
+            android:drawablePadding="@dimen/dimen_1dp"
+            android:text="@string/string_bottom_third_gouwuche"
+            />
+        <RadioButton
+            style="@style/style_common_bottom_rb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/selector_rb_dt_common_bottom_fourth"
+            android:drawablePadding="@dimen/dimen_1dp"
+            android:text="@string/string_bottom_fourth_gerenzhongxin"
+            />
+    </RadioGroup>
+</LinearLayout>
