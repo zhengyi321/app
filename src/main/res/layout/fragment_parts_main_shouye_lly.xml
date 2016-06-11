@@ -2,30 +2,33 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    android:fillViewport="false">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@color/color_topbar_bg_black"
+        android:background="@color/white"
         >
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dimen_260dp"
+        android:layout_height="@dimen/dimen_270dp"
         android:background="@color/color_topbar_bg_black"
-        android:layout_marginTop="@dimen/dimen_10dp"
         >
 
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dimen_100dp">
+                android:layout_height="@dimen/dimen_100dp"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                >
+
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@mipmap/gaolou"
                 android:scaleType="fitXY"
                 />
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -68,21 +71,35 @@
 
             </FrameLayout>
 
-            <ImageView
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/vp_shouye_circle"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimen_160dp"
-                android:background="@mipmap/wheel1"
-                android:layout_marginTop="@dimen/dimen_100dp"
+                android:layout_marginTop="@dimen/dimen_110dp"
+                android:overScrollMode="never"/>
+            <com.gototongcheng.widget.imageview.CircleIndicator
+                android:id="@+id/ci_shouye"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_160dp"
+                android:layout_marginTop="@dimen/dimen_110dp"
                 />
+        <!--
+           <ImageView
+               android:layout_width="match_parent"
+               android:layout_height="@dimen/dimen_160dp"
+               android:background="@mipmap/wheel1"
+               android:layout_marginTop="@dimen/dimen_100dp"
+               />-->
             <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dimen_80dp"
+            android:layout_marginTop="@dimen/dimen_90dp"
             >
-            <include layout="@layout/select_parts_fragment_shouye_lly"
-
+                <include layout="@layout/select_parts_fragment_shouye_lly"
                 />
-        </LinearLayout>
+            </LinearLayout>
+            <include layout="@layout/common_parts_loading_cpv"/>
     </FrameLayout>
 
         <LinearLayout
@@ -94,8 +111,49 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dimen_20dp"
+                android:layout_marginBottom="@dimen/dimen_20dp"
+                >
+                <com.gototongcheng.widget.GridView.NoScroolGridView
+                    android:id="@+id/gv_shouye_first"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:horizontalSpacing="@dimen/dimen_1dp"
+                    android:numColumns="4"
+                    android:verticalSpacing="@dimen/dimen_1dp"
+                    android:listSelector="@color/black"
+                    />
+
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dimen_20dp"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                >
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_110dp"
+                    android:background="@mipmap/goto_second_ads"
+                    android:scaleType="centerCrop"
+                    android:adjustViewBounds="true"
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_20dp"
+                android:layout_marginBottom="@dimen/dimen_20dp"
+                android:visibility="gone"
                 >
                 <GridView
                     android:layout_width="match_parent"
@@ -105,16 +163,6 @@
                     >
 
                 </GridView>
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                >
-
 
             </LinearLayout>
 

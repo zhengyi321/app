@@ -6,10 +6,18 @@
 
     <!--function-->
     <color name="color_topbar_bg_black">#1e1e1e</color>
+    <color name="color_topbar_back_bg_green">#3fa241</color>
     <color name="color_bottombar_bg_black">#1e1e1e</color>
     <color name="color_bottombar_tc_green">#befd00</color>
     <color name="color_search_bg_green">#befd00</color>
     <color name="color_main_shouye_bg_white">#f5f5f9</color>
+    <color name="color_tongcheng_bg_white">#f5f5f9</color>
+    <color name="color_center_register_bg">#1e1e1e</color>
+    <color name="color_center_register_input_bg2">#292929</color>
+    <color name="color_center_register_input_bg1">#424242</color>
+    <color name="color_center_register_submit_green_bg">#befd00</color>
+    <color name="color_topbar_search_bg_gray">#ececec</color>
+    <color name="color_circle_shape_green_bg">#befd00</color>
     <!--function-->
 
 

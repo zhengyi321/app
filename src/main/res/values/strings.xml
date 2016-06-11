@@ -17,4 +17,20 @@
     <string name="string_input_keyword">请输入单号或者关键字</string>
     <string name="string_search">搜索</string>
     <!--首页end-->
+
+    <!--个人注册中心-->
+    <string name="string_username">用户名</string>
+    <string name="string_password">密码</string>
+    <string name="string_vality">验证码</string>
+    <string name="string_register">注册</string>
+    <string name="string_forget">忘记密码?</string>
+    <string name="string_get_vality">输入手机号获取验证码</string>
+    <string name="string_input_you_need">输入您想要的商品快速查找</string>
+    <!--个人注册中心-->
+    <!--美食配送-->
+    <string name="string_price">价格</string>
+    <string name="string_dis">距离</string>
+    <string name="string_sell">销量</string>
+    <string name="string_comment">评分</string>
+    <!--美食配送-->
 </resources>

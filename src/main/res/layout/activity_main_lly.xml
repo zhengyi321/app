@@ -3,24 +3,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.gototongcheng.application.MainActivity"
+    tools:context="com.gototongcheng.view.activity.MainActivity"
     android:orientation="vertical"
+    android:background="@color/white"
     >
-    <include layout="@layout/activity_common_parts_topbar_lly"/>
-    <!--
-    <com.gototongcheng.widget.viewpager.NoScrollViewPager
+    <include layout="@layout/common_parts_topbar_lly"/>
+
+    <FrameLayout
+        android:id="@+id/fly_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:text="Hello World!" />-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        >
-        <include layout="@layout/fragment_parts_main_shouye_lly"/>
+        android:layout_weight="1">
 
-    </LinearLayout>
+    </FrameLayout>
+    <!--     <com.gototongcheng.widget.viewpager.NoScrollViewPager
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:layout_weight="1"
+           android:text="Hello World!" />
+        <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:layout_weight="1"
+              >
+              <include layout="@layout/fragment_parts_center_register_lly"/>
 
-    <include layout="@layout/activity_common_parts_bottombar_lly"/>
+          </LinearLayout>-->
+
+    <include layout="@layout/common_parts_bottombar_lly"/>
 </LinearLayout>
