@@ -1,34 +1,68 @@
 package com.gototongcheng.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.util.List;
+
 /**
  * Created by admin on 16/6/11.
  */
-public class MainShouYeFirstGridViewModel {
-    private String pic;
-    private String name;
-    private int id;
+public class MainShouYeFirstGridViewModel extends BaseModel implements Parcelable {
 
-    public String getPic() {
-        return pic;
+    /*
+    数据
+*/
+    public List<ShouYeFirstGVEntity> data;
+
+    public List<ShouYeFirstGVEntity> getData() {
+        return data;
     }
 
-    public void setPic(String pic) {
-        this.pic = pic;
+    public void setData(List<ShouYeFirstGVEntity> data) {
+        this.data = data;
     }
 
-    public String getName() {
-        return name;
+    public class ShouYeFirstGVEntity{
+        public String pic;
+        public String name;
+        public int id;
+        public boolean isCheap;
     }
 
-    public void setName(String name) {
-        this.name = name;
+
+
+    protected MainShouYeFirstGridViewModel(Parcel in) {
+        this.data = in.readArrayList(ShouYeFirstGVEntity.class.getClassLoader());
+        this.setMessage(in.readString());
+        this.setStatusCode(in.readInt());
+        this.setSuccess(in.readByte() != 0);
     }
 
-    public int getId() {
-        return id;
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeList(data);
+        dest.writeString(this.getMessage());
+        dest.writeInt(this.getStatusCode());
+        dest.writeByte((byte)((byte)(this.getSuccess() ?1:0)));
     }
 
-    public void setId(int id) {
-        this.id = id;
+    @Override
+    public int describeContents() {
+        return 0;
     }
+
+    public static final Creator<MainShouYeFirstGridViewModel> CREATOR = new Creator<MainShouYeFirstGridViewModel>() {
+        @Override
+        public MainShouYeFirstGridViewModel createFromParcel(Parcel in) {
+            return new MainShouYeFirstGridViewModel(in);
+        }
+
+        @Override
+        public MainShouYeFirstGridViewModel[] newArray(int size) {
+            return new MainShouYeFirstGridViewModel[size];
+        }
+    };
+
+
 }

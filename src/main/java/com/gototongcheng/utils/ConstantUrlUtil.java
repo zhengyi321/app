@@ -3,6 +3,8 @@ package com.gototongcheng.utils;
 import java.io.Serializable;
 
 /**
+ *
+ * 全局变量
  * Created by admin on 16/6/11.
  */
 public class ConstantUrlUtil implements Serializable {

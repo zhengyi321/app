@@ -52,4 +52,8 @@
         <attr name="foreground"
               format="reference"/>
     </declare-styleable>
+    <!--ViewPager小圆点-->
+    <!--slidetabbutton-->
+
+    <!--slidetabbutton-->
 </resources>

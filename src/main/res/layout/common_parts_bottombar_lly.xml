@@ -4,6 +4,7 @@
     android:layout_height="@dimen/dimen_height_bottombar_54dp"
     android:background="@color/color_bottombar_bg_black"
     android:layout_gravity="bottom"
+    android:id="@+id/lly_total_bottom"
     >
     <RadioGroup
         android:id="@+id/rg_bottom"
@@ -12,7 +13,7 @@
         android:orientation="horizontal"
         >
         <RadioButton
-            android:id="@+id/rb_shouye"
+            android:id="@+id/rb_shouye_bottom"
             style="@style/style_common_bottom_rb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -21,7 +22,7 @@
             android:text="@string/string_bottom_first_shouye"
             />
         <RadioButton
-            android:id="@+id/rb_dinner"
+            android:id="@+id/rb_dinner_bottom"
             style="@style/style_common_bottom_rb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -30,7 +31,7 @@
             android:text="@string/string_bottom_second_dingcan"
             />
         <RadioButton
-            android:id="@+id/rb_shopping"
+            android:id="@+id/rb_shopping_bottom"
             style="@style/style_common_bottom_rb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -39,7 +40,7 @@
             android:text="@string/string_bottom_third_gouwuche"
             />
         <RadioButton
-            android:id="@+id/rb_person_center"
+            android:id="@+id/rb_person_center_bottom"
             style="@style/style_common_bottom_rb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

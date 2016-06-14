@@ -3,6 +3,7 @@ package com.gototongcheng.view.fragment;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +31,7 @@ public abstract class BaseFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
         initViews();
+        initToolBar();
 
     }
 
@@ -42,4 +44,6 @@ public abstract class BaseFragment extends Fragment {
     public abstract int getLayoutId();
 
     public abstract void initViews();
+
+    public abstract void initToolBar();
 }

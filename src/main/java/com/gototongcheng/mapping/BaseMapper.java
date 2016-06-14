@@ -23,7 +23,7 @@ import okhttp3.logging.HttpLoggingInterceptor;
  * Created by zhyan on 16/6/11.
  */
 public class BaseMapper {
-    public static final String TEST_URL = "http://192.168.10.194:8080";
+    public static final String TEST_URL = "http://192.168.10.197:8080";
 
     public static  OkHttpClient mOkHttpClient;
 
@@ -47,9 +47,6 @@ public class BaseMapper {
                     //设置Http缓存
                     Cache cache = new Cache(new File(GotoCityApp.getContext().getCacheDir(), "HttpCache"), 1024 * 1024 * 100);
 
-                    try {
-
-
                     mOkHttpClient = new OkHttpClient.Builder()
                             .cache(cache)
                             .addInterceptor(mRewriteCacheControlInterceptor)
@@ -58,9 +55,7 @@ public class BaseMapper {
                             .retryOnConnectionFailure(true)
                             .connectTimeout(15, TimeUnit.SECONDS)
                             .build();
-                    }catch (Exception e){
-                        mOkHttpClient = new OkHttpClient();
-                    }
+
 
                 }
             }

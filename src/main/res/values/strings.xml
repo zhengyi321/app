@@ -19,7 +19,7 @@
     <!--首页end-->
 
     <!--个人注册中心-->
-    <string name="string_username">用户名</string>
+    <string name="string_username">手机号</string>
     <string name="string_password">密码</string>
     <string name="string_vality">验证码</string>
     <string name="string_register">注册</string>
@@ -33,4 +33,9 @@
     <string name="string_sell">销量</string>
     <string name="string_comment">评分</string>
     <!--美食配送-->
+    <!--24小时便利店-->
+    <string name="string_today">今日</string>
+    <string name="string_sale">卖点</string>
+    <string name="string_goto_send">统一方便全场九折,限量促销,走兔专送</string>
+    <!--24小时便利店-->
 </resources>

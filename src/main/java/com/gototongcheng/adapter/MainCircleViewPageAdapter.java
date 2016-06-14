@@ -42,7 +42,10 @@ public class MainCircleViewPageAdapter extends PagerAdapter {
         ImageView mImg = (ImageView) view.findViewById(R.id.im_vp_item);
     //    MainShouYeCircleModel circleModel = mainShouYeCircleModelList.get(position);
     //    mImg.setImageDrawable(mContext.getResources().getDrawable(R.mipmap.goto_tongcheng_slide_ads));
-        Glide.with(mContext).load(mainShouYeCircleModel.getData().get(position).pic).into(mImg);
+        String pic = mainShouYeCircleModel.getData().get(position).pic;
+        if(!pic.isEmpty() && (pic != null)) {
+            Glide.with(mContext).load(pic).into(mImg);
+        }
     //    mTitle.setText(mTopDaily.getTitle());
         final int id = mainShouYeCircleModel.getData().get(position).id;
         view.setOnClickListener(new View.OnClickListener()

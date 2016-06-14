@@ -1,5 +1,6 @@
 package com.gototongcheng.Presenter;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
 import android.support.v4.app.FragmentActivity;
@@ -12,12 +13,20 @@ import com.gototongcheng.view.activity.MainActivity;
 public class MainActivityPresenter {
 
     private int fragmentContent;
-    private FragmentActivity mActivity;
-    public MainActivityPresenter(MainActivity activity, int RId){
+    private Activity activity;
+    private CommonBottomBarPresenter commonBottomBarPresenter;
+    public MainActivityPresenter(Activity activity, int RId){
         this.fragmentContent = RId;
-        this.mActivity = activity;
+        this.activity = activity;
+        initViews(activity);
     }
+
+    private void initViews(Activity activity){
+        commonBottomBarPresenter = new CommonBottomBarPresenter(activity);
+//        commonBottomBarPresenter.initBottom();
+    }
+
     public void showFragment(Fragment fragment){
-        mActivity.getFragmentManager().beginTransaction().replace(fragmentContent, fragment).commit();
+        activity.getFragmentManager().beginTransaction().replace(fragmentContent, fragment).commit();
     }
 }

@@ -151,7 +151,7 @@ public class CircleIndicator extends LinearLayout implements OnPageChangeListene
         {
             mAnimationIn = AnimatorInflater.loadAnimator(context, mAnimatorReverseResId);
         }
-        mIndicatorBackgroundResId = (mIndicatorBackgroundResId == 0) ? R.drawable.shape_green_radius
+        mIndicatorBackgroundResId = (mIndicatorBackgroundResId == 0) ? R.drawable.shape_white_radius
                 : mIndicatorBackgroundResId;
         mIndicatorUnselectedBackgroundResId =
                 (mIndicatorUnselectedBackgroundResId == 0) ? mIndicatorBackgroundResId

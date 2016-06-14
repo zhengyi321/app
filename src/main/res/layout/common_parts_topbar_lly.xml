@@ -3,6 +3,7 @@
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="@dimen/dimen_height_topbar_46dp"
     android:background="@color/color_topbar_bg_black"
+    android:id="@+id/lly_total"
     >
     <!--左边-->
     <RelativeLayout
@@ -10,30 +11,41 @@
         android:layout_height="match_parent"
         android:layout_gravity="left"
         android:layout_weight="0.5"
-        android:layout_marginLeft="@dimen/dimen_height_topbar_left_margin_left_10dp"
+        android:layout_marginLeft="@dimen/dimen_10dp"
+        android:id="@+id/rly_left"
         >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            >
         <ImageButton
-            android:id="@+id/ib_bill"
+            android:id="@+id/ib_left"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@mipmap/left_bill"
             android:scaleType="fitXY"
-            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
             />
-
+        <TextView
+            android:id="@+id/tv_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="账单"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimen_15dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_5dp"
+            />
+        </LinearLayout>
 
     </RelativeLayout>
+
     <!--左边-->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="账单"
-        android:singleLine="true"
-        android:textColor="@color/white"
-        android:textSize="@dimen/dimen_15dp"
-        android:layout_weight="0.1"
-        android:layout_gravity="center_vertical"
-        />
+
     <!--中间-->
     <LinearLayout
         android:layout_width="wrap_content"
@@ -41,8 +53,10 @@
         android:layout_gravity="center"
         android:orientation="vertical"
         android:layout_weight="5"
+        android:id="@+id/lly_center"
         >
         <TextView
+            android:id="@+id/tv_center"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="@string/test_address"
@@ -65,15 +79,17 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_weight="0.5"
-        android:layout_marginRight="@dimen/dimen_height_topbar_right_margin_right_10dp"
+        android:paddingRight="@dimen/dimen_10dp"
+        android:id="@+id/rly_right"
         >
-        <ImageButton
-            android:layout_width="@dimen/dimen_18dp"
-            android:layout_height="@dimen/dimen_18dp"
+        <TextView
+            android:id="@+id/tv_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:background="@mipmap/search"
             android:layout_centerInParent="true"
-            android:scaleType="fitXY"
-
+            android:textStyle="bold"
+            android:scaleType="fitCenter"
             />
 
     </RelativeLayout>

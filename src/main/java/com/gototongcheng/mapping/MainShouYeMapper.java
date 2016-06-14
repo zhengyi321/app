@@ -3,6 +3,7 @@ package com.gototongcheng.mapping;
 
 import com.gototongcheng.dao.MainShouYeDao;
 import com.gototongcheng.model.MainShouYeCircleModel;
+import com.gototongcheng.model.MainShouYeFirstGridViewModel;
 
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
@@ -31,5 +32,10 @@ public class MainShouYeMapper extends BaseMapper{
     public Observable<MainShouYeCircleModel> getCirclePic()
     {
         return mainShouYeDao.getCirclePic();
+    }
+
+    public Observable<MainShouYeFirstGridViewModel> getMainShouYeFirstGridView()
+    {
+        return mainShouYeDao.getMainShouYeFirstGridView();
     }
 }
