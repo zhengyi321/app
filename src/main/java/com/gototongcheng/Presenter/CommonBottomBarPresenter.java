@@ -35,9 +35,14 @@ public class CommonBottomBarPresenter {
         bottomBarWidget.rbDinnerBottom = (RadioButton)activity.findViewById(R.id.rb_dinner_bottom);
         bottomBarWidget.rbShoppingBottom = (RadioButton)activity.findViewById(R.id.rb_shopping_bottom);
         bottomBarWidget.rbPersonCenterBottom = (RadioButton)activity.findViewById(R.id.rb_person_center_bottom);
-        initBottom();
+  //      initBottom();
     }
-
+    public void initBottomShouYeReset(){
+        bottomBarWidget.rbShouYeBottom.setChecked(true);
+        bottomBarWidget.rbDinnerBottom.setChecked(false);
+        bottomBarWidget.rbShoppingBottom.setChecked(false);
+        bottomBarWidget.rbPersonCenterBottom.setChecked(false);
+    }
     public void initBottom(){
         bottomBarWidget.rgBottom.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
@@ -45,10 +50,10 @@ public class CommonBottomBarPresenter {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch (checkedId){
                     case R.id.rb_shouye_bottom:
-                        bottomBarWidget.rbShouYeBottom.setCompoundDrawablesRelativeWithIntrinsicBounds(null,activity.getResources().getDrawable(R.mipmap.bottom_second_active),null,null);
-                        bottomBarWidget.rbShouYeBottom.setText("测试选中");
-                        bottomBarWidget.rbDinnerBottom.setCompoundDrawablesRelativeWithIntrinsicBounds(null,activity.getResources().getDrawable(R.mipmap.bottom_third_normal),null,null);
-                        bottomBarWidget.rbDinnerBottom.setText("测试未选中");
+               //         bottomBarWidget.rbShouYeBottom.setCompoundDrawablesRelativeWithIntrinsicBounds(null,activity.getResources().getDrawable(R.mipmap.bottom_second_active),null,null);
+               //         bottomBarWidget.rbShouYeBottom.setText("测试选中");
+               //         bottomBarWidget.rbDinnerBottom.setCompoundDrawablesRelativeWithIntrinsicBounds(null,activity.getResources().getDrawable(R.mipmap.bottom_third_normal),null,null);
+               //         bottomBarWidget.rbDinnerBottom.setText("测试未选中");
                         break;
 
                 }

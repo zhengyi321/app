@@ -16,6 +16,8 @@ import com.gototongcheng.application.GotoCityApp;
 import com.gototongcheng.application.R;
 import com.gototongcheng.mapping.MainShouYeMapper;
 import com.gototongcheng.mapping.TestMapper;
+import com.gototongcheng.mapping.rxjava.ApiCallback;
+import com.gototongcheng.mapping.rxjava.SubscriberCallBack;
 import com.gototongcheng.model.MainShouYeCircleModel;
 import com.gototongcheng.model.MainShouYeFirstGridViewModel;
 import com.gototongcheng.model.Test;
@@ -91,15 +93,22 @@ public class MainShouYeFragmentPresenter {
                         showProgress();
                         //  }
                     }
-                })
-                .subscribe(new Action1<MainShouYeFirstGridViewModel>() {
+                }).subscribe(new SubscriberCallBack<MainShouYeFirstGridViewModel>(new ApiCallback<MainShouYeFirstGridViewModel>() {
                     @Override
-                    public void call(MainShouYeFirstGridViewModel model) {
-                        hideProgress();
+                    public void onSuccess(MainShouYeFirstGridViewModel model) {
                         initGridView(model);
                     }
-                })
-        ;
+
+                    @Override
+                    public void onFailure(int code, String msg) {
+                        Toast.makeText(activity,"服务器连接错误",Toast.LENGTH_LONG).show();
+                    }
+
+                    @Override
+                    public void onCompleted() {
+                        hideProgress();
+                    }
+                }));
 
     }
 
@@ -133,13 +142,23 @@ public class MainShouYeFragmentPresenter {
                         //  }
                     }
                 })
-                .subscribe(new Action1<MainShouYeCircleModel>() {
+                .subscribe(new SubscriberCallBack<MainShouYeCircleModel>(new ApiCallback<MainShouYeCircleModel>() {
                     @Override
-                    public void call(MainShouYeCircleModel mainShouYeCircleModel) {
-                        hideProgress();
-                        initCircleViewPager(mainShouYeCircleModel);
+                    public void onSuccess(MainShouYeCircleModel model) {
+
+                        initCircleViewPager(model);
                     }
-                })
+
+                    @Override
+                    public void onFailure(int code, String msg) {
+
+                    }
+
+                    @Override
+                    public void onCompleted() {
+                        hideProgress();
+                    }
+                }))
         ;
     }
 

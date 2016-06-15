@@ -2,7 +2,6 @@ package com.gototongcheng.view.fragment;
 
 import android.app.Activity;
 import android.view.View;
-import android.widget.Toast;
 
 import com.gototongcheng.Presenter.CommonTopBarPresenter;
 import com.gototongcheng.Presenter.FoodsFragmentPresenter;
@@ -24,7 +23,7 @@ public class FoodsFragment extends BaseFragment implements View.OnClickListener{
     }
     @Override
     public int getLayoutId() {
-        return R.layout.fragment_parts_main_shouye_foods_lly;
+        return R.layout.fragment_parts_shouye_foods_lly;
     }
 
     @Override

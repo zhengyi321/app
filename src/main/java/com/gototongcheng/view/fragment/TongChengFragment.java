@@ -25,7 +25,7 @@ public class TongChengFragment extends BaseFragment implements View.OnClickListe
     }
     @Override
     public int getLayoutId() {
-        return R.layout.fragment_parts_main_shouye_tongcheng_lly;
+        return R.layout.fragment_parts_shouye_tongcheng_sv;
     }
 
     @Override

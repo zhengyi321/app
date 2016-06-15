@@ -26,7 +26,14 @@
     <string name="string_forget">忘记密码?</string>
     <string name="string_get_vality">输入手机号获取验证码</string>
     <string name="string_input_you_need">输入您想要的商品快速查找</string>
+
     <!--个人注册中心-->
+
+    <!--个人登录中心-->
+    <string name="string_remember_my_login_data">记住我的登入信息</string>
+    <string name="string_login">登入</string>
+
+    <!--个人登录中心-->
     <!--美食配送-->
     <string name="string_price">价格</string>
     <string name="string_dis">距离</string>
@@ -38,4 +45,42 @@
     <string name="string_sale">卖点</string>
     <string name="string_goto_send">统一方便全场九折,限量促销,走兔专送</string>
     <!--24小时便利店-->
+
+    <!--同城快递-->
+    <string name="string_i_want_sending">我要寄件</string>
+    <string name="string_goods_tracking">物流追踪</string>
+    <string name="string_fee_checking">运费查询</string>
+    <string name="string_time_checking">时效查询</string>
+    <string name="string_site_checking">网点查询</string>
+    <string name="string_rang_checking">范围查询</string>
+    <!--同城快递-->
+
+    <!--同城快递 范围查询-->
+    <string name="string_we_comes_on_time">我们随叫随到</string>
+    <string name="string_no_matter_what">NO MATTER WHAT</string>
+    <string name="string_we_are_on_call">WE ARE ON CALL</string>
+    <string name="string_area_select">选择地区:</string>
+    <string name="string_area_select_please">请选择地区</string>
+    <string name="string_select">查询</string>
+    <string name="string_liu_shi_zhen">柳市镇</string>
+    <string name="string_all_support_service">全境提供服务</string>
+    <string name="string_the_site_support_select">以下网点可供选择</string>
+    <string name="string_address_service_site">服务网点地址</string>
+    <string name="string_name_tel_service_site">服务网点负责人姓名&amp;号码</string>
+    <!--同城快递 范围查询-->
+    
+    <!--同城快递 网点查询-->
+    <string name="string_i_am_young_i_need_rush">我年轻我要闯</string>
+    <string name="string_we_are_young_dream">WE ARE YOUNG DREAM</string>
+    <string name="string_can_not_wait">CANT WAIT</string>
+    <string name="string_click_here_find_nearby">点击此处查找附近网点</string>
+    <string name="string_site_detail">网点详情:</string>
+    <!--同城快递 网点查询-->
+    <!--同城快递 时效查询-->
+    <string name="string_address_receive">收件地址:</string>
+    <string name="string_address_sender">发件地址:</string>
+    <string name="string_time_sending">寄件时间:</string>
+    <string name="string_please_input_address_or_loc">请输入地址或者定位</string>
+    <string name="string_please_input_weight">请输入重量(Kg)</string>
+    <!--同城快递 时效查询-->
 </resources>

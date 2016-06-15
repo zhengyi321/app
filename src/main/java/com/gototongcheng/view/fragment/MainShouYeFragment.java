@@ -1,16 +1,12 @@
 package com.gototongcheng.view.fragment;
 
 import android.app.Activity;
-import android.support.v4.view.ViewPager;
 
+import com.gototongcheng.Presenter.CommonBottomBarPresenter;
 import com.gototongcheng.Presenter.CommonSelectorBarPresenter;
 import com.gototongcheng.Presenter.CommonTopBarPresenter;
 import com.gototongcheng.Presenter.MainShouYeFragmentPresenter;
 import com.gototongcheng.application.R;
-import com.gototongcheng.widget.imageview.CircleIndicator;
-import com.gototongcheng.widget.progressview.CircleProgressView;
-
-import butterknife.Bind;
 
 /**
  * Created by zhyan on 16/6/10.
@@ -21,6 +17,7 @@ public class MainShouYeFragment extends BaseFragment{
 
     private CommonTopBarPresenter commonTopBarPresenter;
     private CommonSelectorBarPresenter commonSelectorBarPresenter;
+    private CommonBottomBarPresenter commonBottomBarPresenter;
     private Activity activity;
     public MainShouYeFragment(){
 
@@ -30,7 +27,7 @@ public class MainShouYeFragment extends BaseFragment{
     }
     @Override
     public int getLayoutId() {
-        return R.layout.fragment_parts_main_shouye_lly;
+        return R.layout.fragment_parts_main_shouye_sv;
     }
 
     @Override
@@ -41,12 +38,14 @@ public class MainShouYeFragment extends BaseFragment{
 
         commonTopBarPresenter = new CommonTopBarPresenter(activity);
         commonSelectorBarPresenter = new CommonSelectorBarPresenter(activity);
+        commonBottomBarPresenter = new CommonBottomBarPresenter(activity);
     }
 
     @Override
     public void initToolBar() {
         commonTopBarPresenter.initTopBar("shouye");
         commonSelectorBarPresenter.initStyle("shouye");
+        commonBottomBarPresenter.initBottomShouYeReset();
     }
 
     public void onDestroy(){

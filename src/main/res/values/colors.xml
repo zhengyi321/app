@@ -13,9 +13,10 @@
     <color name="color_search_bg_black">#1e1e1e</color>
     <color name="color_main_shouye_bg_white">#f5f5f9</color>
     <color name="color_tongcheng_bg_white">#f5f5f9</color>
-    <color name="color_center_register_bg">#1e1e1e</color>
-    <color name="color_center_register_input_bg2">#292929</color>
-    <color name="color_center_register_input_bg1">#424242</color>
+    <color name="color_center_login_bg_black">#1e1e1e</color>
+    <color name="color_center_register_bg_black">#1e1e1e</color>
+    <color name="color_center_register_input_bg2_black">#292929</color>
+    <color name="color_center_register_input_bg1_black">#424242</color>
     <color name="color_center_register_submit_green_bg">#befd00</color>
     <color name="color_topbar_search_bg_gray">#ececec</color>
     <color name="color_circle_shape_green_bg">#befd00</color>
@@ -23,6 +24,20 @@
     <!--slidingtabbutton-->
     <color name="color_water_beer_undline_bg_red">#d51638</color>
     <!--slidingtabbutton-->
+
+    <!--checkbox选择框背景色 -->
+    <color name="color_circle_green_bg">#befd00</color>
+    <!--checkbox选择框背景色 -->
+
+    <!--同城快递 范围选择-->
+    <color name="color_tongcheng_rang_check_white_bg">#f5f5f9</color>
+    <color name="color_tongcheng_rang_check_submit_deep_green_bg">#3fa241</color>
+    <!--同城快递 范围选择-->
+
+    <!--同城快递 网点查询-->
+    <color name="color_tongcheng_site_check_white_bg">#f5f5f9</color>
+    <color name="color_tongcheng_time_check_white_bg">#f5f5f9</color>
+    <!--同城快递 网点查询-->
     <!--常见颜色-->
     <!--透明-->
     <color name="transparent">#00000000</color>

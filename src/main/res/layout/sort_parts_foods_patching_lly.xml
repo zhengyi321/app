@@ -23,7 +23,6 @@
             android:layout_height="wrap_content"
             android:background="@mipmap/price"
             android:layout_gravity="center"
-            android:layout_weight="0.1"
             />
         <TextView
             android:layout_width="wrap_content"
@@ -34,12 +33,12 @@
             android:gravity="center_horizontal"
             android:layout_weight="2"
             />
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@mipmap/goto_down"
+        <CheckBox
+            android:layout_width="@dimen/dimen_10dp"
+            android:layout_height="@dimen/dimen_7dp"
+            android:background="@drawable/selector_sort_checkbox_up_down"
+            android:button="@null"
             android:layout_gravity="center"
-            android:layout_weight="0.1"
             />
     </LinearLayout>
     <LinearLayout
@@ -66,12 +65,12 @@
             android:gravity="center_horizontal"
             android:layout_weight="2"
             />
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@mipmap/goto_down"
+        <CheckBox
+            android:layout_width="@dimen/dimen_10dp"
+            android:layout_height="@dimen/dimen_7dp"
+            android:background="@drawable/selector_sort_checkbox_up_down"
+            android:button="@null"
             android:layout_gravity="center"
-            android:layout_weight="0.1"
             />
 
     </LinearLayout>
@@ -99,12 +98,12 @@
             android:gravity="center_horizontal"
             android:layout_weight="2"
             />
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@mipmap/goto_down"
+        <CheckBox
+            android:layout_width="@dimen/dimen_10dp"
+            android:layout_height="@dimen/dimen_7dp"
+            android:background="@drawable/selector_sort_checkbox_up_down"
+            android:button="@null"
             android:layout_gravity="center"
-            android:layout_weight="0.1"
             />
 
     </LinearLayout>
@@ -132,12 +131,12 @@
             android:gravity="center_horizontal"
             android:layout_weight="2"
             />
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@mipmap/goto_down"
+        <CheckBox
+            android:layout_width="@dimen/dimen_10dp"
+            android:layout_height="@dimen/dimen_7dp"
+            android:background="@drawable/selector_sort_checkbox_up_down"
+            android:button="@null"
             android:layout_gravity="center"
-            android:layout_weight="0.1"
             />
 
     </LinearLayout>

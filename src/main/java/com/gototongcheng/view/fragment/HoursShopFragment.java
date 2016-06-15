@@ -2,7 +2,6 @@ package com.gototongcheng.view.fragment;
 
 import android.app.Activity;
 import android.view.View;
-import android.widget.Toast;
 
 import com.gototongcheng.Presenter.CommonTopBarPresenter;
 import com.gototongcheng.Presenter.HoursFragmentPresenter;
@@ -30,7 +29,7 @@ public class HoursShopFragment extends BaseFragment implements View.OnClickListe
 
     @Override
     public int getLayoutId() {
-        return R.layout.fragment_parts_main_24hours_lly;
+        return R.layout.fragment_parts_shouye_24hours_lly;
     }
 
     @Override

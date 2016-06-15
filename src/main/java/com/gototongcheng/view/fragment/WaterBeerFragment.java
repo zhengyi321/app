@@ -1,23 +1,11 @@
 package com.gototongcheng.view.fragment;
 
 import android.app.Activity;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
 
 import com.gototongcheng.Presenter.CommonTopBarPresenter;
 import com.gototongcheng.Presenter.WaterBeerFragmentPresenter;
 import com.gototongcheng.application.R;
-import com.gototongcheng.widget.tab.PluginScrollView;
-import com.gototongcheng.widget.tab.ViewPagerAdapter;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by zhyan on 16/6/13.
@@ -36,7 +24,7 @@ public class WaterBeerFragment extends BaseFragment implements View.OnClickListe
     }
     @Override
     public int getLayoutId() {
-        return R.layout.fragment_parts_main_shouye_waterbeer_lly;
+        return R.layout.fragment_parts_shouye_waterbeer_lly;
     }
 
     @Override

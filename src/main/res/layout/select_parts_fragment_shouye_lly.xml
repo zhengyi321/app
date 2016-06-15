@@ -11,7 +11,7 @@
         android:layout_gravity="center_horizontal"
         android:orientation="horizontal"
         android:background="@drawable/shape_search_common_bg_40dp"
-        android:id="@+id/lly_total"
+        android:id="@+id/lly_select_total"
         >
         <ImageView
             android:layout_width="@dimen/dimen_20dp"

@@ -26,7 +26,7 @@
               android:layout_height="match_parent"
               android:layout_weight="1"
               >
-              <include layout="@layout/fragment_parts_center_register_lly"/>
+              <include layout="@layout/fragment_parts_main_center_register_sv"/>
 
           </LinearLayout>-->
 

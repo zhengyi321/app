@@ -116,6 +116,17 @@ public class CommonTopBarPresenter{
                 topBarCommonWidget.tvRight.setBackgroundResource(R.mipmap.goto_pepole_head);
                 topBarCommonWidget.tvRight.setText("");
                 break;
+            case "login":
+                topBarCommonWidget.llyTotal.setVisibility(View.VISIBLE);
+                topBarSelectWidget.llyTotal.setVisibility(View.GONE);
+                topBarCommonWidget.llyTotal.setBackgroundResource(R.color.color_topbar_bg_black);
+                topBarCommonWidget.imLeft.setBackgroundResource(R.mipmap.back_arrow_white);
+                topBarCommonWidget.tvLeft.setText("返回");
+                topBarCommonWidget.tvCenter.setText("");
+
+                topBarCommonWidget.tvRight.setBackgroundResource(R.color.transparent);
+                topBarCommonWidget.tvRight.setText("注册");
+                break;
 
         }
     }
