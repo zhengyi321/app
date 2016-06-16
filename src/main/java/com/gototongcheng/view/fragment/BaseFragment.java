@@ -1,5 +1,6 @@
 package com.gototongcheng.view.fragment;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.gototongcheng.Presenter.MainActivityPresenter;
+
 import butterknife.ButterKnife;
 
 /**
@@ -15,6 +18,8 @@ import butterknife.ButterKnife;
  */
 public abstract class BaseFragment extends Fragment {
     private View rootView;
+    protected Activity activity;
+    protected MainActivityPresenter mainActivityPresenter;
 
     @Nullable
     @Override

@@ -10,8 +10,8 @@ import com.gototongcheng.application.R;
 /**
  * Created by admin on 16/6/13.
  */
-public class FoodsFragment extends BaseFragment implements View.OnClickListener{
-    private Activity activity;
+public class FoodsFragment extends BaseFragment {
+
     private CommonTopBarPresenter commonTopBarPresenter;
     private FoodsFragmentPresenter foodsFragmentPresenter;
     public FoodsFragment(){
@@ -29,7 +29,12 @@ public class FoodsFragment extends BaseFragment implements View.OnClickListener{
     @Override
     public void initViews() {
         foodsFragmentPresenter = new FoodsFragmentPresenter(activity);
-        commonTopBarPresenter.topBarSelectWidget.rlyLeft.setOnClickListener(this);
+        commonTopBarPresenter.topBarSelectWidget.rlyLeft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                foodsFragmentPresenter.back();
+            }
+        });
     }
 
     @Override
@@ -37,14 +42,5 @@ public class FoodsFragment extends BaseFragment implements View.OnClickListener{
         commonTopBarPresenter.initTopBar("foods");
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.rly_left_select:
-        //        Toast.makeText(activity,"this is foods",Toast.LENGTH_LONG).show();
-                foodsFragmentPresenter.back();
-                break;
-        }
 
-    }
 }

@@ -9,18 +9,17 @@ import com.gototongcheng.view.fragment.MainShouYeFragment;
 /**
  * Created by zhyan on 16/6/15.
  */
-public class RegisterCenterFragmentPresenter {
+public class RegisterCenterFragmentPresenter extends BasePresenter{
 
-    private Activity activity;
-    private MainActivityPresenter mainActivityPresenter;
     public RegisterCenterFragmentPresenter(){
 
     }
     public RegisterCenterFragmentPresenter(Activity activity){
-        this.activity = activity;
+
         initViews(activity);
     }
-    private void initViews(Activity activity){
+    protected void initViews(Activity activity){
+        this.activity = activity;
         mainActivityPresenter = new MainActivityPresenter(activity, R.id.fly_content);
 
     }

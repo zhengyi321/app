@@ -1,15 +1,21 @@
 package com.gototongcheng.view.fragment;
 
 import android.app.Activity;
+import android.view.View;
 
+import com.gototongcheng.Presenter.CommonTopBarPresenter;
+import com.gototongcheng.Presenter.TongChengFeeCheckFragmentPresenter;
+import com.gototongcheng.Presenter.TongChengTimeCheckFragmentPresenter;
 import com.gototongcheng.application.R;
 
 /**
  * Created by admin on 16/6/15.
  */
-public class TongChengTimeCheckFragment extends BaseFragment{
+public class TongChengTimeCheckFragment extends BaseFragment {
 
-    private Activity activity;
+
+    private CommonTopBarPresenter commonTopBarPresenter;
+    private TongChengTimeCheckFragmentPresenter tongChengTimeCheckFragmentPresenter;
     public TongChengTimeCheckFragment(){
 
     }
@@ -24,11 +30,20 @@ public class TongChengTimeCheckFragment extends BaseFragment{
 
     @Override
     public void initViews() {
-
+        commonTopBarPresenter = new CommonTopBarPresenter(activity);
+        commonTopBarPresenter.topBarCommonWidget.rlyLeft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tongChengTimeCheckFragmentPresenter.back();
+            }
+        });
+        tongChengTimeCheckFragmentPresenter = new TongChengTimeCheckFragmentPresenter(activity);
     }
 
     @Override
     public void initToolBar() {
-
+        commonTopBarPresenter.initTopBar("tongchengtimecheck");
     }
+
+
 }

@@ -81,6 +81,57 @@
     <string name="string_address_sender">发件地址:</string>
     <string name="string_time_sending">寄件时间:</string>
     <string name="string_please_input_address_or_loc">请输入地址或者定位</string>
+    <string name="string_please_input_time">请输入寄件时间</string>
     <string name="string_please_input_weight">请输入重量(Kg)</string>
     <!--同城快递 时效查询-->
+    <!--同城快递 运费查询-->
+    <string name="string_passing_by_heart">用心传递 成就所托</string>
+    <string name="string_carefully_transfer_the">CAREFULLY TRANSFER THE</string>
+    <string name="string_achievement_holds">ACHIEVEMENT HOLDS</string>
+    <string name="string_weight">重量:</string>
+    <string name="string_valume">体积:</string>
+    <string name="string_long_width_height">长X宽X高(cm)</string>
+    <string name="string_twelve_yuan">12元</string>
+    <!--同城快递 运费查询-->
+
+    <!--同城快递 物流追踪-->
+    <string name="string_we_only_support_better_service">我们只提供更好更优质的服务</string>
+    <string name="string_we_only_provide_better_quality">WE ONLY PROVIDE BETTER QUALITY</string>
+    <string name="string_service">SERVICE</string>
+    <string name="string_dear_customer">亲爱的客户,您的快件</string>
+    <string name="string_receive_by_time">于2016年5月1日下午3点45分收件</string>
+    <string name="string_receiver_passer_tel">收件快递员王建国,联系电话17757727257</string>
+    <string name="string_please_hold_by_patient">请您耐心等候哦!</string>
+
+    <!--同城快递 物流追踪-->
+
+    <!--同城快递 我要寄件-->
+    <string name="string_let_us_change_the_market_style_again">让我们再一次 改变世界的格局</string>
+    <string name="string_let_change_the_industry">LET S CHANGE THE INDUSTRY</string>
+    <string name="string_structure_again">STRUCTURE AGAIN</string>
+    <string name="strin_receiver_data">收件人信息</string>
+    <string name="string_send">寄</string>
+    <string name="string_please_input_sender_detail_address_and_tel">请输入寄件人详细地址&amp;联系方式</string>
+    <string name="string_receive">收</string>
+    <string name="string_please_input_receive_detail_address_and_tel">请输入收件人详细地址&amp;联系方式</string>
+    <string name="string_right_brackets"> ">" </string>
+    <string name="string_goods_data">物品信息</string>
+    <string name="string_weight_unit">重量(Kg):</string>
+    <string name="string_pay_method">付款方式:</string>
+    <string name="string_send_pay">寄付</string>
+    <string name="string_receive_pay">到付</string>
+    <string name="string_visit_time">上门时间:</string>
+    <string name="string_month_balance">月结</string>
+    <string name="string_pre_charge">预充值</string>
+    <string name="string_submit">提交</string>
+    <!--同城快递 我要寄件-->
+    <!--同城快递 我要寄件 新建地址-->
+    <string name="string_name">姓名:</string>
+    <string name="string_tel">手机号码:</string>
+    <string name="string_loc_area">所在区域:</string>
+    <string name="string_detail_address">详细地址:</string>
+    <string name="string_setting_default_address">设置为默认地址</string>
+    <string name="string_input_or_select">请选择或输入</string>
+    <string name="string_tel_contact">手机通讯录</string>
+    <!--同城快递 我要寄件 新建地址-->
 </resources>

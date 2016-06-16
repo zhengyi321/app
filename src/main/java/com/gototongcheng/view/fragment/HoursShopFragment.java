@@ -13,12 +13,12 @@ import butterknife.Bind;
 /**
  * Created by zhyan on 16/6/13.
  */
-public class HoursShopFragment extends BaseFragment implements View.OnClickListener{
+public class HoursShopFragment extends BaseFragment {
     @Bind(R.id.mtv_hoursshop)
     MaequeeTextView maequeeTextView;
     private CommonTopBarPresenter commonTopBarPresenter;
     private HoursFragmentPresenter hoursFragmentPresenter;
-    private Activity activity;
+
     public HoursShopFragment(){
 
     }
@@ -36,7 +36,12 @@ public class HoursShopFragment extends BaseFragment implements View.OnClickListe
     public void initViews() {
         start(getView());
         hoursFragmentPresenter = new HoursFragmentPresenter(activity);
-        commonTopBarPresenter.topBarSelectWidget.rlyLeft.setOnClickListener(this);
+        commonTopBarPresenter.topBarSelectWidget.rlyLeft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                hoursFragmentPresenter.back();
+            }
+        });
     }
 
     @Override
@@ -51,12 +56,5 @@ public class HoursShopFragment extends BaseFragment implements View.OnClickListe
         maequeeTextView.stopScroll();
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.rly_left_select:
-                hoursFragmentPresenter.back();
-                break;
-        }
-    }
+
 }

@@ -99,7 +99,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dimen_90dp"
             >
-                <include layout="@layout/select_parts_fragment_shouye_lly"
+                <include layout="@layout/common_select_lly"
                 />
             </LinearLayout>
             <include layout="@layout/common_parts_loading_cpv"/>
@@ -118,7 +118,7 @@
                 android:layout_marginTop="@dimen/dimen_20dp"
                 android:layout_marginBottom="@dimen/dimen_20dp"
                 >
-                <com.gototongcheng.widget.GridView.NoScroolGridView
+                <com.gototongcheng.widget.gridview.NoScroolGridView
                     android:id="@+id/gv_shouye_first"
                     android:layout_width="fill_parent"
                     android:layout_height="match_parent"

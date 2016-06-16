@@ -10,7 +10,7 @@ import com.gototongcheng.application.R;
 /**
  * Created by zhyan on 16/6/13.
  */
-public class WaterBeerFragment extends BaseFragment implements View.OnClickListener{
+public class WaterBeerFragment extends BaseFragment {
 
     private WaterBeerFragmentPresenter waterBeerFragmentPresenter;
     private Activity activity ;
@@ -30,7 +30,12 @@ public class WaterBeerFragment extends BaseFragment implements View.OnClickListe
     @Override
     public void initViews() {
         waterBeerFragmentPresenter = new WaterBeerFragmentPresenter(getActivity());
-        commonTopBarPresenter.topBarSelectWidget.rlyLeft.setOnClickListener(this);
+        commonTopBarPresenter.topBarSelectWidget.rlyLeft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                waterBeerFragmentPresenter.back();
+            }
+        });
 
     }
 
@@ -40,12 +45,4 @@ public class WaterBeerFragment extends BaseFragment implements View.OnClickListe
     }
 
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.rly_left_select:
-                waterBeerFragmentPresenter.back();
-                break;
-        }
-    }
 }

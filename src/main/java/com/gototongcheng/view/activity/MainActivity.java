@@ -16,11 +16,15 @@ import com.gototongcheng.view.fragment.HoursShopFragment;
 import com.gototongcheng.view.fragment.LoginCenterFragment;
 import com.gototongcheng.view.fragment.MainShouYeFragment;
 import com.gototongcheng.view.fragment.RegisterCenterFragment;
+import com.gototongcheng.view.fragment.TongChengFeeCheckFragment;
 import com.gototongcheng.view.fragment.TongChengFragment;
+import com.gototongcheng.view.fragment.TongChengGoodsTrackingFragment;
 import com.gototongcheng.view.fragment.TongChengRangCheckFragment;
+import com.gototongcheng.view.fragment.TongChengSendingFragment;
 import com.gototongcheng.view.fragment.TongChengSiteCheckFragment;
 import com.gototongcheng.view.fragment.TongChengTimeCheckFragment;
 import com.gototongcheng.view.fragment.WaterBeerFragment;
+import com.gototongcheng.widget.commonstaticwidget.CommonStaticWidget;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,7 +51,7 @@ public class MainActivity extends BaseActivity {
 
 
     private MainActivityPresenter mainPresenter;
-
+    public static CommonStaticWidget commonStaticWidget;
  //   private CommonTopBarPresenter commonTopBarPresenter;
     private List<Fragment> fragmentList;
 
@@ -66,11 +70,9 @@ public class MainActivity extends BaseActivity {
         if (NetWorkUtil.isNetworkConnected()){
             Fragment mainShouYeFragment = new MainShouYeFragment(this);
             Fragment loginCenterFragment = new LoginCenterFragment(this);
-            Fragment tongChengTimeCheckFragment = new TongChengTimeCheckFragment(this);
             fragmentList.add(mainShouYeFragment);
             fragmentList.add(loginCenterFragment);
-            fragmentList.add(tongChengTimeCheckFragment);
-            mainPresenter.showFragment(fragmentList.get(2));
+            mainPresenter.showFragment(fragmentList.get(0));
         }else{
             NetWorkUtil.ShowDialog(this, "设置网络",
                     "请检查你的网络设置");
@@ -85,7 +87,7 @@ public class MainActivity extends BaseActivity {
     @OnClick(R.id.rb_shouye_bottom)
     public void shouYeOnClick(){
         if(fragmentList.size() > 0) {
-            mainPresenter.showFragment(fragmentList.get(2));
+            mainPresenter.showFragment(fragmentList.get(0));
 
         }
     }

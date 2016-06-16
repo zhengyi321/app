@@ -3,6 +3,8 @@ package com.gototongcheng.application;
 import android.app.Application;
 import android.content.Context;
 
+import com.gototongcheng.widget.commonstaticwidget.CommonStaticWidget;
+
 /**
  * Created by zhyan on 16/6/11.
  */

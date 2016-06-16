@@ -1,52 +1,39 @@
 package com.gototongcheng.Presenter;
 
 import android.app.Activity;
-import android.content.Context;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.gototongcheng.adapter.MainCircleViewPageAdapter;
 import com.gototongcheng.adapter.MainShouYeFirstGVAdapter;
-import com.gototongcheng.application.GotoCityApp;
 import com.gototongcheng.application.R;
 import com.gototongcheng.mapping.MainShouYeMapper;
-import com.gototongcheng.mapping.TestMapper;
 import com.gototongcheng.mapping.rxjava.ApiCallback;
 import com.gototongcheng.mapping.rxjava.SubscriberCallBack;
 import com.gototongcheng.model.MainShouYeCircleModel;
 import com.gototongcheng.model.MainShouYeFirstGridViewModel;
-import com.gototongcheng.model.Test;
-import com.gototongcheng.utils.LogUtil;
-import com.gototongcheng.widget.GridView.NoScroolGridView;
+import com.gototongcheng.widget.gridview.NoScroolGridView;
 import com.gototongcheng.widget.imageview.CircleIndicator;
 import com.gototongcheng.widget.progressview.CircleProgressView;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import butterknife.Bind;
-import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action0;
-import rx.functions.Action1;
-import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
 /**
  * Created by zhyan on 16/6/10.
  */
-public class MainShouYeFragmentPresenter {
+public class MainShouYeFragmentPresenter extends BasePresenter{
 
 //    private Context mContext;
 
-    private MainShouYeWidget mainShouYeWidget;
+    public  MainShouYeWidget mainShouYeWidget ;
 
     private MainShouYeMapper mainShouYeMapper;
     private MainCircleViewPageAdapter mainCircleViewPageAdapter;
@@ -55,21 +42,29 @@ public class MainShouYeFragmentPresenter {
     private int size;
     private int mPagerPosition = 0;
     private BannerTask mTimerTask;
-    private Activity activity;
     private boolean mIsUserTouched = false;
+    public MainShouYeFragmentPresenter(){
 
-    public MainShouYeFragmentPresenter(Activity mActivity){
-   //     this.mContext = context;
-        mainShouYeWidget = new MainShouYeWidget();
-        mainShouYeWidget.mViewPager = (ViewPager)mActivity.findViewById(R.id.vp_shouye_circle);
-        mainShouYeWidget.mCircleIndicator = (CircleIndicator)mActivity.findViewById(R.id.ci_shouye);
-        this.activity = mActivity;
-        mainShouYeWidget.mCircleProgressView = (CircleProgressView) mActivity.findViewById(R.id.circle_progress);
-        mainShouYeWidget.gvShouYeFirst = (NoScroolGridView)mActivity.findViewById(R.id.gv_shouye_first);
-        mainShouYeWidget.llyMainShouYe = (LinearLayout)mActivity.findViewById(R.id.lly_shouye_main);
-        mainShouYeWidget.linearLayoutManager = new LinearLayoutManager(mActivity);
     }
 
+    public MainShouYeFragmentPresenter(Activity activity){
+   //     this.mContext = context;
+        initViews(activity);
+    }
+    protected void initViews(Activity activity) {
+        this.activity = activity;
+        if(mainShouYeWidget == null){
+            mainShouYeWidget  = new MainShouYeWidget();
+        }
+        mainShouYeWidget.mViewPager = (ViewPager)activity.findViewById(R.id.vp_shouye_circle);
+        mainShouYeWidget.mCircleIndicator = (CircleIndicator)activity.findViewById(R.id.ci_shouye);
+
+        mainShouYeWidget.mCircleProgressView = (CircleProgressView) activity.findViewById(R.id.circle_progress);
+        mainShouYeWidget.gvShouYeFirst = (NoScroolGridView)activity.findViewById(R.id.gv_shouye_first);
+        mainShouYeWidget.llyMainShouYe = (LinearLayout)activity.findViewById(R.id.lly_shouye_main);
+        mainShouYeWidget.linearLayoutManager = new LinearLayoutManager(activity);
+
+    }
     //后台数据
     public void initGetDataFromNet(){
         mainShouYeMapper  = new MainShouYeMapper();
@@ -186,6 +181,10 @@ public class MainShouYeFragmentPresenter {
 
 
 
+
+
+
+
     private class BannerTask extends TimerTask
     {
 
@@ -247,7 +246,7 @@ public class MainShouYeFragmentPresenter {
             mTimerTask = null;
         }
     }
-    private class MainShouYeWidget{
+    public  class MainShouYeWidget{
         public LinearLayout llyMainShouYe;
         public ViewPager mViewPager;
         public CircleIndicator mCircleIndicator;

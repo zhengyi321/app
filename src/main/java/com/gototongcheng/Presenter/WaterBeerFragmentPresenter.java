@@ -1,7 +1,6 @@
 package com.gototongcheng.Presenter;
 
 import android.app.Activity;
-import android.content.Context;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
@@ -18,19 +17,21 @@ import java.util.List;
 /**
  * Created by admin on 16/6/14.
  */
-public class WaterBeerFragmentPresenter {
+public class WaterBeerFragmentPresenter extends BasePresenter{
 
-    private WaterBeerWidget widget;
-    private MainActivityPresenter mainActivityPresenter;
+    public  WaterBeerWidget widget ;
     ViewPagerAdapter viewPagerAdapter;
     List<View> testList;
-    private Activity activity;
     public WaterBeerFragmentPresenter(Activity activity){
-        this.activity = activity;
-        initViews();
+
+        initViews(activity);
     }
-    public void initViews(){
-        widget = new WaterBeerWidget();
+
+
+
+    protected void initViews(Activity activity) {
+        this.activity = activity;
+
         initTabAndViews();
         mainActivityPresenter = new MainActivityPresenter(activity,R.id.fly_content);
     }
@@ -42,7 +43,11 @@ public class WaterBeerFragmentPresenter {
 
 
     private void initTabAndViews(){
+        if(widget == null) {
+            widget = new WaterBeerWidget();
+        }
         widget.viewPager = (ViewPager) activity.findViewById(R.id.vp_waterbeer) ;
+        widget.mPluginScrollView = (PluginScrollView) activity.findViewById(R.id.horizontalScrollView);
         preInit();
         //   mTabLayout = (SlidingTabLayout) getView().findViewById(R.id.ctl_waterbeer) ;
         viewPagerAdapter = new ViewPagerAdapter();
@@ -50,7 +55,7 @@ public class WaterBeerFragmentPresenter {
         widget.viewPager.setAdapter(viewPagerAdapter);
         widget.viewPager.setCurrentItem(0);
         // mPluginScrollView = new PluginScrollView(this, viewPager, testList);
-        widget.mPluginScrollView = (PluginScrollView) activity.findViewById(R.id.horizontalScrollView);
+
         widget.mPluginScrollView.setTestList(testList);
         widget.mPluginScrollView.setViewPager(widget.viewPager);
         postInit();
@@ -95,7 +100,7 @@ public class WaterBeerFragmentPresenter {
     }
 
 
-    private class WaterBeerWidget{
+    public  class WaterBeerWidget{
         public ViewPager viewPager;
         public PluginScrollView mPluginScrollView;
     }

@@ -9,52 +9,57 @@ import android.widget.TextView;
 
 import com.gototongcheng.application.R;
 import com.gototongcheng.cookies.MyIniClass;
-
-import butterknife.OnClick;
+import com.gototongcheng.view.activity.MainActivity;
 
 /**
  * topbar
  * Created by zhyan on 16/6/14.
  */
-public class CommonTopBarPresenter{
+public class CommonTopBarPresenter extends BasePresenter{
 
     //activity 为MainActivity
-    private Activity activity;
-    public TopBarCommonWidget topBarCommonWidget;
-    public TopBarSelectWidget topBarSelectWidget;
+    public  TopBarCommonWidget topBarCommonWidget ;
+    public  TopBarSelectWidget topBarSelectWidget ;
     private String currentPlace = "";
-
     public CommonTopBarPresenter(){
 
     }
-    public CommonTopBarPresenter(Activity activity){
-        this.activity = activity;
-        initView();
+    public CommonTopBarPresenter(Activity mActivity){
+        if(mActivity != null) {
+            initViews(mActivity);
+        }
     }
-    private  void initView(){
-        topBarCommonWidget = new TopBarCommonWidget();
-        topBarSelectWidget = new TopBarSelectWidget();
+
+    protected void initViews(Activity mActivity) {
+        this.activity = mActivity;
+        if(topBarCommonWidget == null){
+            topBarCommonWidget  = new TopBarCommonWidget();
+        }
+        if(topBarSelectWidget == null){
+            topBarSelectWidget  = new TopBarSelectWidget();
+        }
+
 
         topBarCommonWidget.llyTotal = (LinearLayout)activity.findViewById(R.id.lly_total);
-        topBarCommonWidget.llyCenter = (LinearLayout)activity.findViewById(R.id.lly_center);
-        topBarCommonWidget.rlyLeft = (RelativeLayout)activity.findViewById(R.id.rly_left);
-        topBarCommonWidget.rlyRight = (RelativeLayout)activity.findViewById(R.id.rly_right);
-        topBarCommonWidget.imLeft = (ImageButton)activity.findViewById(R.id.ib_left);
-        topBarCommonWidget.tvLeft = (TextView)activity.findViewById(R.id.tv_left);
-        topBarCommonWidget.tvCenter = (TextView)activity.findViewById(R.id.tv_center);
-        topBarCommonWidget.tvRight = (TextView) activity.findViewById(R.id.tv_right);
+        topBarCommonWidget.llyCenter = (LinearLayout)mActivity.findViewById(R.id.lly_center);
+        topBarCommonWidget.rlyLeft = (RelativeLayout)mActivity.findViewById(R.id.rly_left);
+        topBarCommonWidget.rlyRight = (RelativeLayout)mActivity.findViewById(R.id.rly_right);
+        topBarCommonWidget.imLeft = (ImageButton)mActivity.findViewById(R.id.ib_left);
+        topBarCommonWidget.tvLeft = (TextView)mActivity.findViewById(R.id.tv_left);
+        topBarCommonWidget.tvCenter = (TextView)mActivity.findViewById(R.id.tv_center);
+        topBarCommonWidget.tvRight = (TextView) mActivity.findViewById(R.id.tv_right);
 
-        topBarSelectWidget.llyTotal = (LinearLayout)activity.findViewById(R.id.lly_total_select);
-        topBarSelectWidget.llyRight = (LinearLayout)activity.findViewById(R.id.lly_right_select);
-        topBarSelectWidget.rlyLeft = (RelativeLayout)activity.findViewById(R.id.rly_left_select);
-        topBarSelectWidget.ibLeft = (ImageButton)activity.findViewById(R.id.ib_left_select);
-        topBarSelectWidget.tvCenter = (TextView)activity.findViewById(R.id.tv_center_select);
-        topBarSelectWidget.ibRight = (ImageButton)activity.findViewById(R.id.ib_right_select);
+        topBarSelectWidget.llyTotal = (LinearLayout)mActivity.findViewById(R.id.lly_total_select);
+        topBarSelectWidget.llyRight = (LinearLayout)mActivity.findViewById(R.id.lly_right_select);
+        topBarSelectWidget.rlyLeft = (RelativeLayout)mActivity.findViewById(R.id.rly_left_select);
+        topBarSelectWidget.ibLeft = (ImageButton)mActivity.findViewById(R.id.ib_left_select);
+        topBarSelectWidget.tvCenter = (TextView)mActivity.findViewById(R.id.tv_center_select);
+        topBarSelectWidget.ibRight = (ImageButton)mActivity.findViewById(R.id.ib_right_select);
 
-         MyIniClass myIniClass = new MyIniClass(activity,"");
+        MyIniClass myIniClass = new MyIniClass(mActivity,"");
         currentPlace = myIniClass.ReadString("currentPlace","");
-
     }
+
     public void initTopBar(String type){
         switch (type){
             case "shouye":
@@ -127,6 +132,87 @@ public class CommonTopBarPresenter{
                 topBarCommonWidget.tvRight.setBackgroundResource(R.color.transparent);
                 topBarCommonWidget.tvRight.setText("注册");
                 break;
+            case "tongchengrangcheck":
+                topBarCommonWidget.llyTotal.setVisibility(View.VISIBLE);
+                topBarSelectWidget.llyTotal.setVisibility(View.GONE);
+                topBarCommonWidget.imLeft.setBackgroundResource(R.mipmap.back_arrow_white);
+                topBarCommonWidget.llyTotal.setBackgroundResource(R.color.color_topbar_back_bg_green);
+                topBarCommonWidget.tvLeft.setText("返回");
+                topBarCommonWidget.tvCenter.setText("范围查询");
+                topBarCommonWidget.tvRight.setBackgroundResource(R.mipmap.goto_pepole_head);
+                topBarCommonWidget.tvRight.setText("");
+                break;
+            case "tongchengsitecheck":
+                topBarCommonWidget.llyTotal.setVisibility(View.VISIBLE);
+                topBarSelectWidget.llyTotal.setVisibility(View.GONE);
+                topBarCommonWidget.imLeft.setBackgroundResource(R.mipmap.back_arrow_white);
+                topBarCommonWidget.llyTotal.setBackgroundResource(R.color.color_topbar_back_bg_green);
+                topBarCommonWidget.tvLeft.setText("返回");
+                topBarCommonWidget.tvCenter.setText("网点查询");
+                topBarCommonWidget.tvRight.setBackgroundResource(R.mipmap.goto_pepole_head);
+                topBarCommonWidget.tvRight.setText("");
+                break;
+            case "tongchengtimecheck":
+                topBarCommonWidget.llyTotal.setVisibility(View.VISIBLE);
+                topBarSelectWidget.llyTotal.setVisibility(View.GONE);
+                topBarCommonWidget.imLeft.setBackgroundResource(R.mipmap.back_arrow_white);
+                topBarCommonWidget.llyTotal.setBackgroundResource(R.color.color_topbar_back_bg_green);
+                topBarCommonWidget.tvLeft.setText("返回");
+                topBarCommonWidget.tvCenter.setText("时效查询");
+                topBarCommonWidget.tvRight.setBackgroundResource(R.mipmap.goto_pepole_head);
+                topBarCommonWidget.tvRight.setText("");
+                break;
+            case "tongchengfeecheck":
+                topBarCommonWidget.llyTotal.setVisibility(View.VISIBLE);
+                topBarSelectWidget.llyTotal.setVisibility(View.GONE);
+                topBarCommonWidget.imLeft.setBackgroundResource(R.mipmap.back_arrow_white);
+                topBarCommonWidget.llyTotal.setBackgroundResource(R.color.color_topbar_back_bg_green);
+                topBarCommonWidget.tvLeft.setText("返回");
+                topBarCommonWidget.tvCenter.setText("运费查询");
+                topBarCommonWidget.tvRight.setBackgroundResource(R.mipmap.goto_pepole_head);
+                topBarCommonWidget.tvRight.setText("");
+                break;
+            case "tongchenggoodstracking":
+                topBarCommonWidget.llyTotal.setVisibility(View.VISIBLE);
+                topBarSelectWidget.llyTotal.setVisibility(View.GONE);
+                topBarCommonWidget.imLeft.setBackgroundResource(R.mipmap.back_arrow_white);
+                topBarCommonWidget.llyTotal.setBackgroundResource(R.color.color_topbar_back_bg_green);
+                topBarCommonWidget.tvLeft.setText("返回");
+                topBarCommonWidget.tvCenter.setText("物流追踪");
+                topBarCommonWidget.tvRight.setBackgroundResource(R.mipmap.goto_pepole_head);
+                topBarCommonWidget.tvRight.setText("");
+                break;
+            case "tongchengsending":
+                topBarCommonWidget.llyTotal.setVisibility(View.VISIBLE);
+                topBarSelectWidget.llyTotal.setVisibility(View.GONE);
+                topBarCommonWidget.imLeft.setBackgroundResource(R.mipmap.back_arrow_white);
+                topBarCommonWidget.llyTotal.setBackgroundResource(R.color.color_topbar_back_bg_green);
+                topBarCommonWidget.tvLeft.setText("返回");
+                topBarCommonWidget.tvCenter.setText("同城快递");
+                topBarCommonWidget.tvRight.setBackgroundResource(R.mipmap.goto_pepole_head);
+                topBarCommonWidget.tvRight.setText("");
+                break;
+
+            case "tongchengsendingbuildreceiveaddress":
+                topBarCommonWidget.llyTotal.setVisibility(View.VISIBLE);
+                topBarSelectWidget.llyTotal.setVisibility(View.GONE);
+                topBarCommonWidget.imLeft.setBackgroundResource(R.mipmap.back_arrow_white);
+                topBarCommonWidget.llyTotal.setBackgroundResource(R.color.color_topbar_back_bg_green);
+                topBarCommonWidget.tvLeft.setText("返回");
+                topBarCommonWidget.tvCenter.setText("新建收件地址");
+                topBarCommonWidget.tvRight.setBackgroundResource(R.color.transparent);
+                topBarCommonWidget.tvRight.setText("保存");
+                break;
+            case "tongchengsendingbuildsendaddress":
+                topBarCommonWidget.llyTotal.setVisibility(View.VISIBLE);
+                topBarSelectWidget.llyTotal.setVisibility(View.GONE);
+                topBarCommonWidget.imLeft.setBackgroundResource(R.mipmap.back_arrow_white);
+                topBarCommonWidget.llyTotal.setBackgroundResource(R.color.color_topbar_back_bg_green);
+                topBarCommonWidget.tvLeft.setText("返回");
+                topBarCommonWidget.tvCenter.setText("新建寄件地址");
+                topBarCommonWidget.tvRight.setBackgroundResource(R.color.transparent);
+                topBarCommonWidget.tvRight.setText("保存");
+                break;
 
         }
     }
@@ -134,7 +220,9 @@ public class CommonTopBarPresenter{
 
 
 
-    public class TopBarCommonWidget{
+
+
+    public  class TopBarCommonWidget{
         public LinearLayout llyTotal;
         public LinearLayout llyCenter;
         public RelativeLayout rlyRight;
@@ -147,7 +235,7 @@ public class CommonTopBarPresenter{
         public TextView tvRight;
     }
 
-    public class TopBarSelectWidget{
+    public  class TopBarSelectWidget{
         public LinearLayout llyTotal;
         public LinearLayout llyRight;
         public RelativeLayout rlyLeft;

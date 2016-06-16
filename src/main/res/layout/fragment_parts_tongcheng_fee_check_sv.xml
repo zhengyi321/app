@@ -1,79 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.gototongcheng.widget.scrollview.SpringScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/color_tongcheng_time_check_white_bg"
-    >
+<com.gototongcheng.widget.scrollview.SpringScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@color/color_tongcheng_fee_check_white_bg"
+    android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         >
-    <FrameLayout
-        android:layout_width="match_parent" android:layout_height="@dimen/dimen_140dp"
-        android:background="@color/transparent"
-        android:layout_marginBottom="@dimen/dimen_10dp"
-        >
-
-
         <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dimen_100dp"
-            android:background="@mipmap/goto_top_tongcheng_bg_green"
+            android:layout_width="match_parent" android:layout_height="@dimen/dimen_140dp"
+            android:background="@color/transparent"
+            android:layout_marginBottom="@dimen/dimen_10dp"
             >
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dimen_97dp"
-                android:background="@mipmap/gaolou"
-                />
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:maxLines="1"
-                    android:text="@string/string_i_am_young_i_need_rush"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/dimen_13dp"
-                    android:layout_marginLeft="@dimen/dimen_30dp"
-                    android:layout_marginTop="@dimen/dimen_25dp"
-                    android:layout_gravity="center_vertical"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/string_we_are_young_dream"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/dimen_14dp"
-                    android:layout_marginLeft="@dimen/dimen_30dp"
-                    android:layout_marginTop="@dimen/dimen_2dp"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/string_can_not_wait"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/dimen_14dp"
-                    android:layout_marginLeft="@dimen/dimen_30dp"
-                    android:layout_marginTop="@dimen/dimen_2dp"
-                    />
-            </LinearLayout>
 
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_100dp"
+                android:background="@mipmap/goto_top_tongcheng_bg_green"
+                >
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_97dp"
+                    android:background="@mipmap/gaolou"
+                    />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:maxLines="1"
+                        android:text="@string/string_passing_by_heart"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/dimen_13dp"
+                        android:layout_marginLeft="@dimen/dimen_30dp"
+                        android:layout_marginTop="@dimen/dimen_25dp"
+                        android:layout_gravity="center_vertical"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/string_carefully_transfer_the"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/dimen_14dp"
+                        android:layout_marginLeft="@dimen/dimen_30dp"
+                        android:layout_marginTop="@dimen/dimen_2dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/string_achievement_holds"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/dimen_14dp"
+                        android:layout_marginLeft="@dimen/dimen_30dp"
+                        android:layout_marginTop="@dimen/dimen_2dp"
+                        />
+                </LinearLayout>
+
+
+            </FrameLayout>
+            <ImageView
+                android:layout_width="@dimen/dimen_125dp"
+                android:layout_height="@dimen/dimen_80dp"
+                android:layout_gravity="right"
+                android:layout_marginRight="@dimen/dimen_30dp"
+                android:layout_marginTop="@dimen/dimen_20dp"
+                android:background="@mipmap/goto_fee_check_shop"
+                />
 
         </FrameLayout>
-        <ImageView
-            android:layout_width="@dimen/dimen_90dp"
-            android:layout_height="@dimen/dimen_100dp"
-            android:layout_gravity="right"
-            android:layout_marginRight="@dimen/dimen_30dp"
-            android:layout_marginTop="@dimen/dimen_20dp"
-            android:background="@mipmap/goto_tongcheng_site_check_top_img_bg"
-            />
-
-    </FrameLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -116,7 +115,7 @@
                     android:scaleType="fitXY"
 
                     />
-                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
@@ -160,7 +159,7 @@
                     android:scaleType="fitXY"
 
                     />
-                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
@@ -175,7 +174,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.1"
                 android:layout_gravity="center_vertical"
-                android:text="@string/string_time_sending"
+                android:text="@string/string_weight"
                 android:textSize="@dimen/dimen_15dp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
@@ -185,27 +184,48 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="5"
-                android:hint="@string/string_please_input_time"
+                android:hint="@string/string_please_input_weight"
                 android:textColorHint="@color/gray"
                 android:textSize="@dimen/dimen_15dp"
                 android:layout_gravity="center_vertical"
                 android:background="@null"
                 android:layout_marginLeft="@dimen/dimen_5dp"
                 />
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent">
-            <ImageView
-                android:layout_width="@dimen/dimen_25dp"
-                android:layout_height="@dimen/dimen_25dp"
-                android:background="@mipmap/goto_calendar_time"
-                android:layout_gravity="center_vertical|right"
-                android:layout_marginRight="@dimen/dimen_35dp"
-                android:scaleType="fitXY"
 
-                />
-            </LinearLayout>
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_60dp"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/dimen_2dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.1"
+                android:layout_gravity="center_vertical"
+                android:text="@string/string_valume"
+                android:textSize="@dimen/dimen_15dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginLeft="@dimen/dimen_20dp"
+                />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:hint="@string/string_long_width_height"
+                android:textColorHint="@color/gray"
+                android:textSize="@dimen/dimen_15dp"
+                android:layout_gravity="center_vertical"
+                android:background="@null"
+                android:layout_marginLeft="@dimen/dimen_5dp"
+                />
+
+        </LinearLayout>
+
 
         <RelativeLayout
             android:layout_width="@dimen/dimen_140dp"
@@ -227,5 +247,27 @@
                 android:textStyle="bold"
                 />
         </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:paddingTop="@dimen/dimen_10dp"
+            android:paddingBottom="@dimen/dimen_10dp"
+            android:orientation="vertical"
+            android:layout_marginBottom="@dimen/dimen_70dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/string_twelve_yuan"
+                android:textSize="@dimen/dimen_60dp"
+                android:textStyle="bold"
+                android:textColor="@color/color_tongcheng_fee_check_fee_yellow"
+                android:maxLines="1"
+                android:layout_gravity="center"
+                />
+
+        </LinearLayout>
     </LinearLayout>
 </com.gototongcheng.widget.scrollview.SpringScrollView>

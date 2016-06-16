@@ -11,8 +11,8 @@ import com.gototongcheng.application.R;
 /**
  * Created by zhyan on 16/6/13.
  */
-public class TongChengFragment extends BaseFragment implements View.OnClickListener{
-    private Activity activity;
+public class TongChengFragment extends BaseFragment {
+
     private CommonTopBarPresenter commonTopBarPresenter;
     private CommonSelectorBarPresenter commonSelectorBarPresenter;
     private TongChengFragmentPresenter tongChengFragmentPresenter;
@@ -33,21 +33,56 @@ public class TongChengFragment extends BaseFragment implements View.OnClickListe
         commonTopBarPresenter = new CommonTopBarPresenter(activity);
         commonSelectorBarPresenter = new CommonSelectorBarPresenter(activity);
         tongChengFragmentPresenter = new TongChengFragmentPresenter(activity);
-        commonTopBarPresenter.topBarCommonWidget.rlyLeft.setOnClickListener(this);
+        commonTopBarPresenter.topBarCommonWidget.rlyLeft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tongChengFragmentPresenter.back();
+            }
+        });
+        tongChengFragmentPresenter.widget.llyTongchengSending.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tongChengFragmentPresenter.page("tongchengsending");
+            }
+        });
+        tongChengFragmentPresenter.widget.llyTongchengGoodsTracking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tongChengFragmentPresenter.page("tongchenggoodstracking");
+            }
+        });
+        tongChengFragmentPresenter.widget.llyTongchengFeeCheck.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tongChengFragmentPresenter.page("tongchengfeecheck");
+            }
+        });
+        tongChengFragmentPresenter.widget.llyTongchengTimeCheck.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tongChengFragmentPresenter.page("tongchengtimecheck");
+            }
+        });
+        tongChengFragmentPresenter.widget.llyTongchengSiteCheck.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tongChengFragmentPresenter.page("tongchengsitecheck");
+            }
+        });
+        tongChengFragmentPresenter.widget.llyTongchengRangCheck.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tongChengFragmentPresenter.page("tongchengrangcheck");
+            }
+        });
+
     }
 
     @Override
     public void initToolBar() {
         commonTopBarPresenter.initTopBar("tongcheng");
-        commonSelectorBarPresenter.initStyle("tongcheng");
+        commonSelectorBarPresenter.initSelectStyle("tongcheng");
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.rly_left:
-                tongChengFragmentPresenter.back();
-                break;
-        }
-    }
+
 }

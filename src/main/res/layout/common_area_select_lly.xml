@@ -12,7 +12,7 @@
         android:layout_gravity="center_vertical"
         android:textStyle="bold"
         android:textSize="@dimen/dimen_14dp"
-        android:layout_marginLeft="@dimen/dimen_40dp"
+        android:layout_marginLeft="@dimen/dimen_20dp"
         />
     <TextView
         android:layout_width="wrap_content"

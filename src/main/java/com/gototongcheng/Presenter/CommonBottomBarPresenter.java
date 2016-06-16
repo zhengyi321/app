@@ -2,33 +2,34 @@ package com.gototongcheng.Presenter;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
-import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-import com.bumptech.glide.Glide;
 import com.gototongcheng.application.R;
+import com.gototongcheng.view.activity.MainActivity;
 
 /**
  * 底部栏
  * Created by zhyan on 16/6/14.
  */
-public class CommonBottomBarPresenter {
-    private Activity activity;
-    private BottomBarWidget bottomBarWidget;
+public class CommonBottomBarPresenter extends BasePresenter{
+
+    public  BottomBarWidget  bottomBarWidget ;
     public CommonBottomBarPresenter(){
 
     }
     public CommonBottomBarPresenter(Activity activity){
-        this.activity = activity;
-        initViews(activity);
+        if(activity != null) {
+            initViews(activity);
+        }
     }
-    private void initViews(Activity activity){
-        bottomBarWidget = new BottomBarWidget();
+    protected void initViews(Activity activity){
+        this.activity = activity;
+        if(bottomBarWidget == null){
+            bottomBarWidget  = new BottomBarWidget();
+        }
         bottomBarWidget.llyTotalBottom = (LinearLayout)activity.findViewById(R.id.lly_total_bottom);
         bottomBarWidget.rgBottom = (RadioGroup)activity.findViewById(R.id.rg_bottom);
         bottomBarWidget.rbShouYeBottom = (RadioButton)activity.findViewById(R.id.rb_shouye_bottom);
@@ -37,6 +38,9 @@ public class CommonBottomBarPresenter {
         bottomBarWidget.rbPersonCenterBottom = (RadioButton)activity.findViewById(R.id.rb_person_center_bottom);
   //      initBottom();
     }
+
+
+
     public void initBottomShouYeReset(){
         bottomBarWidget.rbShouYeBottom.setChecked(true);
         bottomBarWidget.rbDinnerBottom.setChecked(false);
@@ -63,7 +67,7 @@ public class CommonBottomBarPresenter {
 
 
 
-    private class BottomBarWidget{
+    public   class BottomBarWidget{
         public LinearLayout llyTotalBottom;
         public RadioGroup rgBottom;
         public RadioButton rbShouYeBottom;

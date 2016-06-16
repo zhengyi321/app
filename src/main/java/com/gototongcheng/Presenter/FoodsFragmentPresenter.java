@@ -9,10 +9,8 @@ import com.gototongcheng.view.fragment.MainShouYeFragment;
  * 美食外送 逻辑处理
  * Created by zhyan on 16/6/14.
  */
-public class FoodsFragmentPresenter {
+public class FoodsFragmentPresenter extends BasePresenter{
 
-    private MainActivityPresenter mainActivityPresenter;
-    private Activity activity;
     public FoodsFragmentPresenter(){
 
     }
@@ -21,7 +19,7 @@ public class FoodsFragmentPresenter {
 
         initViews(activity);
     }
-    private void initViews(Activity activity){
+    protected void initViews(Activity activity){
         this.activity = activity;
         mainActivityPresenter = new MainActivityPresenter(activity,R.id.fly_content);
 

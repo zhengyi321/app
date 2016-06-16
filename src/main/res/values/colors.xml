@@ -38,6 +38,25 @@
     <color name="color_tongcheng_site_check_white_bg">#f5f5f9</color>
     <color name="color_tongcheng_time_check_white_bg">#f5f5f9</color>
     <!--同城快递 网点查询-->
+
+    <!--同城快递 运费查询-->
+    <color name="color_tongcheng_fee_check_white_bg">#f5f5f9</color>
+    <color name="color_tongcheng_fee_check_fee_yellow">#ffcc00</color>
+    <!--同城快递 运费查询-->
+
+    <!--同城快递 物流追踪-->
+    <color name="color_tongcheng_goods_tracking_white_bg">#f5f5f9</color>
+    <color name="color_tongcheng_goods_tracking_hold_words_green">#3fa241</color>
+    <color name="color_tongcheng_goods_tracking_select_bg_green">#3fa241</color>
+    <!--同城快递 物流追踪-->
+    <!--同城快递 我要寄件-->
+    <color name="color_tongcheng_sending_white_bg">#f5f5f9</color>
+    <color name="color_tongcheng_sending_word_bg_green">#3fa241</color>
+    <color name="color_tongcheng_sending_word_bg_black">#4b4b4b</color>
+    <!--同城快递 我要寄件-->
+    <!--同城快递 我要寄件 新建地址-->
+    <color name="color_tongcheng_sending_build_address_white_bg">#f5f5f9</color>
+    <!--同城快递 我要寄件 新建地址-->
     <!--常见颜色-->
     <!--透明-->
     <color name="transparent">#00000000</color>

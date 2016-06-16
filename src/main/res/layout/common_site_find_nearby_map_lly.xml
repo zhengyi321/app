@@ -10,7 +10,7 @@
         android:layout_height="@dimen/dimen_20dp"
         android:background="@mipmap/goto_map"
         android:layout_gravity="center_vertical"
-        android:layout_marginLeft="@dimen/dimen_70dp"
+        android:layout_marginLeft="@dimen/dimen_50dp"
         />
 
     <TextView

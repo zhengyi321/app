@@ -18,7 +18,7 @@ public class MainShouYeFragment extends BaseFragment{
     private CommonTopBarPresenter commonTopBarPresenter;
     private CommonSelectorBarPresenter commonSelectorBarPresenter;
     private CommonBottomBarPresenter commonBottomBarPresenter;
-    private Activity activity;
+
     public MainShouYeFragment(){
 
     }
@@ -44,7 +44,7 @@ public class MainShouYeFragment extends BaseFragment{
     @Override
     public void initToolBar() {
         commonTopBarPresenter.initTopBar("shouye");
-        commonSelectorBarPresenter.initStyle("shouye");
+        commonSelectorBarPresenter.initSelectStyle("shouye");
         commonBottomBarPresenter.initBottomShouYeReset();
     }
 

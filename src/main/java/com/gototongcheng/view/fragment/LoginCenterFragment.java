@@ -10,11 +10,11 @@ import com.gototongcheng.application.R;
 /**
  * Created by zhyan on 16/6/15.
  */
-public class LoginCenterFragment extends BaseFragment implements View.OnClickListener{
+public class LoginCenterFragment extends BaseFragment {
 
 
     private CommonTopBarPresenter commonTopBarPresenter;
-    private Activity activity;
+
     private LoginCenterFragmentPresenter loginCenterFragmentPresenter;
     public LoginCenterFragment(){
 
@@ -32,10 +32,29 @@ public class LoginCenterFragment extends BaseFragment implements View.OnClickLis
     @Override
     public void initViews() {
         commonTopBarPresenter = new CommonTopBarPresenter(activity);
-        commonTopBarPresenter.topBarCommonWidget.rlyLeft.setOnClickListener(this);
-        commonTopBarPresenter.topBarCommonWidget.rlyRight.setOnClickListener(this);
+        commonTopBarPresenter.topBarCommonWidget.rlyLeft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loginCenterFragmentPresenter.back();
+            }
+        });
+        commonTopBarPresenter.topBarCommonWidget.rlyRight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loginCenterFragmentPresenter.register();
+            }
+        });
         loginCenterFragmentPresenter = new LoginCenterFragmentPresenter(activity);
-        loginCenterFragmentPresenter.widget.llyRememberLogin.setOnClickListener(this);
+        loginCenterFragmentPresenter.widget.llyRememberLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(loginCenterFragmentPresenter.widget.cbRememberLogin.isChecked()){
+                    loginCenterFragmentPresenter.widget.cbRememberLogin.setChecked(false);
+                }else{
+                    loginCenterFragmentPresenter.widget.cbRememberLogin.setChecked(true);
+                }
+            }
+        });
     }
 
     @Override
@@ -43,22 +62,4 @@ public class LoginCenterFragment extends BaseFragment implements View.OnClickLis
         commonTopBarPresenter.initTopBar("login");
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.rly_left:
-                loginCenterFragmentPresenter.back();
-                break;
-            case R.id.rly_right:
-                loginCenterFragmentPresenter.register();
-                break;
-            case R.id.lly_remember_login:
-                if(loginCenterFragmentPresenter.widget.cbRememberLogin.isChecked()){
-                    loginCenterFragmentPresenter.widget.cbRememberLogin.setChecked(false);
-                }else{
-                    loginCenterFragmentPresenter.widget.cbRememberLogin.setChecked(true);
-                }
-                break;
-        }
-    }
 }

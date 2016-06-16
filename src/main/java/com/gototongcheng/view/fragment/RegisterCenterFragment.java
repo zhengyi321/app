@@ -10,9 +10,9 @@ import com.gototongcheng.application.R;
 /**
  * Created by admin on 16/6/10.
  */
-public class RegisterCenterFragment extends BaseFragment implements View.OnClickListener{
+public class RegisterCenterFragment extends BaseFragment {
 
-    private Activity activity;
+
 
     private CommonTopBarPresenter commonTopBarPresenter;
     private RegisterCenterFragmentPresenter registerCenterFragmentPresenter;
@@ -33,8 +33,18 @@ public class RegisterCenterFragment extends BaseFragment implements View.OnClick
     @Override
     public void initViews() {
         commonTopBarPresenter = new CommonTopBarPresenter(activity);
-        commonTopBarPresenter.topBarCommonWidget.rlyLeft.setOnClickListener(this);
-        commonTopBarPresenter.topBarCommonWidget.rlyRight.setOnClickListener(this);
+        commonTopBarPresenter.topBarCommonWidget.rlyLeft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                registerCenterFragmentPresenter.back();
+            }
+        });
+        commonTopBarPresenter.topBarCommonWidget.rlyRight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                registerCenterFragmentPresenter.login();
+            }
+        });
         registerCenterFragmentPresenter = new RegisterCenterFragmentPresenter(activity);
     }
 
@@ -43,15 +53,5 @@ public class RegisterCenterFragment extends BaseFragment implements View.OnClick
         commonTopBarPresenter.initTopBar("register");
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.rly_left:
-                registerCenterFragmentPresenter.back();
-                break;
-            case R.id.rly_right:
-                registerCenterFragmentPresenter.login();
-                break;
-        }
-    }
+
 }

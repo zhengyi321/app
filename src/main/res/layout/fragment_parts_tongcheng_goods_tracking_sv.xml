@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.gototongcheng.widget.scrollview.SpringScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:background="@color/color_tongcheng_goods_tracking_white_bg"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+    <FrameLayout
+        android:layout_width="match_parent" android:layout_height="@dimen/dimen_140dp"
+        android:background="@color/transparent"
+        android:layout_marginBottom="@dimen/dimen_10dp"
+        >
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_100dp"
+            android:background="@mipmap/goto_top_tongcheng_bg_green"
+            >
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_97dp"
+                android:background="@mipmap/gaolou"
+                />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:text="@string/string_we_only_support_better_service"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/dimen_14dp"
+                    android:layout_marginLeft="@dimen/dimen_30dp"
+                    android:layout_marginTop="@dimen/dimen_25dp"
+                    android:layout_gravity="center_vertical"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/string_we_only_provide_better_quality"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dimen_10dp"
+                    android:layout_marginLeft="@dimen/dimen_30dp"
+                    android:layout_marginTop="@dimen/dimen_2dp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/string_service"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dimen_10dp"
+                    android:layout_marginLeft="@dimen/dimen_30dp"
+                    android:layout_marginTop="@dimen/dimen_2dp"
+                    />
+            </LinearLayout>
+
+
+        </FrameLayout>
+        <ImageView
+            android:layout_width="@dimen/dimen_115dp"
+            android:layout_height="@dimen/dimen_70dp"
+            android:layout_gravity="right"
+            android:layout_marginRight="@dimen/dimen_20dp"
+            android:layout_marginTop="@dimen/dimen_45dp"
+            android:background="@mipmap/goto_goods_tracking_buscar"
+            />
+
+    </FrameLayout>
+        <include layout="@layout/common_select_lly"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/dimen_20dp"
+            android:paddingTop="@dimen/dimen_10dp"
+            android:background="@color/white"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/string_dear_customer"
+                android:textColor="@color/black"
+                android:layout_gravity="center"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/string_receive_by_time"
+                android:textColor="@color/black"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/dimen_5dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/string_receiver_passer_tel"
+                android:textColor="@color/black"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/dimen_5dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/string_please_hold_by_patient"
+                android:textColor="@color/color_tongcheng_goods_tracking_hold_words_green"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/dimen_25dp"
+                />
+        </LinearLayout>
+    </LinearLayout>
+</com.gototongcheng.widget.scrollview.SpringScrollView>
