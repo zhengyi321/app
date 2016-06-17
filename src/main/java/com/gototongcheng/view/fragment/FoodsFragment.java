@@ -1,5 +1,6 @@
 package com.gototongcheng.view.fragment;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.view.View;
 
@@ -17,6 +18,7 @@ public class FoodsFragment extends BaseFragment {
     public FoodsFragment(){
 
     }
+    @SuppressLint("ValidFragment")
     public FoodsFragment(Activity activity){
         this.activity = activity;
         commonTopBarPresenter = new CommonTopBarPresenter(activity);

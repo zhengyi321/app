@@ -1,5 +1,6 @@
 package com.gototongcheng.view.fragment;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.view.View;
 
@@ -19,7 +20,7 @@ public class LoginCenterFragment extends BaseFragment {
     public LoginCenterFragment(){
 
     }
-
+    @SuppressLint("ValidFragment")
     public LoginCenterFragment(Activity activity){
         this.activity = activity;
     }

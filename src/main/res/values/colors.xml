@@ -57,6 +57,13 @@
     <!--同城快递 我要寄件 新建地址-->
     <color name="color_tongcheng_sending_build_address_white_bg">#f5f5f9</color>
     <!--同城快递 我要寄件 新建地址-->
+
+    <!--radio right color-->
+    <color name="color_right_yellow">#ffe39e</color>
+    <!--radio right color-->
+    <!--popupwindow-->
+    <color name="gray_white">#eeeeee</color>
+    <!--popupwindow-->
     <!--常见颜色-->
     <!--透明-->
     <color name="transparent">#00000000</color>

@@ -25,5 +25,10 @@
     </style>
     <!--bottom-->
 
-
+    <!--popupwindow-->
+    <style name="PopupAnimation" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@animator/pop_enter</item>
+        <item name="android:windowExitAnimation">@animator/pop_exit</item>
+    </style>
+    <!--popupwindow-->
 </resources>

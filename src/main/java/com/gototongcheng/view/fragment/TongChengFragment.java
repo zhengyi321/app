@@ -1,5 +1,6 @@
 package com.gototongcheng.view.fragment;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.view.View;
 
@@ -16,9 +17,12 @@ public class TongChengFragment extends BaseFragment {
     private CommonTopBarPresenter commonTopBarPresenter;
     private CommonSelectorBarPresenter commonSelectorBarPresenter;
     private TongChengFragmentPresenter tongChengFragmentPresenter;
+
+
     public  TongChengFragment(){
 
     }
+    @SuppressLint("ValidFragment")
     public TongChengFragment(Activity activity){
         this.activity = activity;
 
@@ -30,6 +34,7 @@ public class TongChengFragment extends BaseFragment {
 
     @Override
     public void initViews() {
+
         commonTopBarPresenter = new CommonTopBarPresenter(activity);
         commonSelectorBarPresenter = new CommonSelectorBarPresenter(activity);
         tongChengFragmentPresenter = new TongChengFragmentPresenter(activity);
@@ -39,37 +44,37 @@ public class TongChengFragment extends BaseFragment {
                 tongChengFragmentPresenter.back();
             }
         });
-        tongChengFragmentPresenter.widget.llyTongchengSending.setOnClickListener(new View.OnClickListener() {
+        tongChengFragmentPresenter.tongChengWidget.llyTongchengSending.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 tongChengFragmentPresenter.page("tongchengsending");
             }
         });
-        tongChengFragmentPresenter.widget.llyTongchengGoodsTracking.setOnClickListener(new View.OnClickListener() {
+        tongChengFragmentPresenter.tongChengWidget.llyTongchengGoodsTracking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 tongChengFragmentPresenter.page("tongchenggoodstracking");
             }
         });
-        tongChengFragmentPresenter.widget.llyTongchengFeeCheck.setOnClickListener(new View.OnClickListener() {
+        tongChengFragmentPresenter.tongChengWidget.llyTongchengFeeCheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 tongChengFragmentPresenter.page("tongchengfeecheck");
             }
         });
-        tongChengFragmentPresenter.widget.llyTongchengTimeCheck.setOnClickListener(new View.OnClickListener() {
+        tongChengFragmentPresenter.tongChengWidget.llyTongchengTimeCheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 tongChengFragmentPresenter.page("tongchengtimecheck");
             }
         });
-        tongChengFragmentPresenter.widget.llyTongchengSiteCheck.setOnClickListener(new View.OnClickListener() {
+        tongChengFragmentPresenter.tongChengWidget.llyTongchengSiteCheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 tongChengFragmentPresenter.page("tongchengsitecheck");
             }
         });
-        tongChengFragmentPresenter.widget.llyTongchengRangCheck.setOnClickListener(new View.OnClickListener() {
+        tongChengFragmentPresenter.tongChengWidget.llyTongchengRangCheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 tongChengFragmentPresenter.page("tongchengrangcheck");
@@ -82,6 +87,12 @@ public class TongChengFragment extends BaseFragment {
     public void initToolBar() {
         commonTopBarPresenter.initTopBar("tongcheng");
         commonSelectorBarPresenter.initSelectStyle("tongcheng");
+    }
+
+
+    public void onDestroy(){
+        super.onDestroy();
+        tongChengFragmentPresenter.onDestroy();
     }
 
 

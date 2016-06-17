@@ -6,6 +6,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:id="@+id/lly_tongcheng_site_check_total"
         android:orientation="vertical"
         >
         <FrameLayout

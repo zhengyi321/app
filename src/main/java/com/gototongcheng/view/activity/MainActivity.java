@@ -11,6 +11,7 @@ import com.gototongcheng.Presenter.CommonTopBarPresenter;
 import com.gototongcheng.Presenter.MainActivityPresenter;
 import com.gototongcheng.application.R;
 import com.gototongcheng.utils.NetWorkUtil;
+import com.gototongcheng.view.fragment.CommonBaiDuMapFragment;
 import com.gototongcheng.view.fragment.FoodsFragment;
 import com.gototongcheng.view.fragment.HoursShopFragment;
 import com.gototongcheng.view.fragment.LoginCenterFragment;
@@ -51,9 +52,8 @@ public class MainActivity extends BaseActivity {
 
 
     private MainActivityPresenter mainPresenter;
-    public static CommonStaticWidget commonStaticWidget;
- //   private CommonTopBarPresenter commonTopBarPresenter;
-    private List<Fragment> fragmentList;
+    private CommonTopBarPresenter commonTopBarPresenter;
+
 
 
     @Override
@@ -63,54 +63,37 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void initViews(Bundle savedInstanceState) {
-
+        commonTopBarPresenter = new CommonTopBarPresenter(this);
         mainPresenter = new MainActivityPresenter(this, R.id.fly_content);
-   //     commonTopBarPresenter = new CommonTopBarPresenter(this);
-            fragmentList = new ArrayList<Fragment>();
-        if (NetWorkUtil.isNetworkConnected()){
-            Fragment mainShouYeFragment = new MainShouYeFragment(this);
-            Fragment loginCenterFragment = new LoginCenterFragment(this);
-            fragmentList.add(mainShouYeFragment);
-            fragmentList.add(loginCenterFragment);
-            mainPresenter.showFragment(fragmentList.get(0));
-        }else{
-            NetWorkUtil.ShowDialog(this, "设置网络",
-                    "请检查你的网络设置");
-     //       this.finish();
-        }
+        mainPresenter.showFragment(new MainShouYeFragment(this));
+
     }
 
     @Override
     public void initToolBar() {
-  //      commonTopBarPresenter.initTopBar("shouye");
+        commonTopBarPresenter.initTopBar("shouye");
     }
     @OnClick(R.id.rb_shouye_bottom)
     public void shouYeOnClick(){
-        if(fragmentList.size() > 0) {
-            mainPresenter.showFragment(fragmentList.get(0));
 
-        }
+        mainPresenter.showFragment(new MainShouYeFragment(this));
+
     }
 
-    @OnClick(R.id.rb_person_center_bottom)
-    public void personCenterOnClick(){
-        if(fragmentList.size() > 0) {
-    //        mainPresenter.showFragment(fragmentList.get(1));
-        }
+    @OnClick(R.id.rb_shopping_bottom)
+    public void shoppingOnClick(){
+
     }
 
     @OnClick(R.id.rb_dinner_bottom)
     public void dinnerOnClick(){
-        if(fragmentList.size() > 0) {
-    //        mainPresenter.showFragment(fragmentList.get(5));
-        }
+        mainPresenter.showFragment(new CommonBaiDuMapFragment(this));
     }
     @OnClick(R.id.rb_person_center_bottom)
     public void personCenter(){
-        if(fragmentList.size() > 0) {
-            //        mainPresenter.showFragment(fragmentList.get(5));
-            mainPresenter.showFragment(fragmentList.get(1));
-        }
+
+        mainPresenter.showFragment(new LoginCenterFragment(this));
+
     }
 
 }

@@ -37,15 +37,19 @@
                 android:textColor="@color/color_tongcheng_sending_word_bg_black"
                 android:textSize="@dimen/dimen_14dp"
                 android:layout_marginLeft="@dimen/dimen_20dp"
+                android:layout_gravity="center_vertical"
                 />
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="@string/string_input_or_select"
-                android:textSize="@dimen/dimen_12dp"
+                android:textSize="@dimen/dimen_14dp"
                 android:textColorHint="@color/gray"
                 android:maxLines="1"
                 android:textColor="@color/color_tongcheng_sending_word_bg_black"
+                android:background="@null"
+                android:layout_marginLeft="@dimen/dimen_5dp"
+                android:id="@+id/et_tongcheng_sending_building_name"
                 />
             </LinearLayout>
                 <LinearLayout
@@ -60,20 +64,23 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/string_name"
+                        android:text="@string/string_tel"
                         android:textColor="@color/color_tongcheng_sending_word_bg_black"
                         android:textSize="@dimen/dimen_14dp"
                         android:layout_marginLeft="@dimen/dimen_20dp"
+                        android:layout_gravity="center_vertical"
                         />
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:hint="@string/string_input_or_select"
-                        android:textSize="@dimen/dimen_12dp"
+                        android:textSize="@dimen/dimen_14dp"
                         android:textColorHint="@color/gray"
                         android:maxLines="1"
                         android:textColor="@color/color_tongcheng_sending_word_bg_black"
                         android:background="@null"
+                        android:layout_marginLeft="@dimen/dimen_5dp"
+                        android:id="@+id/et_tongcheng_sending_building_tel"
                         />
                 </LinearLayout>
             </LinearLayout>
@@ -84,6 +91,7 @@
                 android:background="@color/white"
                 android:padding="@dimen/dimen_5dp"
                 android:layout_weight="1"
+                android:id="@+id/rly_tongcheng_sending_building_get_contact"
                 >
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -103,7 +111,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/string_tel_contact"
                     android:textColor="@color/color_tongcheng_sending_word_bg_black"
-                    android:textSize="@dimen/dimen_13dp"
+                    android:textSize="@dimen/dimen_14dp"
                     android:layout_gravity="center_horizontal"
                     />
                 </LinearLayout>
@@ -129,16 +137,20 @@
                 />
             <EditText
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="5"
                 android:layout_gravity="center_vertical"
                 android:maxLines="1"
                 android:textColor="@color/color_tongcheng_sending_word_bg_black"
+                android:textSize="@dimen/dimen_14dp"
                 android:background="@null"
+                android:id="@+id/et_tongcheng_sending_building_loc"
                 />
             <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:id="@+id/rly_tongcheng_sending_building_loc"
+                >
 
                 <ImageView
                     android:layout_width="@dimen/dimen_25dp"
@@ -169,9 +181,10 @@
                 />
             <EditText
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="5"
                 android:layout_gravity="center_vertical"
+                android:textSize="@dimen/dimen_14dp"
                 android:maxLines="1"
                 android:textColor="@color/color_tongcheng_sending_word_bg_black"
                 android:background="@null"

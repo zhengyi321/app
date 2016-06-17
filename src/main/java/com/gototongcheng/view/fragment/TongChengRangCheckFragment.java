@@ -1,5 +1,6 @@
 package com.gototongcheng.view.fragment;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.view.View;
 
@@ -17,6 +18,7 @@ public class TongChengRangCheckFragment extends BaseFragment {
     public TongChengRangCheckFragment(){
 
     }
+    @SuppressLint("ValidFragment")
     public TongChengRangCheckFragment(Activity activity){
         this.activity = activity;
     }

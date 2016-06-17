@@ -118,10 +118,10 @@
     <string name="string_goods_data">物品信息</string>
     <string name="string_weight_unit">重量(Kg):</string>
     <string name="string_pay_method">付款方式:</string>
-    <string name="string_send_pay">寄付</string>
-    <string name="string_receive_pay">到付</string>
+    <string name="string_send_pay">寄付&#160;&#160;</string>
+    <string name="string_receive_pay">到&#160;&#160;&#160;&#160;付</string>
     <string name="string_visit_time">上门时间:</string>
-    <string name="string_month_balance">月结</string>
+    <string name="string_month_balance">月结&#160;&#160;</string>
     <string name="string_pre_charge">预充值</string>
     <string name="string_submit">提交</string>
     <!--同城快递 我要寄件-->
@@ -134,4 +134,13 @@
     <string name="string_input_or_select">请选择或输入</string>
     <string name="string_tel_contact">手机通讯录</string>
     <!--同城快递 我要寄件 新建地址-->
+
+    <!--popupwindow-->
+    <string name="year">年</string>
+    <string name="month">月</string>
+    <string name="day">日</string>
+    <string name="hour">时</string>
+    <string name="minute">分</string>
+    <string name="sex">性别</string>
+    <!--popupwindow-->
 </resources>

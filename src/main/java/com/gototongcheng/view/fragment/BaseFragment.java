@@ -1,5 +1,6 @@
 package com.gototongcheng.view.fragment;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
@@ -25,6 +26,7 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
+        super.onCreateView(inflater,container,savedInstanceState);
         rootView = inflater.inflate(getLayoutId(), container, false);
 
         return rootView;

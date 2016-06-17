@@ -3,6 +3,7 @@
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="@dimen/dimen_60dp"
     android:background="@color/white"
+    android:id="@+id/lly_common_area_select"
     >
     <TextView
         android:layout_width="wrap_content"
@@ -15,13 +16,17 @@
         android:layout_marginLeft="@dimen/dimen_20dp"
         />
     <TextView
+        android:id="@+id/tv_common_area_select_place"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:hint="@string/string_area_select_please"
         android:textColorHint="@color/gray"
-        android:textSize="@dimen/dimen_13dp"
+        android:textSize="@dimen/dimen_15dp"
+        android:textColor="@color/color_tongcheng_sending_word_bg_black"
         android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"
         android:layout_marginLeft="@dimen/dimen_20dp"
+        android:maxLines="1"
         />
     <ImageView
         android:layout_width="@dimen/dimen_7dp"

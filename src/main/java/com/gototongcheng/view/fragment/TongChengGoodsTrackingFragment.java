@@ -1,5 +1,6 @@
 package com.gototongcheng.view.fragment;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.view.View;
 
@@ -18,7 +19,7 @@ public class TongChengGoodsTrackingFragment extends BaseFragment {
     public TongChengGoodsTrackingFragment(){
 
     }
-
+    @SuppressLint("ValidFragment")
     public TongChengGoodsTrackingFragment(Activity activity){
         this.activity = activity;
     }

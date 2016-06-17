@@ -81,8 +81,8 @@
                 android:layout_height="@dimen/dimen_160dp"
                 android:layout_marginTop="@dimen/dimen_110dp"
                 android:overScrollMode="never"/>
-            <com.gototongcheng.widget.imageview.CircleIndicator
-                android:id="@+id/ci_shouye"
+            <com.gototongcheng.widget.LinearLayout.CircleIndicator
+                android:id="@+id/lly_shouye_circle"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimen_160dp"
                 android:layout_marginTop="@dimen/dimen_110dp"

@@ -1,5 +1,6 @@
 package com.gototongcheng.view.fragment;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.view.View;
 
@@ -21,6 +22,7 @@ public class TongChengSendingFragment extends BaseFragment {
     public TongChengSendingFragment(){
 
     }
+    @SuppressLint("ValidFragment")
     public TongChengSendingFragment(Activity activity){
         this.activity = activity;
     }
@@ -42,13 +44,13 @@ public class TongChengSendingFragment extends BaseFragment {
         });
         mainActivityPresenter = new MainActivityPresenter(activity,R.id.fly_content);
         tongChengSendingFragmentPresenter = new TongChengSendingFragmentPresenter(activity);
-        tongChengSendingFragmentPresenter.widget.llyTongchengSendingSender.setOnClickListener(new View.OnClickListener() {
+        tongChengSendingFragmentPresenter.tongChengSendingWidget.llyTongchengSendingSender.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mainActivityPresenter.showFragment(new TongChengSendingBuildAddressFragment(activity,"send"));
             }
         });
-        tongChengSendingFragmentPresenter.widget.llyTongchengSendingReceiver.setOnClickListener(new View.OnClickListener() {
+        tongChengSendingFragmentPresenter.tongChengSendingWidget.llyTongchengSendingReceiver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mainActivityPresenter.showFragment(new TongChengSendingBuildAddressFragment(activity,"receive"));

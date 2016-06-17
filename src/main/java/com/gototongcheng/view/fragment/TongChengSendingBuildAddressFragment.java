@@ -1,6 +1,12 @@
 package com.gototongcheng.view.fragment;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.ContentResolver;
+import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
+import android.provider.ContactsContract;
 import android.view.View;
 
 import com.gototongcheng.Presenter.CommonTopBarPresenter;
@@ -17,9 +23,11 @@ public class TongChengSendingBuildAddressFragment extends BaseFragment {
     private int type;//0为收件地址 1为寄件地址
     private CommonTopBarPresenter commonTopBarPresenter;
     private TongChengSendingBuildAddressFragmentPresenter tongChengSendingBuildAddressFragmentPresenter;
+    private String username,usernumber;
     public TongChengSendingBuildAddressFragment(){
 
     }
+    @SuppressLint("ValidFragment")
     public TongChengSendingBuildAddressFragment(Activity activity,String type){
         this.activity = activity;
         switch (type){
@@ -47,6 +55,13 @@ public class TongChengSendingBuildAddressFragment extends BaseFragment {
             }
         });
         tongChengSendingBuildAddressFragmentPresenter = new TongChengSendingBuildAddressFragmentPresenter(activity);
+        tongChengSendingBuildAddressFragmentPresenter.tongChengSendingBuildAddressFragmentWidget.rlyTongChengSendingBuildingGetContact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivityForResult(new Intent(
+                        Intent.ACTION_PICK,ContactsContract.Contacts.CONTENT_URI), 0);
+            }
+        });
     }
 
     @Override
@@ -61,6 +76,32 @@ public class TongChengSendingBuildAddressFragment extends BaseFragment {
         }
     }
 
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == Activity.RESULT_OK) {
+            ContentResolver reContentResolverol = activity.getContentResolver();
+            Uri contactData = data.getData();
+            @SuppressWarnings("deprecation")
+            Cursor cursor = activity.managedQuery(contactData, null, null, null, null);
+            cursor.moveToFirst();
+            username = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
+            String contactId = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts._ID));
+            Cursor phone = reContentResolverol.query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
+                    null,
+                    ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = " + contactId,
+                    null,
+                    null);
+            while (phone.moveToNext()) {
+                usernumber = phone.getString(phone.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
+                tongChengSendingBuildAddressFragmentPresenter.tongChengSendingBuildAddressFragmentWidget.etTongChengSendingBuildingName.setText(username);
+                tongChengSendingBuildAddressFragmentPresenter.tongChengSendingBuildAddressFragmentWidget.etTongChengSendingBuildingTel.setText(usernumber);
+         //       text.setText(usernumber+" ("+username+")");
+            }
+
+        }
+    }
 
 
 }

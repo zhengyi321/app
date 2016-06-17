@@ -1,5 +1,6 @@
 package com.gototongcheng.view.fragment;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.view.View;
 
@@ -22,6 +23,7 @@ public class HoursShopFragment extends BaseFragment {
     public HoursShopFragment(){
 
     }
+    @SuppressLint("ValidFragment")//解决参数错误问题
     public HoursShopFragment(Activity activity){
         this.activity = activity;
         commonTopBarPresenter = new CommonTopBarPresenter(activity);

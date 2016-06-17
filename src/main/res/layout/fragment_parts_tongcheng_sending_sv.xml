@@ -7,6 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:id="@+id/lly_tongcheng_sending_total"
         >
         <FrameLayout
             android:layout_width="match_parent" android:layout_height="@dimen/dimen_140dp"
@@ -191,7 +192,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/strin_receiver_data"
+            android:text="@string/string_goods_data"
             android:textColor="@color/color_tongcheng_sending_word_bg_green"
             android:textSize="@dimen/dimen_20dp"
             android:textStyle="bold"
@@ -201,7 +202,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimen_120dp"
-            android:layout_marginTop="@dimen/dimen_10dp"
+            android:layout_marginTop="@dimen/dimen_2dp"
             android:orientation="horizontal"
             >
             <LinearLayout
@@ -249,6 +250,7 @@
                     android:layout_weight="1"
                     android:paddingTop="@dimen/dimen_5dp"
                     android:paddingBottom="@dimen/dimen_5dp"
+                    android:id="@+id/lly_tongcheng_sending_time_to"
                     >
                     <TextView
                         android:layout_width="wrap_content"
@@ -258,7 +260,7 @@
                         android:layout_marginLeft="@dimen/dimen_20dp"
                         android:layout_gravity="center_vertical"
                         />
-                    <EditText
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="4"
@@ -266,8 +268,8 @@
                         android:layout_gravity="center_vertical"
                         android:textSize="@dimen/dimen_13dp"
                         android:maxLines="1"
-                        android:maxLength="12"
                         android:textColor="@color/color_tongcheng_sending_word_bg_black"
+                        android:id="@+id/tv_tongcheng_sending_time_to"
                         />
                     <ImageView
                         android:layout_width="@dimen/dimen_25dp"
@@ -298,46 +300,76 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
+                    android:id="@+id/rg_tongcheng_sending_paymethod"
                     >
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:orientation="horizontal"
                         android:layout_weight="1"
+
                         >
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:id="@+id/lly_tongcheng_sending_spay"
                             >
+                            <TextView
+                                android:id="@+id/tv_tongcheng_sending_spay"
+                                android:layout_width="@dimen/dimen_10dp"
+                                android:layout_height="@dimen/dimen_10dp"
+                                android:background="@drawable/shape_gray_radius"
+                                android:paddingLeft="@dimen/dimen_1dp"
+                                android:paddingRight="@dimen/dimen_15dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="@dimen/dimen_10dp"
+                                />
                             <RadioButton
+                                android:id="@+id/rb_tongcheng_sending_spay"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:button="@null"
-                                android:drawableRight="@drawable/selector_radiobutton_yellow_trans_right_checked"
                                 android:text="@string/string_send_pay"
                                 android:textColor="@color/color_tongcheng_sending_word_bg_black"
-                                android:layout_marginLeft="@dimen/dimen_20dp"
+                                android:button="@drawable/shape_black_radius"
+                                android:drawableLeft="@drawable/shape_black_radius"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="@dimen/dimen_5dp"
                                 />
                         </LinearLayout>
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
+                            android:id="@+id/lly_tongcheng_sending_rpay"
+                            android:orientation="horizontal"
                             >
+                            <TextView
+                                android:id="@+id/tv_tongcheng_sending_rpay"
+                                android:layout_width="@dimen/dimen_10dp"
+                                android:layout_height="@dimen/dimen_10dp"
+                                android:background="@drawable/shape_gray_radius"
+                                android:paddingLeft="@dimen/dimen_1dp"
+                                android:paddingRight="@dimen/dimen_15dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="@dimen/dimen_5dp"
+                                />
                             <RadioButton
+                                android:id="@+id/rb_tongcheng_sending_rpay"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:button="@null"
-                                android:drawableRight="@drawable/selector_radiobutton_yellow_trans_right_checked"
                                 android:text="@string/string_receive_pay"
                                 android:textColor="@color/color_tongcheng_sending_word_bg_black"
+                                android:button="@null"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="@dimen/dimen_5dp"
                                 />
                         </LinearLayout>
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:orientation="horizontal"
                         android:layout_weight="1"
                         >
@@ -345,29 +377,56 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
+                            android:id="@+id/lly_tongcheng_sending_month_balance"
+                            android:orientation="horizontal"
                             >
+                            <TextView
+                                android:id="@+id/tv_tongcheng_sending_month_balance"
+                                android:layout_width="@dimen/dimen_10dp"
+                                android:layout_height="@dimen/dimen_10dp"
+                                android:background="@drawable/shape_gray_radius"
+                                android:paddingLeft="@dimen/dimen_1dp"
+                                android:paddingRight="@dimen/dimen_15dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="@dimen/dimen_10dp"
+                                />
                             <RadioButton
+                                android:id="@+id/rb_tongcheng_sending_month_balance"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:button="@null"
-                                android:drawableRight="@drawable/selector_radiobutton_yellow_trans_right_checked"
                                 android:text="@string/string_month_balance"
                                 android:textColor="@color/color_tongcheng_sending_word_bg_black"
-                                android:layout_marginLeft="@dimen/dimen_20dp"
+                                android:button="@null"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="@dimen/dimen_5dp"
                                 />
                         </LinearLayout>
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
+                            android:id="@+id/lly_tongcheng_sending_recharge"
+                            android:orientation="horizontal"
                             >
+                            <TextView
+                                android:id="@+id/tv_tongcheng_sending_recharge"
+                                android:layout_width="@dimen/dimen_10dp"
+                                android:layout_height="@dimen/dimen_10dp"
+                                android:background="@drawable/shape_gray_radius"
+                                android:paddingLeft="@dimen/dimen_1dp"
+                                android:paddingRight="@dimen/dimen_15dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="@dimen/dimen_5dp"
+                                />
                             <RadioButton
+                                android:id="@+id/rb_tongcheng_sending_recharge"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:button="@null"
-                                android:drawableRight="@drawable/selector_radiobutton_yellow_trans_right_checked"
                                 android:text="@string/string_pre_charge"
                                 android:textColor="@color/color_tongcheng_sending_word_bg_black"
+                                android:button="@null"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="@dimen/dimen_5dp"
                                 />
                         </LinearLayout>
                     </LinearLayout>

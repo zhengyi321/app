@@ -1,5 +1,6 @@
 package com.gototongcheng.view.fragment;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 
 import com.gototongcheng.Presenter.CommonBottomBarPresenter;
@@ -22,6 +23,7 @@ public class MainShouYeFragment extends BaseFragment{
     public MainShouYeFragment(){
 
     }
+    @SuppressLint("ValidFragment")
     public MainShouYeFragment(Activity activity){
         this.activity = activity;
     }
@@ -34,7 +36,6 @@ public class MainShouYeFragment extends BaseFragment{
     public void initViews() {
         mainShouYeFragmentPresenter = new MainShouYeFragmentPresenter(activity);
   //      mainShouYeFragmentPresenter.initCircleViewPager();
-        mainShouYeFragmentPresenter.initGetDataFromNet();
 
         commonTopBarPresenter = new CommonTopBarPresenter(activity);
         commonSelectorBarPresenter = new CommonSelectorBarPresenter(activity);

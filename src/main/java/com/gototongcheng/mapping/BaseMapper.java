@@ -23,7 +23,7 @@ import okhttp3.logging.HttpLoggingInterceptor;
  * Created by zhyan on 16/6/11.
  */
 public class BaseMapper {
-    public static final String TEST_URL = "http://192.168.10.200:8080";
+    public static final String TEST_URL = "http://192.168.10.198:8080";
 
     public static  OkHttpClient mOkHttpClient;
 

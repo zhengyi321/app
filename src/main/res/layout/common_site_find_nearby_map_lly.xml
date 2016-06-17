@@ -4,6 +4,7 @@
     android:layout_height="@dimen/dimen_60dp"
     android:background="@color/white"
     android:layout_marginTop="@dimen/dimen_2dp"
+    android:id="@+id/lly_common_site_find_nearby"
     >
     <ImageView
         android:layout_width="@dimen/dimen_20dp"

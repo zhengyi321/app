@@ -16,7 +16,7 @@ import com.gototongcheng.mapping.rxjava.SubscriberCallBack;
 import com.gototongcheng.model.MainShouYeCircleModel;
 import com.gototongcheng.model.MainShouYeFirstGridViewModel;
 import com.gototongcheng.widget.gridview.NoScroolGridView;
-import com.gototongcheng.widget.imageview.CircleIndicator;
+import com.gototongcheng.widget.LinearLayout.CircleIndicator;
 import com.gototongcheng.widget.progressview.CircleProgressView;
 
 import java.util.Timer;
@@ -56,17 +56,19 @@ public class MainShouYeFragmentPresenter extends BasePresenter{
         if(mainShouYeWidget == null){
             mainShouYeWidget  = new MainShouYeWidget();
         }
-        mainShouYeWidget.mViewPager = (ViewPager)activity.findViewById(R.id.vp_shouye_circle);
-        mainShouYeWidget.mCircleIndicator = (CircleIndicator)activity.findViewById(R.id.ci_shouye);
+        mainShouYeWidget.vpShouyeCircle = (ViewPager)activity.findViewById(R.id.vp_shouye_circle);
+        mainShouYeWidget.llyShouyeCircle = (CircleIndicator)activity.findViewById(R.id.lly_shouye_circle);
 
         mainShouYeWidget.mCircleProgressView = (CircleProgressView) activity.findViewById(R.id.circle_progress);
         mainShouYeWidget.gvShouYeFirst = (NoScroolGridView)activity.findViewById(R.id.gv_shouye_first);
         mainShouYeWidget.llyMainShouYe = (LinearLayout)activity.findViewById(R.id.lly_shouye_main);
         mainShouYeWidget.linearLayoutManager = new LinearLayoutManager(activity);
 
+        initGetDataFromNet();
+
     }
     //后台数据
-    public void initGetDataFromNet(){
+    private void initGetDataFromNet(){
         mainShouYeMapper  = new MainShouYeMapper();
 
         getCircleViewFromNet();
@@ -161,8 +163,8 @@ public class MainShouYeFragmentPresenter extends BasePresenter{
     public void initCircleViewPager(MainShouYeCircleModel mainShouYeCircleModel){
         mainCircleViewPageAdapter = new MainCircleViewPageAdapter(activity,mainShouYeCircleModel);
         size = mainShouYeCircleModel.getData().size();
-        mainShouYeWidget.mViewPager.setAdapter(mainCircleViewPageAdapter);
-        mainShouYeWidget.mCircleIndicator.setViewPager(mainShouYeWidget.mViewPager);
+        mainShouYeWidget.vpShouyeCircle.setAdapter(mainCircleViewPageAdapter);
+        mainShouYeWidget.llyShouyeCircle.setViewPager(mainShouYeWidget.vpShouyeCircle);
         startViewPagerRun();
 
     }
@@ -200,7 +202,7 @@ public class MainShouYeFragmentPresenter extends BasePresenter{
                     activity.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            mainShouYeWidget.mViewPager.setCurrentItem(mPagerPosition);/*
+                            mainShouYeWidget.vpShouyeCircle.setCurrentItem(mPagerPosition);/*
                             if (mPagerPosition == size - 1)
                             {
                                 mViewPager.setCurrentItem(size - 1, false);
@@ -248,8 +250,8 @@ public class MainShouYeFragmentPresenter extends BasePresenter{
     }
     public  class MainShouYeWidget{
         public LinearLayout llyMainShouYe;
-        public ViewPager mViewPager;
-        public CircleIndicator mCircleIndicator;
+        public ViewPager vpShouyeCircle;
+        public CircleIndicator llyShouyeCircle;
         public CircleProgressView mCircleProgressView;
         public NoScroolGridView gvShouYeFirst;
         public LinearLayoutManager linearLayoutManager;

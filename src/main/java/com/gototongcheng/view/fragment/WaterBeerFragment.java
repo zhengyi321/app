@@ -1,5 +1,6 @@
 package com.gototongcheng.view.fragment;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.view.View;
 
@@ -18,6 +19,7 @@ public class WaterBeerFragment extends BaseFragment {
     public WaterBeerFragment(){
 
     }
+    @SuppressLint("ValidFragment")
     public WaterBeerFragment(Activity activity){
         this.activity = activity;
         commonTopBarPresenter = new CommonTopBarPresenter(activity);

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ly_myinfo_changebirth"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00000000"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/ly_myinfo_changebirth_child"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical" >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:background="@color/gray_white"
+            >
+            <TextView
+                android:id="@+id/tv_share_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dip"
+                android:layout_marginTop="10dip"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:text="@string/sex"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="160dip"
+            android:orientation="horizontal"
+            android:layout_marginLeft="20dip"
+            android:layout_marginRight="20dip"
+            android:gravity="center_vertical">
+
+            <com.gototongcheng.widget.popupwindow.childwidget.WheelView
+                android:id="@+id/fwv"
+                android:layout_width="0dip"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                />
+        </LinearLayout>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_1dp"
+            android:background="@color/gray_white"
+            />
+        <RelativeLayout
+            android:id="@+id/rlyok"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            android:layout_marginBottom="10dip">
+
+            <TextView
+                android:id="@+id/btn_myinfo_sure"
+                android:layout_width="77dip"
+                android:layout_height="33dip"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="15dip"
+                android:text="确认"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:textSize="@dimen/dimen_18sp" />
+
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -3,6 +3,7 @@ package com.gototongcheng.application;
 import android.app.Application;
 import android.content.Context;
 
+import com.baidu.mapapi.SDKInitializer;
 import com.gototongcheng.widget.commonstaticwidget.CommonStaticWidget;
 
 /**
@@ -20,6 +21,7 @@ public class GotoCityApp extends Application
 
         super.onCreate();
         mAppContext = this;
+        SDKInitializer.initialize(getApplicationContext());
     }
 
 
