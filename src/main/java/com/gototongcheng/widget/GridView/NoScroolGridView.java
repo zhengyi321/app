@@ -1,4 +1,4 @@
-package com.gototongcheng.widget.GridView;
+package com.gototongcheng.widget.gridview;
 
 import android.content.Context;
 import android.util.AttributeSet;

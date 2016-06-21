@@ -9,6 +9,17 @@
         android:orientation="vertical"
         >
         <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                >
+
+
+
+        <FrameLayout
             android:layout_width="match_parent" android:layout_height="@dimen/dimen_140dp"
             android:background="@color/transparent"
             android:layout_marginBottom="@dimen/dimen_10dp"
@@ -99,7 +110,7 @@
                 android:hint="@string/string_please_input_address_or_loc"
                 android:textColorHint="@color/gray"
                 android:textSize="@dimen/dimen_15dp"
-                android:maxLines="1"
+                android:maxLines="2"
                 android:textColor="@color/color_tongcheng_sending_word_bg_black"
                 android:layout_gravity="center_vertical"
                 android:background="@null"
@@ -149,7 +160,7 @@
                 android:textColorHint="@color/gray"
                 android:textSize="@dimen/dimen_15dp"
                 android:textColor="@color/color_tongcheng_sending_word_bg_black"
-                android:maxLines="1"
+                android:maxLines="2"
                 android:layout_gravity="center_vertical"
                 android:background="@null"
                 android:layout_marginLeft="@dimen/dimen_5dp"
@@ -189,6 +200,7 @@
                 android:layout_marginLeft="@dimen/dimen_20dp"
                 />
             <EditText
+                android:id="@+id/et_tongcheng_fee_check_weight"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="5"
@@ -222,6 +234,7 @@
                 android:layout_marginLeft="@dimen/dimen_20dp"
                 />
             <EditText
+                android:id="@+id/et_tongcheng_fee_check_volumn"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="5"
@@ -246,6 +259,7 @@
             android:layout_marginTop="@dimen/dimen_30dp"
             android:layout_marginBottom="@dimen/dimen_30dp"
             android:layout_gravity="center_horizontal"
+            android:id="@+id/rly_tongcheng_sending_fee_check_submit"
 
             >
             <TextView
@@ -280,5 +294,8 @@
                 />
 
         </LinearLayout>
+            </LinearLayout>
+            <include layout="@layout/common_parts_loading_cpv"/>
+        </FrameLayout>
     </LinearLayout>
 </com.gototongcheng.widget.scrollview.SpringScrollView>

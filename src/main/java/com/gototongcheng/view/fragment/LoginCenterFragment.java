@@ -8,6 +8,8 @@ import com.gototongcheng.Presenter.CommonTopBarPresenter;
 import com.gototongcheng.Presenter.LoginCenterFragmentPresenter;
 import com.gototongcheng.application.R;
 
+import butterknife.OnClick;
+
 /**
  * Created by zhyan on 16/6/15.
  */
@@ -32,7 +34,7 @@ public class LoginCenterFragment extends BaseFragment {
 
     @Override
     public void initViews() {
-        commonTopBarPresenter = new CommonTopBarPresenter(activity);
+        commonTopBarPresenter = new CommonTopBarPresenter(activity);/*
         commonTopBarPresenter.topBarCommonWidget.rlyLeft.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,7 +46,7 @@ public class LoginCenterFragment extends BaseFragment {
             public void onClick(View v) {
                 loginCenterFragmentPresenter.register();
             }
-        });
+        });*/
         loginCenterFragmentPresenter = new LoginCenterFragmentPresenter(activity);
         loginCenterFragmentPresenter.widget.llyRememberLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,6 +63,15 @@ public class LoginCenterFragment extends BaseFragment {
     @Override
     public void initToolBar() {
         commonTopBarPresenter.initTopBar("login");
+    }
+    @OnClick(R.id.rly_left)
+    public void backOnClick(){
+        loginCenterFragmentPresenter.back();
+    }
+
+    @OnClick(R.id.rly_right)
+    public void registerOnclick(){
+        loginCenterFragmentPresenter.register();
     }
 
 }

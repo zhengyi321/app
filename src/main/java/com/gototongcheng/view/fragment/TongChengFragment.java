@@ -9,6 +9,8 @@ import com.gototongcheng.Presenter.CommonTopBarPresenter;
 import com.gototongcheng.Presenter.TongChengFragmentPresenter;
 import com.gototongcheng.application.R;
 
+import butterknife.OnClick;
+
 /**
  * Created by zhyan on 16/6/13.
  */
@@ -38,12 +40,7 @@ public class TongChengFragment extends BaseFragment {
         commonTopBarPresenter = new CommonTopBarPresenter(activity);
         commonSelectorBarPresenter = new CommonSelectorBarPresenter(activity);
         tongChengFragmentPresenter = new TongChengFragmentPresenter(activity);
-        commonTopBarPresenter.topBarCommonWidget.rlyLeft.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                tongChengFragmentPresenter.back();
-            }
-        });
+
         tongChengFragmentPresenter.tongChengWidget.llyTongchengSending.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -95,5 +92,8 @@ public class TongChengFragment extends BaseFragment {
         tongChengFragmentPresenter.onDestroy();
     }
 
-
+    @OnClick(R.id.rly_left)
+    public void backOnclick(){
+        tongChengFragmentPresenter.back();
+    }
 }

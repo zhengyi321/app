@@ -6,9 +6,21 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/lly_tongcheng_site_check_total"
         android:orientation="vertical"
         >
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:id="@+id/lly_tongcheng_site_check_total"
+                >
+
+
+
         <FrameLayout
             android:layout_width="match_parent" android:layout_height="@dimen/dimen_140dp"
             android:background="@color/transparent"
@@ -87,7 +99,7 @@
             android:layout_marginTop="@dimen/dimen_30dp"
             android:layout_marginBottom="@dimen/dimen_30dp"
             android:layout_gravity="center_horizontal"
-
+            android:id="@+id/rly_tongcheng_site_check_select_submit"
             >
             <TextView
                 android:layout_width="wrap_content"
@@ -152,5 +164,8 @@
                 />
 
         </LinearLayout>
+            </LinearLayout>
+        <include layout="@layout/common_parts_loading_cpv" />
+        </FrameLayout>
     </LinearLayout>
 </com.gototongcheng.widget.scrollview.SpringScrollView>

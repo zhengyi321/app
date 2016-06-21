@@ -8,6 +8,8 @@ import com.gototongcheng.Presenter.CommonTopBarPresenter;
 import com.gototongcheng.Presenter.TongChengGoodsTrackingFragmentPresenter;
 import com.gototongcheng.application.R;
 
+import butterknife.OnClick;
+
 /**
  * Created by zhyan on 16/6/16.
  */
@@ -32,12 +34,13 @@ public class TongChengGoodsTrackingFragment extends BaseFragment {
     @Override
     public void initViews() {
         commonTopBarPresenter = new CommonTopBarPresenter(activity);
+        /*
         commonTopBarPresenter.topBarCommonWidget.rlyLeft.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 tongChengGoodsTrackingPresenter.back();
             }
-        });
+        });*/
         tongChengGoodsTrackingPresenter = new TongChengGoodsTrackingFragmentPresenter(activity);
     }
 
@@ -45,6 +48,9 @@ public class TongChengGoodsTrackingFragment extends BaseFragment {
     public void initToolBar() {
         commonTopBarPresenter.initTopBar("tongchenggoodstracking");
     }
-
+    @OnClick(R.id.rly_left)
+    public void backOnclick(){
+        tongChengGoodsTrackingPresenter.back();
+    }
 
 }

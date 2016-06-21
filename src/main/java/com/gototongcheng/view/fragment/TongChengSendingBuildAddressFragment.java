@@ -8,11 +8,17 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.provider.ContactsContract;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.EditText;
 
 import com.gototongcheng.Presenter.CommonTopBarPresenter;
 import com.gototongcheng.Presenter.TongChengRangCheckFragmentPresenter;
 import com.gototongcheng.Presenter.TongChengSendingBuildAddressFragmentPresenter;
 import com.gototongcheng.application.R;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * 新建收寄件地址
@@ -48,20 +54,8 @@ public class TongChengSendingBuildAddressFragment extends BaseFragment {
     @Override
     public void initViews() {
         commonTopBarPresenter = new CommonTopBarPresenter(activity);
-        commonTopBarPresenter.topBarCommonWidget.rlyLeft.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                tongChengSendingBuildAddressFragmentPresenter.back();
-            }
-        });
         tongChengSendingBuildAddressFragmentPresenter = new TongChengSendingBuildAddressFragmentPresenter(activity);
-        tongChengSendingBuildAddressFragmentPresenter.tongChengSendingBuildAddressFragmentWidget.rlyTongChengSendingBuildingGetContact.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivityForResult(new Intent(
-                        Intent.ACTION_PICK,ContactsContract.Contacts.CONTENT_URI), 0);
-            }
-        });
+
     }
 
     @Override
@@ -95,13 +89,34 @@ public class TongChengSendingBuildAddressFragment extends BaseFragment {
                     null);
             while (phone.moveToNext()) {
                 usernumber = phone.getString(phone.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
-                tongChengSendingBuildAddressFragmentPresenter.tongChengSendingBuildAddressFragmentWidget.etTongChengSendingBuildingName.setText(username);
-                tongChengSendingBuildAddressFragmentPresenter.tongChengSendingBuildAddressFragmentWidget.etTongChengSendingBuildingTel.setText(usernumber);
+                tongChengSendingBuildAddressFragmentPresenter.setName(username);
+                tongChengSendingBuildAddressFragmentPresenter.setTel(usernumber);
          //       text.setText(usernumber+" ("+username+")");
             }
 
         }
     }
 
+    @OnClick(R.id.rly_left)
+    public void backOnclick(){
+        tongChengSendingBuildAddressFragmentPresenter.back();
+    }
 
+    @OnClick(R.id.rly_tongcheng_sending_building_loc)
+    public void locOnclick(){
+        tongChengSendingBuildAddressFragmentPresenter.setLoc();
+    }
+    @OnClick(R.id.rly_tongcheng_sending_building_get_contact)
+    public void contactOnclick(){
+        startActivityForResult(new Intent(
+                Intent.ACTION_PICK,ContactsContract.Contacts.CONTENT_URI), 0);
+    }
+    @OnClick(R.id.cb_tongcheng_sending_building_isdefault)
+    public void isDefaultOnclick(){
+        tongChengSendingBuildAddressFragmentPresenter.changeWordColorByCheckBox();
+    }
+    @OnClick(R.id.rly_right)
+    public void saveOnclick(){
+        tongChengSendingBuildAddressFragmentPresenter.saveAddress(type);
+    }
 }

@@ -7,16 +7,21 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="@dimen/dimen_20dp"
-        android:layout_marginRight="@dimen/dimen_20dp"
+        android:orientation="horizontal"
+        >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/dimen_10dp"
+        android:layout_marginRight="@dimen/dimen_10dp"
         >
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:orientation="horizontal"
         android:layout_weight="1"
-        android:layout_marginLeft="@dimen/dimen_10dp"
-        android:layout_marginRight="@dimen/dimen_10dp"
+        android:layout_marginLeft="@dimen/dimen_5dp"
+        android:layout_marginRight="@dimen/dimen_5dp"
         >
         <ImageView
             android:layout_width="wrap_content"
@@ -31,12 +36,12 @@
             android:textColor="@color/black"
             android:layout_gravity="center"
             android:gravity="center_horizontal"
-            android:layout_weight="2"
+            android:layout_weight="1"
             />
         <CheckBox
             android:layout_width="@dimen/dimen_10dp"
             android:layout_height="@dimen/dimen_7dp"
-            android:background="@drawable/selector_sort_checkbox_up_down"
+            android:background="@mipmap/goto_down"
             android:button="@null"
             android:layout_gravity="center"
             />
@@ -46,8 +51,8 @@
         android:layout_height="match_parent"
         android:orientation="horizontal"
         android:layout_weight="1"
-        android:layout_marginLeft="@dimen/dimen_10dp"
-        android:layout_marginRight="@dimen/dimen_10dp"
+        android:layout_marginLeft="@dimen/dimen_5dp"
+        android:layout_marginRight="@dimen/dimen_5dp"
         >
         <ImageView
             android:layout_width="wrap_content"
@@ -68,7 +73,7 @@
         <CheckBox
             android:layout_width="@dimen/dimen_10dp"
             android:layout_height="@dimen/dimen_7dp"
-            android:background="@drawable/selector_sort_checkbox_up_down"
+            android:background="@mipmap/goto_down"
             android:button="@null"
             android:layout_gravity="center"
             />
@@ -79,8 +84,8 @@
         android:layout_height="match_parent"
         android:orientation="horizontal"
         android:layout_weight="1"
-        android:layout_marginLeft="@dimen/dimen_10dp"
-        android:layout_marginRight="@dimen/dimen_10dp"
+        android:layout_marginLeft="@dimen/dimen_5dp"
+        android:layout_marginRight="@dimen/dimen_5dp"
         >
         <ImageView
             android:layout_width="wrap_content"
@@ -101,7 +106,7 @@
         <CheckBox
             android:layout_width="@dimen/dimen_10dp"
             android:layout_height="@dimen/dimen_7dp"
-            android:background="@drawable/selector_sort_checkbox_up_down"
+            android:background="@mipmap/goto_down"
             android:button="@null"
             android:layout_gravity="center"
             />
@@ -112,8 +117,8 @@
         android:layout_height="match_parent"
         android:orientation="horizontal"
         android:layout_weight="1"
-        android:layout_marginLeft="@dimen/dimen_10dp"
-        android:layout_marginRight="@dimen/dimen_10dp"
+        android:layout_marginLeft="@dimen/dimen_5dp"
+        android:layout_marginRight="@dimen/dimen_5dp"
         >
         <ImageView
             android:layout_width="wrap_content"
@@ -134,11 +139,12 @@
         <CheckBox
             android:layout_width="@dimen/dimen_10dp"
             android:layout_height="@dimen/dimen_7dp"
-            android:background="@drawable/selector_sort_checkbox_up_down"
+            android:background="@mipmap/goto_down"
             android:button="@null"
             android:layout_gravity="center"
             />
 
+    </LinearLayout>
     </LinearLayout>
     </LinearLayout>
 </LinearLayout>

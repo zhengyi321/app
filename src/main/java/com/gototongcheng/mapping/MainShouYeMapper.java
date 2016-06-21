@@ -2,7 +2,7 @@ package com.gototongcheng.mapping;
 
 
 import com.gototongcheng.dao.MainShouYeDao;
-import com.gototongcheng.model.MainShouYeCircleModel;
+import com.gototongcheng.model.CommonCircleModel;
 import com.gototongcheng.model.MainShouYeFirstGridViewModel;
 
 import retrofit2.Retrofit;
@@ -29,7 +29,7 @@ public class MainShouYeMapper extends BaseMapper{
         mainShouYeDao = mRetrofit.create(MainShouYeDao.class);
     }
 
-    public Observable<MainShouYeCircleModel> getCirclePic()
+    public Observable<CommonCircleModel> getCirclePic()
     {
         return mainShouYeDao.getCirclePic();
     }

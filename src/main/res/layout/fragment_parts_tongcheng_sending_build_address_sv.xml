@@ -9,6 +9,15 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         >
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimen_120dp"
@@ -40,6 +49,7 @@
                 android:layout_gravity="center_vertical"
                 />
             <EditText
+
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="@string/string_input_or_select"
@@ -144,7 +154,7 @@
                 android:textColor="@color/color_tongcheng_sending_word_bg_black"
                 android:textSize="@dimen/dimen_14dp"
                 android:background="@null"
-                android:id="@+id/et_tongcheng_sending_building_loc"
+                android:id="@+id/et_tongcheng_sending_building_area"
                 />
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -180,6 +190,7 @@
                 android:layout_gravity="center_vertical"
                 />
             <EditText
+                android:id="@+id/et_tongcheng_sending_building_address"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="5"
@@ -193,19 +204,25 @@
         </LinearLayout>
 
 
-        <RelativeLayout
+        <CheckBox
+            android:id="@+id/cb_tongcheng_sending_building_isdefault"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimen_35dp"
-            android:background="@drawable/shape_common_submit_deep_green_bg"
+            android:background="@drawable/selector_common_submit_shape_green_white_bg"
             android:padding="@dimen/dimen_1dp"
             android:layout_marginTop="@dimen/dimen_30dp"
             android:layout_marginBottom="@dimen/dimen_30dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginLeft="@dimen/dimen_50dp"
             android:layout_marginRight="@dimen/dimen_50dp"
-
+            android:text="@string/string_setting_default_address"
+            android:textColor="@color/white"
+            android:button="@null"
+            android:gravity="center"
             >
+            <!--
             <TextView
+                android:id="@+id/tv_tongcheng_sending_address_default"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/string_setting_default_address"
@@ -213,7 +230,17 @@
                 android:layout_centerInParent="true"
                 android:textSize="@dimen/dimen_15dp"
                 android:textStyle="bold"
-                />
-        </RelativeLayout>
+                />-->
+        </CheckBox>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                >
+                <include layout="@layout/common_parts_loading_cpv"
+                    />
+            </LinearLayout>
+        </FrameLayout>
     </LinearLayout>
 </com.gototongcheng.widget.scrollview.SpringScrollView>

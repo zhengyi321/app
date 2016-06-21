@@ -87,7 +87,7 @@ public class MainActivity extends BaseActivity {
 
     @OnClick(R.id.rb_dinner_bottom)
     public void dinnerOnClick(){
-        mainPresenter.showFragment(new CommonBaiDuMapFragment(this));
+        mainPresenter.showFragment(new FoodsFragment(this));
     }
     @OnClick(R.id.rb_person_center_bottom)
     public void personCenter(){

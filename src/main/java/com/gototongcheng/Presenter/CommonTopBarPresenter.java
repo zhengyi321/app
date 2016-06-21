@@ -11,6 +11,9 @@ import com.gototongcheng.application.R;
 import com.gototongcheng.cookies.MyIniClass;
 import com.gototongcheng.view.activity.MainActivity;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 /**
  * topbar
  * Created by zhyan on 16/6/14.
@@ -31,30 +34,14 @@ public class CommonTopBarPresenter extends BasePresenter{
     }
 
     protected void initViews(Activity mActivity) {
-        this.activity = mActivity;
+        activity = mActivity;
         if(topBarCommonWidget == null){
-            topBarCommonWidget  = new TopBarCommonWidget();
+            topBarCommonWidget  = new TopBarCommonWidget(activity);
         }
         if(topBarSelectWidget == null){
-            topBarSelectWidget  = new TopBarSelectWidget();
+            topBarSelectWidget  = new TopBarSelectWidget(activity);
         }
 
-
-        topBarCommonWidget.llyTotal = (LinearLayout)activity.findViewById(R.id.lly_total);
-        topBarCommonWidget.llyCenter = (LinearLayout)mActivity.findViewById(R.id.lly_center);
-        topBarCommonWidget.rlyLeft = (RelativeLayout)mActivity.findViewById(R.id.rly_left);
-        topBarCommonWidget.rlyRight = (RelativeLayout)mActivity.findViewById(R.id.rly_right);
-        topBarCommonWidget.imLeft = (ImageButton)mActivity.findViewById(R.id.ib_left);
-        topBarCommonWidget.tvLeft = (TextView)mActivity.findViewById(R.id.tv_left);
-        topBarCommonWidget.tvCenter = (TextView)mActivity.findViewById(R.id.tv_center);
-        topBarCommonWidget.tvRight = (TextView) mActivity.findViewById(R.id.tv_right);
-
-        topBarSelectWidget.llyTotal = (LinearLayout)mActivity.findViewById(R.id.lly_total_select);
-        topBarSelectWidget.llyRight = (LinearLayout)mActivity.findViewById(R.id.lly_right_select);
-        topBarSelectWidget.rlyLeft = (RelativeLayout)mActivity.findViewById(R.id.rly_left_select);
-        topBarSelectWidget.ibLeft = (ImageButton)mActivity.findViewById(R.id.ib_left_select);
-        topBarSelectWidget.tvCenter = (TextView)mActivity.findViewById(R.id.tv_center_select);
-        topBarSelectWidget.ibRight = (ImageButton)mActivity.findViewById(R.id.ib_right_select);
 
         MyIniClass myIniClass = new MyIniClass(mActivity,"");
         currentPlace = myIniClass.ReadString("currentPlace","");
@@ -65,7 +52,7 @@ public class CommonTopBarPresenter extends BasePresenter{
             case "shouye":
                 topBarCommonWidget.llyTotal.setVisibility(View.VISIBLE);
                 topBarSelectWidget.llyTotal.setVisibility(View.GONE);
-                topBarCommonWidget.imLeft.setBackgroundResource(R.mipmap.left_bill);
+                topBarCommonWidget.ibLeft.setBackgroundResource(R.mipmap.left_bill);
                 topBarCommonWidget.llyTotal.setBackgroundResource(R.color.color_topbar_bg_black);
                 topBarCommonWidget.tvLeft.setText("账单");
                 if(!currentPlace.isEmpty() && (currentPlace != null)) {
@@ -79,7 +66,7 @@ public class CommonTopBarPresenter extends BasePresenter{
                 topBarCommonWidget.llyTotal.setVisibility(View.VISIBLE);
                 topBarSelectWidget.llyTotal.setVisibility(View.GONE);
                 topBarCommonWidget.llyTotal.setBackgroundResource(R.color.color_topbar_bg_black);
-                topBarCommonWidget.imLeft.setBackgroundResource(R.mipmap.back_arrow_white);
+                topBarCommonWidget.ibLeft.setBackgroundResource(R.mipmap.back_arrow_white);
                 topBarCommonWidget.tvLeft.setText("返回");
                 topBarCommonWidget.tvCenter.setText("");
 
@@ -113,7 +100,7 @@ public class CommonTopBarPresenter extends BasePresenter{
             case "tongcheng":
                 topBarCommonWidget.llyTotal.setVisibility(View.VISIBLE);
                 topBarSelectWidget.llyTotal.setVisibility(View.GONE);
-                topBarCommonWidget.imLeft.setBackgroundResource(R.mipmap.back_arrow_white);
+                topBarCommonWidget.ibLeft.setBackgroundResource(R.mipmap.back_arrow_white);
                 topBarCommonWidget.llyTotal.setBackgroundResource(R.color.color_topbar_back_bg_green);
                 topBarCommonWidget.tvLeft.setText("返回");
                 topBarCommonWidget.tvCenter.setText("同城快递");
@@ -125,7 +112,7 @@ public class CommonTopBarPresenter extends BasePresenter{
                 topBarCommonWidget.llyTotal.setVisibility(View.VISIBLE);
                 topBarSelectWidget.llyTotal.setVisibility(View.GONE);
                 topBarCommonWidget.llyTotal.setBackgroundResource(R.color.color_topbar_bg_black);
-                topBarCommonWidget.imLeft.setBackgroundResource(R.mipmap.back_arrow_white);
+                topBarCommonWidget.ibLeft.setBackgroundResource(R.mipmap.back_arrow_white);
                 topBarCommonWidget.tvLeft.setText("返回");
                 topBarCommonWidget.tvCenter.setText("");
 
@@ -135,7 +122,7 @@ public class CommonTopBarPresenter extends BasePresenter{
             case "tongchengrangcheck":
                 topBarCommonWidget.llyTotal.setVisibility(View.VISIBLE);
                 topBarSelectWidget.llyTotal.setVisibility(View.GONE);
-                topBarCommonWidget.imLeft.setBackgroundResource(R.mipmap.back_arrow_white);
+                topBarCommonWidget.ibLeft.setBackgroundResource(R.mipmap.back_arrow_white);
                 topBarCommonWidget.llyTotal.setBackgroundResource(R.color.color_topbar_back_bg_green);
                 topBarCommonWidget.tvLeft.setText("返回");
                 topBarCommonWidget.tvCenter.setText("范围查询");
@@ -145,7 +132,7 @@ public class CommonTopBarPresenter extends BasePresenter{
             case "tongchengsitecheck":
                 topBarCommonWidget.llyTotal.setVisibility(View.VISIBLE);
                 topBarSelectWidget.llyTotal.setVisibility(View.GONE);
-                topBarCommonWidget.imLeft.setBackgroundResource(R.mipmap.back_arrow_white);
+                topBarCommonWidget.ibLeft.setBackgroundResource(R.mipmap.back_arrow_white);
                 topBarCommonWidget.llyTotal.setBackgroundResource(R.color.color_topbar_back_bg_green);
                 topBarCommonWidget.tvLeft.setText("返回");
                 topBarCommonWidget.tvCenter.setText("网点查询");
@@ -155,7 +142,7 @@ public class CommonTopBarPresenter extends BasePresenter{
             case "tongchengtimecheck":
                 topBarCommonWidget.llyTotal.setVisibility(View.VISIBLE);
                 topBarSelectWidget.llyTotal.setVisibility(View.GONE);
-                topBarCommonWidget.imLeft.setBackgroundResource(R.mipmap.back_arrow_white);
+                topBarCommonWidget.ibLeft.setBackgroundResource(R.mipmap.back_arrow_white);
                 topBarCommonWidget.llyTotal.setBackgroundResource(R.color.color_topbar_back_bg_green);
                 topBarCommonWidget.tvLeft.setText("返回");
                 topBarCommonWidget.tvCenter.setText("时效查询");
@@ -165,7 +152,7 @@ public class CommonTopBarPresenter extends BasePresenter{
             case "tongchengfeecheck":
                 topBarCommonWidget.llyTotal.setVisibility(View.VISIBLE);
                 topBarSelectWidget.llyTotal.setVisibility(View.GONE);
-                topBarCommonWidget.imLeft.setBackgroundResource(R.mipmap.back_arrow_white);
+                topBarCommonWidget.ibLeft.setBackgroundResource(R.mipmap.back_arrow_white);
                 topBarCommonWidget.llyTotal.setBackgroundResource(R.color.color_topbar_back_bg_green);
                 topBarCommonWidget.tvLeft.setText("返回");
                 topBarCommonWidget.tvCenter.setText("运费查询");
@@ -175,7 +162,7 @@ public class CommonTopBarPresenter extends BasePresenter{
             case "tongchenggoodstracking":
                 topBarCommonWidget.llyTotal.setVisibility(View.VISIBLE);
                 topBarSelectWidget.llyTotal.setVisibility(View.GONE);
-                topBarCommonWidget.imLeft.setBackgroundResource(R.mipmap.back_arrow_white);
+                topBarCommonWidget.ibLeft.setBackgroundResource(R.mipmap.back_arrow_white);
                 topBarCommonWidget.llyTotal.setBackgroundResource(R.color.color_topbar_back_bg_green);
                 topBarCommonWidget.tvLeft.setText("返回");
                 topBarCommonWidget.tvCenter.setText("物流追踪");
@@ -185,7 +172,7 @@ public class CommonTopBarPresenter extends BasePresenter{
             case "tongchengsending":
                 topBarCommonWidget.llyTotal.setVisibility(View.VISIBLE);
                 topBarSelectWidget.llyTotal.setVisibility(View.GONE);
-                topBarCommonWidget.imLeft.setBackgroundResource(R.mipmap.back_arrow_white);
+                topBarCommonWidget.ibLeft.setBackgroundResource(R.mipmap.back_arrow_white);
                 topBarCommonWidget.llyTotal.setBackgroundResource(R.color.color_topbar_back_bg_green);
                 topBarCommonWidget.tvLeft.setText("返回");
                 topBarCommonWidget.tvCenter.setText("同城快递");
@@ -196,7 +183,7 @@ public class CommonTopBarPresenter extends BasePresenter{
             case "tongchengsendingbuildreceiveaddress":
                 topBarCommonWidget.llyTotal.setVisibility(View.VISIBLE);
                 topBarSelectWidget.llyTotal.setVisibility(View.GONE);
-                topBarCommonWidget.imLeft.setBackgroundResource(R.mipmap.back_arrow_white);
+                topBarCommonWidget.ibLeft.setBackgroundResource(R.mipmap.back_arrow_white);
                 topBarCommonWidget.llyTotal.setBackgroundResource(R.color.color_topbar_back_bg_green);
                 topBarCommonWidget.tvLeft.setText("返回");
                 topBarCommonWidget.tvCenter.setText("新建收件地址");
@@ -206,7 +193,7 @@ public class CommonTopBarPresenter extends BasePresenter{
             case "tongchengsendingbuildsendaddress":
                 topBarCommonWidget.llyTotal.setVisibility(View.VISIBLE);
                 topBarSelectWidget.llyTotal.setVisibility(View.GONE);
-                topBarCommonWidget.imLeft.setBackgroundResource(R.mipmap.back_arrow_white);
+                topBarCommonWidget.ibLeft.setBackgroundResource(R.mipmap.back_arrow_white);
                 topBarCommonWidget.llyTotal.setBackgroundResource(R.color.color_topbar_back_bg_green);
                 topBarCommonWidget.tvLeft.setText("返回");
                 topBarCommonWidget.tvCenter.setText("新建寄件地址");
@@ -223,26 +210,44 @@ public class CommonTopBarPresenter extends BasePresenter{
 
 
     public  class TopBarCommonWidget{
-        public LinearLayout llyTotal;
-        public LinearLayout llyCenter;
-        public RelativeLayout rlyRight;
-        public RelativeLayout rlyLeft;
-        public ImageButton imLeft;
-        public TextView tvLeft;
 
-        public TextView tvCenter;
-
-        public TextView tvRight;
+        public TopBarCommonWidget(Activity activity){
+            ButterKnife.bind(this,activity);
+        }
+        @Bind(R.id.lly_total)
+        LinearLayout llyTotal;
+        @Bind(R.id.lly_center)
+        LinearLayout llyCenter;
+        @Bind(R.id.rly_right)
+        RelativeLayout rlyRight;
+        @Bind(R.id.rly_left)
+        RelativeLayout rlyLeft;
+        @Bind(R.id.ib_left)
+        ImageButton ibLeft;
+        @Bind(R.id.tv_left)
+        TextView tvLeft;
+        @Bind(R.id.tv_center)
+        TextView tvCenter;
+        @Bind(R.id.tv_right)
+        TextView tvRight;
     }
 
     public  class TopBarSelectWidget{
-        public LinearLayout llyTotal;
-        public LinearLayout llyRight;
-        public RelativeLayout rlyLeft;
-        public ImageButton ibLeft;
 
-        public TextView tvCenter;
-
-        public ImageButton ibRight;
+        public TopBarSelectWidget(Activity activity){
+            ButterKnife.bind(this,activity);
+        }
+        @Bind(R.id.lly_total_select)
+        LinearLayout llyTotal;
+        @Bind(R.id.lly_right_select)
+        LinearLayout llyRight;
+        @Bind(R.id.rly_left_select)
+        RelativeLayout rlyLeft;
+        @Bind(R.id.ib_left_select)
+        ImageButton ibLeft;
+        @Bind(R.id.tv_center_select)
+        TextView tvCenter;
+        @Bind(R.id.ib_right_select)
+        ImageButton ibRight;
     }
 }

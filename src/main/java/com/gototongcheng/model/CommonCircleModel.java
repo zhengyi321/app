@@ -9,7 +9,7 @@ import java.util.List;
  * 首页轮播
  * Created by zhyan on 16/6/10.
  */
-public class MainShouYeCircleModel extends BaseModel implements Parcelable {
+public class CommonCircleModel extends BaseModel implements Parcelable {
     /*
         数据
     */
@@ -28,26 +28,26 @@ public class MainShouYeCircleModel extends BaseModel implements Parcelable {
         public int id;
     }
 
-    public MainShouYeCircleModel(){
+    public CommonCircleModel(){
 
     }
 
-    protected MainShouYeCircleModel(Parcel in) {
+    protected CommonCircleModel(Parcel in) {
         this.data = in.readArrayList(CircleEntity.class.getClassLoader());
         this.setMessage(in.readString());
         this.setStatusCode(in.readInt());
         this.setSuccess(in.readByte() != 0);
     }
 
-    public static final Creator<MainShouYeCircleModel> CREATOR = new Creator<MainShouYeCircleModel>() {
+    public static final Creator<CommonCircleModel> CREATOR = new Creator<CommonCircleModel>() {
         @Override
-        public MainShouYeCircleModel createFromParcel(Parcel in) {
-            return new MainShouYeCircleModel(in);
+        public CommonCircleModel createFromParcel(Parcel in) {
+            return new CommonCircleModel(in);
         }
 
         @Override
-        public MainShouYeCircleModel[] newArray(int size) {
-            return new MainShouYeCircleModel[size];
+        public CommonCircleModel[] newArray(int size) {
+            return new CommonCircleModel[size];
         }
     };
 

@@ -1,10 +1,9 @@
 package com.gototongcheng.dao;
 
-import com.gototongcheng.model.MainShouYeCircleModel;
+import com.gototongcheng.model.CommonCircleModel;
 import com.gototongcheng.model.MainShouYeFirstGridViewModel;
 
 import retrofit2.http.GET;
-import retrofit2.http.POST;
 import rx.Observable;
 
 /**
@@ -17,7 +16,7 @@ public interface MainShouYeDao {
     轮播
      */
     @GET("/json/gotocityshouye/getcirclepic.do")
-    Observable<MainShouYeCircleModel> getCirclePic();
+    Observable<CommonCircleModel> getCirclePic();
 
     /*
     首页第一个gridview

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="@dimen/dimen_160dp"
+    android:layout_marginTop="@dimen/dimen_110dp"
+    >
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_common_circle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_160dp"
+
+        android:overScrollMode="never"/>
+    <com.gototongcheng.widget.LinearLayout.CircleIndicator
+        android:id="@+id/lly_common_circle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_160dp"
+        />
+</FrameLayout>

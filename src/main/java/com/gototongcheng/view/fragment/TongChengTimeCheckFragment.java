@@ -9,6 +9,8 @@ import com.gototongcheng.Presenter.TongChengFeeCheckFragmentPresenter;
 import com.gototongcheng.Presenter.TongChengTimeCheckFragmentPresenter;
 import com.gototongcheng.application.R;
 
+import butterknife.OnClick;
+
 /**
  * Created by admin on 16/6/15.
  */
@@ -33,12 +35,6 @@ public class TongChengTimeCheckFragment extends BaseFragment {
     @Override
     public void initViews() {
         commonTopBarPresenter = new CommonTopBarPresenter(activity);
-        commonTopBarPresenter.topBarCommonWidget.rlyLeft.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                tongChengTimeCheckFragmentPresenter.back();
-            }
-        });
         tongChengTimeCheckFragmentPresenter = new TongChengTimeCheckFragmentPresenter(activity);
     }
 
@@ -46,6 +42,24 @@ public class TongChengTimeCheckFragment extends BaseFragment {
     public void initToolBar() {
         commonTopBarPresenter.initTopBar("tongchengtimecheck");
     }
-
-
+    @OnClick(R.id.rly_left)
+    public void backOnclick(){
+        tongChengTimeCheckFragmentPresenter.back();
+    }
+    @OnClick(R.id.lly_tongcheng_time_check_send_time)
+    public void setTimeOnclick(){
+        tongChengTimeCheckFragmentPresenter.setTime();
+    }
+    @OnClick(R.id.lly_tongcheng_time_check_send_address)
+    public void sendAddressOnclick(){
+        tongChengTimeCheckFragmentPresenter.sendLoc();
+    }
+    @OnClick(R.id.lly_tongcheng_time_check_receive_address)
+    public void receiveAddressOnClick(){
+        tongChengTimeCheckFragmentPresenter.receiveLoc();
+    }
+    @OnClick(R.id.rly_tongcheng_sending_time_check_submit)
+    public void timeCheckSubmit(){
+        tongChengTimeCheckFragmentPresenter.timeCheckSubmit();
+    }
 }

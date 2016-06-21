@@ -2,12 +2,15 @@ package com.gototongcheng.cookies;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+
+import com.gototongcheng.application.GotoCityApp;
 
 /**
  * Created by admin on 16/6/14.
  */
 public class MyIniClass {
-    public static final String MyPREFERENCES = "MyPrefs" ;
+    public  final String MyPREFERENCES = "MyPrefs" ;
 
     private SharedPreferences sharedpreferences = null;
 
@@ -67,6 +70,8 @@ public class MyIniClass {
         }
     }
 
+
+
     public void WriteString(String KeyStr, String DefualtStr){
 
         if (sharedpreferences != null)
@@ -93,6 +98,32 @@ public class MyIniClass {
         {
             SharedPreferences.Editor editor = sharedpreferences.edit();
             editor.putBoolean(KeyStr, DefualtStr);
+            editor.commit();
+        }
+    }
+
+    /**
+     * 清空数据
+     */
+    public  void reset(final Context ctx)
+    {
+
+        SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(ctx).edit();
+        edit.clear();
+        edit.commit();
+    }
+
+    public  void remove(String... keys)
+    {
+
+        if (keys != null)
+        {
+            SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(GotoCityApp.getContext());
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            for (String key : keys)
+            {
+                editor.remove(key);
+            }
             editor.commit();
         }
     }

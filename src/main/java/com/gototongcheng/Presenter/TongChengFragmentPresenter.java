@@ -10,7 +10,7 @@ import com.gototongcheng.application.R;
 import com.gototongcheng.mapping.MainShouYeMapper;
 import com.gototongcheng.mapping.rxjava.ApiCallback;
 import com.gototongcheng.mapping.rxjava.SubscriberCallBack;
-import com.gototongcheng.model.MainShouYeCircleModel;
+import com.gototongcheng.model.CommonCircleModel;
 import com.gototongcheng.view.fragment.MainShouYeFragment;
 import com.gototongcheng.view.fragment.TongChengFeeCheckFragment;
 import com.gototongcheng.view.fragment.TongChengGoodsTrackingFragment;
@@ -125,9 +125,9 @@ public class TongChengFragmentPresenter extends BasePresenter{
                         //  }
                     }
                 })
-                .subscribe(new SubscriberCallBack<MainShouYeCircleModel>(new ApiCallback<MainShouYeCircleModel>() {
+                .subscribe(new SubscriberCallBack<CommonCircleModel>(new ApiCallback<CommonCircleModel>() {
                     @Override
-                    public void onSuccess(MainShouYeCircleModel model) {
+                    public void onSuccess(CommonCircleModel model) {
 
                         initCircleViewPager(model);
                     }
@@ -146,7 +146,7 @@ public class TongChengFragmentPresenter extends BasePresenter{
     }
 
     //轮播页面初始化
-    public void initCircleViewPager(MainShouYeCircleModel mainShouYeCircleModel){
+    public void initCircleViewPager(CommonCircleModel mainShouYeCircleModel){
         mainCircleViewPageAdapter = new MainCircleViewPageAdapter(activity,mainShouYeCircleModel);
         size = mainShouYeCircleModel.getData().size();
         tongChengWidget.vpTongChengCircle.setAdapter(mainCircleViewPageAdapter);

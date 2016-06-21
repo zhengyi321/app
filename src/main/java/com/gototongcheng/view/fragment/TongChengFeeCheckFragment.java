@@ -8,6 +8,8 @@ import com.gototongcheng.Presenter.CommonTopBarPresenter;
 import com.gototongcheng.Presenter.TongChengFeeCheckFragmentPresenter;
 import com.gototongcheng.application.R;
 
+import butterknife.OnClick;
+
 /**
  * Created by zhyan on 16/6/16.
  */
@@ -33,12 +35,7 @@ public class TongChengFeeCheckFragment extends BaseFragment {
     public void initViews() {
         commonTopBarPresenter = new CommonTopBarPresenter(activity);
 
-        commonTopBarPresenter.topBarCommonWidget.rlyLeft.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                tongChengFeeCheckPresenter.back();
-            }
-        });
+
         tongChengFeeCheckPresenter = new TongChengFeeCheckFragmentPresenter(activity);
     }
 
@@ -46,6 +43,22 @@ public class TongChengFeeCheckFragment extends BaseFragment {
     public void initToolBar() {
         commonTopBarPresenter.initTopBar("tongchengfeecheck");
     }
+    @OnClick(R.id.rly_left)
+    public void backOnclick(){
+        tongChengFeeCheckPresenter.back();
+    }
 
+    @OnClick(R.id.rly_tongcheng_sending_fee_check_submit)
+    public void feeCheckOnclick(){
+        tongChengFeeCheckPresenter.checkSubmit();
+    }
+    @OnClick(R.id.lly_tongcheng_fee_check_receive_address)
+    public void receiveLocOnclick(){
+        tongChengFeeCheckPresenter.receiveLoc();
+    }
 
+    @OnClick(R.id.lly_tongcheng_fee_check_send_address)
+    public void sendLocOnclick(){
+        tongChengFeeCheckPresenter.sendLoc();
+    }
 }

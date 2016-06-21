@@ -2,24 +2,43 @@ package com.gototongcheng.Presenter;
 
 import android.app.Activity;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.gototongcheng.application.R;
+import com.gototongcheng.cookies.MyIniClass;
+import com.gototongcheng.mapping.MainShouYeMapper;
+import com.gototongcheng.mapping.ShouYeTongChengMapper;
+import com.gototongcheng.mapping.rxjava.ApiCallback;
+import com.gototongcheng.mapping.rxjava.SubscriberCallBack;
+import com.gototongcheng.model.BaseModel;
 import com.gototongcheng.view.fragment.TongChengFragment;
+import com.gototongcheng.view.fragment.TongChengSendingFragment;
 import com.gototongcheng.widget.popupwindow.CommonPopupWindow;
+import com.gototongcheng.widget.progressview.CircleProgressView;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Action0;
+import rx.schedulers.Schedulers;
 
 /**
  * Created by zhyan on 16/6/16.
  */
-public class TongChengSendingFragmentPresenter extends BasePresenter implements View.OnClickListener{
+public class TongChengSendingFragmentPresenter extends BasePresenter {
 
 
     public TongChengSendingWidget tongChengSendingWidget ;
     public CommonPopupWindow commonPopupWindow;
+    private ShouYeTongChengMapper shouYeTongChengMapper;
     public TongChengSendingFragmentPresenter(){
 
     }
@@ -33,71 +52,131 @@ public class TongChengSendingFragmentPresenter extends BasePresenter implements 
         mainActivityPresenter = new MainActivityPresenter(activity, R.id.fly_content);
         commonPopupWindow = new CommonPopupWindow();
         if(tongChengSendingWidget == null) {
-            tongChengSendingWidget = new TongChengSendingWidget();
+            tongChengSendingWidget = new TongChengSendingWidget(activity);
+        }
+        initSendReceiveData();
+        shouYeTongChengMapper = new ShouYeTongChengMapper();
+
+    }
+    private void initSendReceiveData(){
+        MyIniClass myIniClass = new MyIniClass(activity,"");
+        String receiveData = myIniClass.ReadString("receiveData","");
+        String receiveDataTemp = myIniClass.ReadString("receiveDataTemp","");
+        String sendData = myIniClass.ReadString("sendData","");
+        String sendDataTemp = myIniClass.ReadString("sendDataTemp","");
+        Boolean isreceiveback = myIniClass.Readbool("isreceiveback",false);
+        Boolean issendback = myIniClass.Readbool("issendback",false);
+        if(isreceiveback == true){
+            setAddress(0,receiveDataTemp);
+            myIniClass.WriteBoolean("isreceiveback",false);
+        }else{
+            setAddress(0,receiveData);
+        }
+        if(issendback == true){
+            setAddress(1,sendDataTemp);
+            myIniClass.WriteBoolean("issendback",false);
+        }else{
+            setAddress(1,sendData);
         }
 
-        tongChengSendingWidget.llyTongChengSendingTotal = (LinearLayout)activity.findViewById(R.id.lly_tongcheng_sending_total);
-        tongChengSendingWidget.llyTongchengSendingSender = (LinearLayout)activity.findViewById(R.id.lly_tongcheng_sending_sender);
-        tongChengSendingWidget.llyTongchengSendingReceiver = (LinearLayout)activity.findViewById(R.id.lly_tongcheng_sending_receiver);
-
-
-        tongChengSendingWidget.rgTongChengSendingPayMethod = (RadioGroup)activity.findViewById(R.id.rg_tongcheng_sending_paymethod) ;
-        tongChengSendingWidget.llyTongChengSendingSpay = (LinearLayout) activity.findViewById(R.id.lly_tongcheng_sending_spay);
-        tongChengSendingWidget.tvTongChengSendingSpay = (TextView)activity.findViewById(R.id.tv_tongcheng_sending_spay);
-        tongChengSendingWidget.rbTongChengSendingSpay = (RadioButton)activity.findViewById(R.id.rb_tongcheng_sending_spay);
-        tongChengSendingWidget.llyTongChengSendingSpay.setOnClickListener(this);
-
-        tongChengSendingWidget.llyTongChengSendingRpay = (LinearLayout)activity.findViewById(R.id.lly_tongcheng_sending_rpay);
-        tongChengSendingWidget.tvTongChengSendingRpay = (TextView)activity.findViewById(R.id.tv_tongcheng_sending_rpay);
-        tongChengSendingWidget.rbTongChengSendingRpay = (RadioButton)activity.findViewById(R.id.rb_tongcheng_sending_rpay);
-        tongChengSendingWidget.llyTongChengSendingRpay.setOnClickListener(this);
-
-        tongChengSendingWidget.llyTongChengSendingMonthBalance = (LinearLayout) activity.findViewById(R.id.lly_tongcheng_sending_month_balance);
-        tongChengSendingWidget.tvTongChengSendingMonthBalance = (TextView)activity.findViewById(R.id.tv_tongcheng_sending_month_balance);
-        tongChengSendingWidget.rbTongChengSendingMonthBalance = (RadioButton)activity.findViewById(R.id.rb_tongcheng_sending_month_balance);
-        tongChengSendingWidget.llyTongChengSendingMonthBalance.setOnClickListener(this);
-
-        tongChengSendingWidget.llyTongChengSendingRecharge = (LinearLayout)activity.findViewById(R.id.lly_tongcheng_sending_recharge);
-        tongChengSendingWidget.tvTongChengSendingRecharge = (TextView)activity.findViewById(R.id.tv_tongcheng_sending_recharge);
-        tongChengSendingWidget.rbTongChengSendingRecharge = (RadioButton)activity.findViewById(R.id.rb_tongcheng_sending_recharge);
-        tongChengSendingWidget.llyTongChengSendingRecharge.setOnClickListener(this);
-
-
-        tongChengSendingWidget.tvTongChengSendingTimeTo = (TextView)activity.findViewById(R.id.tv_tongcheng_sending_time_to);
-        tongChengSendingWidget.llyTongChengSendingTimeTo = (LinearLayout)activity.findViewById(R.id.lly_tongcheng_sending_time_to);
-        tongChengSendingWidget.llyTongChengSendingTimeTo.setOnClickListener(this);
     }
-
 
 
     public void back() {
         mainActivityPresenter.showFragment(new TongChengFragment(activity));
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.lly_tongcheng_sending_spay:
-                radioManage(0);
+    public void submit(){
+        String sendData = tongChengSendingWidget.tvTongChengSendingSenderAddress.getText().toString();
+        String receiveData = tongChengSendingWidget.tvTongChengSendingReceiveAddress.getText().toString();
+        String weight = tongChengSendingWidget.etTongChengSendingWeight.getText().toString();
+        String time = tongChengSendingWidget.tvTongChengSendingTimeTo.getText().toString();
+        int payType = 0;
+        if(tongChengSendingWidget.rbTongChengSendingSpay.isChecked()){
+            payType = 1;
+        }else if(tongChengSendingWidget.rbTongChengSendingRpay.isChecked()){
+            payType = 2;
+        }else if(tongChengSendingWidget.rbTongChengSendingMonthBalance.isChecked()){
+            payType = 3;
+        }else if(tongChengSendingWidget.rbTongChengSendingRecharge.isChecked()){
+            payType = 4;
+        }
+        String rid = "zhyan";
+        String appkey = "appkey";
+        Map<String,Object> paramMap = new HashMap<String,Object>();
+        paramMap.put("sendData",sendData);
+        paramMap.put("receiveData",receiveData);
+        paramMap.put("weight",weight);
+        paramMap.put("time",time);
+        paramMap.put("payType",payType);
+        paramMap.put("rid",rid);
+        paramMap.put("appkey",appkey);
+        shouYeTongChengMapper.sendDataSubmit(paramMap)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doOnSubscribe(new Action0() {
+                    @Override
+                    public void call() {
+                        //  if (!isDownRefresh)
+                        //  {
+                        showProgress();
+                        //  }
+                    }
+                }).subscribe(new SubscriberCallBack<BaseModel>(new ApiCallback<BaseModel>() {
+            @Override
+            public void onSuccess(BaseModel model) {
+
+            }
+
+            @Override
+            public void onFailure(int code, String msg) {
+                Toast.makeText(activity,"服务器连接错误",Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onCompleted() {
+                hideProgress();
+            }
+        }));
+
+    }
+
+    private void showProgress()
+    {
+
+        tongChengSendingWidget.mCircleProgressView.setVisibility(View.VISIBLE);
+        tongChengSendingWidget.mCircleProgressView.spin();
+        //      mRecyclerView.setVisibility(View.GONE);
+    }
+
+    public void hideProgress()
+    {
+
+        tongChengSendingWidget.mCircleProgressView.setVisibility(View.GONE);
+        tongChengSendingWidget.mCircleProgressView.stopSpinning();
+        //     mRecyclerView.setVisibility(View.VISIBLE);
+    }
+
+    public void setAddress(int type,String address){
+    //    Toast.makeText(activity,address,Toast.LENGTH_LONG).show();
+        switch (type){
+            case 0:
+                tongChengSendingWidget.tvTongChengSendingReceiveAddress.setText(address);
                 break;
-            case R.id.lly_tongcheng_sending_rpay:
-                radioManage(1);
+            case 1:
+                tongChengSendingWidget.tvTongChengSendingSenderAddress.setText(address);
                 break;
 
-            case R.id.lly_tongcheng_sending_month_balance:
-                radioManage(2);
-                break;
-
-            case R.id.lly_tongcheng_sending_recharge:
-                radioManage(3);
-                break;
-            case R.id.lly_tongcheng_sending_time_to:
-                commonPopupWindow.DateTimeMinuteSecondPopup(R.id.tv_tongcheng_sending_time_to,activity,tongChengSendingWidget.llyTongChengSendingTotal,"上门时间");
+            default:
                 break;
 
         }
     }
-    private void radioManage(int type){
+
+    public void timeToGet(){
+        commonPopupWindow.DateTimeMinuteSecondPopup(R.id.tv_tongcheng_sending_time_to,activity,tongChengSendingWidget.llyTongChengSendingTotal,"上门时间");
+    }
+    public void radioManage(int type){
         switch (type){
             case 0:
 
@@ -105,20 +184,20 @@ public class TongChengSendingFragmentPresenter extends BasePresenter implements 
                 tongChengSendingWidget.rbTongChengSendingRpay.setChecked(false);
                 tongChengSendingWidget.rbTongChengSendingMonthBalance.setChecked(false);
                 tongChengSendingWidget.rbTongChengSendingRecharge.setChecked(false);
-                tongChengSendingWidget.tvTongChengSendingSpay.setBackgroundResource(R.drawable.shape_yellow_radius);
-                tongChengSendingWidget.tvTongChengSendingRpay.setBackgroundResource(R.drawable.shape_gray_radius);
-                tongChengSendingWidget.tvTongChengSendingMonthBalance.setBackgroundResource(R.drawable.shape_gray_radius);
-                tongChengSendingWidget.tvTongChengSendingRecharge.setBackgroundResource(R.drawable.shape_gray_radius);
+                tongChengSendingWidget.tvTongChengSendingSpay.setBackgroundResource(R.drawable.shape_yellow_circle_radius);
+                tongChengSendingWidget.tvTongChengSendingRpay.setBackgroundResource(R.drawable.shape_gray_circle_radius);
+                tongChengSendingWidget.tvTongChengSendingMonthBalance.setBackgroundResource(R.drawable.shape_gray_circle_radius);
+                tongChengSendingWidget.tvTongChengSendingRecharge.setBackgroundResource(R.drawable.shape_gray_circle_radius);
                 break;
             case 1:
                 tongChengSendingWidget.rbTongChengSendingSpay.setChecked(false);
                 tongChengSendingWidget.rbTongChengSendingRpay.setChecked(true);
                 tongChengSendingWidget.rbTongChengSendingMonthBalance.setChecked(false);
                 tongChengSendingWidget.rbTongChengSendingRecharge.setChecked(false);
-                tongChengSendingWidget.tvTongChengSendingSpay.setBackgroundResource(R.drawable.shape_gray_radius);
-                tongChengSendingWidget.tvTongChengSendingRpay.setBackgroundResource(R.drawable.shape_yellow_radius);
-                tongChengSendingWidget.tvTongChengSendingMonthBalance.setBackgroundResource(R.drawable.shape_gray_radius);
-                tongChengSendingWidget.tvTongChengSendingRecharge.setBackgroundResource(R.drawable.shape_gray_radius);
+                tongChengSendingWidget.tvTongChengSendingSpay.setBackgroundResource(R.drawable.shape_gray_circle_radius);
+                tongChengSendingWidget.tvTongChengSendingRpay.setBackgroundResource(R.drawable.shape_yellow_circle_radius);
+                tongChengSendingWidget.tvTongChengSendingMonthBalance.setBackgroundResource(R.drawable.shape_gray_circle_radius);
+                tongChengSendingWidget.tvTongChengSendingRecharge.setBackgroundResource(R.drawable.shape_gray_circle_radius);
                 break;
 
             case 2:
@@ -126,10 +205,10 @@ public class TongChengSendingFragmentPresenter extends BasePresenter implements 
                 tongChengSendingWidget.rbTongChengSendingRpay.setChecked(false);
                 tongChengSendingWidget.rbTongChengSendingMonthBalance.setChecked(true);
                 tongChengSendingWidget.rbTongChengSendingRecharge.setChecked(false);
-                tongChengSendingWidget.tvTongChengSendingSpay.setBackgroundResource(R.drawable.shape_gray_radius);
-                tongChengSendingWidget.tvTongChengSendingRpay.setBackgroundResource(R.drawable.shape_gray_radius);
-                tongChengSendingWidget.tvTongChengSendingMonthBalance.setBackgroundResource(R.drawable.shape_yellow_radius);
-                tongChengSendingWidget.tvTongChengSendingRecharge.setBackgroundResource(R.drawable.shape_gray_radius);
+                tongChengSendingWidget.tvTongChengSendingSpay.setBackgroundResource(R.drawable.shape_gray_circle_radius);
+                tongChengSendingWidget.tvTongChengSendingRpay.setBackgroundResource(R.drawable.shape_gray_circle_radius);
+                tongChengSendingWidget.tvTongChengSendingMonthBalance.setBackgroundResource(R.drawable.shape_yellow_circle_radius);
+                tongChengSendingWidget.tvTongChengSendingRecharge.setBackgroundResource(R.drawable.shape_gray_circle_radius);
                 break;
 
             case 3:
@@ -137,45 +216,77 @@ public class TongChengSendingFragmentPresenter extends BasePresenter implements 
                 tongChengSendingWidget.rbTongChengSendingRpay.setChecked(false);
                 tongChengSendingWidget.rbTongChengSendingMonthBalance.setChecked(false);
                 tongChengSendingWidget.rbTongChengSendingRecharge.setChecked(true);
-                tongChengSendingWidget.tvTongChengSendingSpay.setBackgroundResource(R.drawable.shape_gray_radius);
-                tongChengSendingWidget.tvTongChengSendingRpay.setBackgroundResource(R.drawable.shape_gray_radius);
-                tongChengSendingWidget.tvTongChengSendingMonthBalance.setBackgroundResource(R.drawable.shape_gray_radius);
-                tongChengSendingWidget.tvTongChengSendingRecharge.setBackgroundResource(R.drawable.shape_yellow_radius);
+                tongChengSendingWidget.tvTongChengSendingSpay.setBackgroundResource(R.drawable.shape_gray_circle_radius);
+                tongChengSendingWidget.tvTongChengSendingRpay.setBackgroundResource(R.drawable.shape_gray_circle_radius);
+                tongChengSendingWidget.tvTongChengSendingMonthBalance.setBackgroundResource(R.drawable.shape_gray_circle_radius);
+                tongChengSendingWidget.tvTongChengSendingRecharge.setBackgroundResource(R.drawable.shape_yellow_circle_radius);
                 break;
         }
     }
     public  class TongChengSendingWidget{
+        public TongChengSendingWidget(Activity activity){
+            ButterKnife.bind(this,activity);
+        }
 
-        public LinearLayout llyTongChengSendingTotal;
-
-        public LinearLayout llyTongchengSendingSender;
-        public LinearLayout llyTongchengSendingReceiver;
+        @Bind(R.id.lly_tongcheng_sending_total)
+        LinearLayout llyTongChengSendingTotal;
+        @Bind(R.id.lly_tongcheng_sending_sender)
+        LinearLayout llyTongchengSendingSender;
+        @Bind(R.id.lly_tongcheng_sending_receiver)
+        LinearLayout llyTongchengSendingReceiver;
 
 
         //付款方式
-        public LinearLayout llyTongChengSendingSpay;
-        public LinearLayout llyTongChengSendingRpay;
-        public LinearLayout llyTongChengSendingMonthBalance;
-        public LinearLayout llyTongChengSendingRecharge;
+        @Bind(R.id.lly_tongcheng_sending_spay)
+        LinearLayout llyTongChengSendingSpay;
+        @Bind(R.id.lly_tongcheng_sending_rpay)
+        LinearLayout llyTongChengSendingRpay;
+        @Bind(R.id.lly_tongcheng_sending_month_balance)
+        LinearLayout llyTongChengSendingMonthBalance;
+        @Bind(R.id.lly_tongcheng_sending_recharge)
+        LinearLayout llyTongChengSendingRecharge;
 
+        @Bind(R.id.tv_tongcheng_sending_spay)
+        TextView tvTongChengSendingSpay;
+        @Bind(R.id.tv_tongcheng_sending_rpay)
+        TextView tvTongChengSendingRpay;
+        @Bind(R.id.tv_tongcheng_sending_month_balance)
+        TextView tvTongChengSendingMonthBalance;
+        @Bind(R.id.tv_tongcheng_sending_recharge)
+        TextView tvTongChengSendingRecharge;
 
-        public TextView tvTongChengSendingSpay;
-        public TextView tvTongChengSendingRpay;
-        public TextView tvTongChengSendingMonthBalance;
-        public TextView tvTongChengSendingRecharge;
-
-        public RadioGroup rgTongChengSendingPayMethod;
-        public RadioButton rbTongChengSendingSpay;
-        public RadioButton rbTongChengSendingRpay;
-        public RadioButton rbTongChengSendingMonthBalance;
-        public RadioButton rbTongChengSendingRecharge;
+        @Bind(R.id.rg_tongcheng_sending_paymethod)
+        RadioGroup rgTongChengSendingPayMethod;
+        @Bind(R.id.rb_tongcheng_sending_spay)
+        RadioButton rbTongChengSendingSpay;
+        @Bind(R.id.rb_tongcheng_sending_rpay)
+        RadioButton rbTongChengSendingRpay;
+        @Bind(R.id.rb_tongcheng_sending_month_balance)
+        RadioButton rbTongChengSendingMonthBalance;
+        @Bind(R.id.rb_tongcheng_sending_recharge)
+        RadioButton rbTongChengSendingRecharge;
         //付款方式
 
         //上门时间
-        public LinearLayout llyTongChengSendingTimeTo;
-        public TextView tvTongChengSendingTimeTo;
-
+        @Bind(R.id.lly_tongcheng_sending_time_to)
+        LinearLayout llyTongChengSendingTimeTo;
+        @Bind(R.id.tv_tongcheng_sending_time_to)
+        TextView tvTongChengSendingTimeTo;
         //上门时间
+        //寄收件地址
+        @Bind(R.id.tv_tongcheng_sending_sender_address)
+        TextView tvTongChengSendingSenderAddress;
+        @Bind(R.id.tv_tongcheng_sending_receiver_address)
+        TextView tvTongChengSendingReceiveAddress;
+
+        //寄收件地址
+        //重量
+        @Bind(R.id.et_tongcheng_sending_weight)
+        EditText etTongChengSendingWeight;
+
+        //加载控件
+        @Bind(R.id.circle_progress)
+        CircleProgressView mCircleProgressView;
     }
 
 }

@@ -8,6 +8,8 @@ import com.gototongcheng.Presenter.CommonTopBarPresenter;
 import com.gototongcheng.Presenter.TongChengRangCheckFragmentPresenter;
 import com.gototongcheng.application.R;
 
+import butterknife.OnClick;
+
 /**
  * Created by admin on 16/6/15.
  */
@@ -30,13 +32,13 @@ public class TongChengRangCheckFragment extends BaseFragment {
 
     @Override
     public void initViews() {
-        commonTopBarPresenter = new CommonTopBarPresenter(activity);
+        commonTopBarPresenter = new CommonTopBarPresenter(activity);/*
         commonTopBarPresenter.topBarCommonWidget.rlyLeft.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 tongChengRangCheckFragmentPresenter.back();
             }
-        });
+        });*/
         tongChengRangCheckFragmentPresenter = new TongChengRangCheckFragmentPresenter(activity);
     }
 
@@ -45,5 +47,19 @@ public class TongChengRangCheckFragment extends BaseFragment {
         commonTopBarPresenter.initTopBar("tongchengrangcheck");
     }
 
+    @OnClick(R.id.rly_left)
+    public void backOnclick(){
+        tongChengRangCheckFragmentPresenter.back();
+    }
+
+    @OnClick(R.id.lly_common_area_select)
+    public void areaSelectOnClick(){
+        tongChengRangCheckFragmentPresenter.setArea();
+    }
+
+    @OnClick(R.id.rly_tongcheng_sending_rang_check_submit)
+    public void rangCheckSubmit(){
+        tongChengRangCheckFragmentPresenter.rangCheckSubmit();
+    }
 
 }

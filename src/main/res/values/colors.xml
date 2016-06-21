@@ -57,7 +57,19 @@
     <!--同城快递 我要寄件 新建地址-->
     <color name="color_tongcheng_sending_build_address_white_bg">#f5f5f9</color>
     <!--同城快递 我要寄件 新建地址-->
+    <!--美食配送-->
+    <color name="color_foods_send_orange_word">#ff5402</color>
+    <color name="color_foods_send_gray_word">#6f6f6f</color>
+    <color name="color_foods_send_tophus_green">#54ce75</color>
+    <color name="color_foods_send_light_green">#70bc46</color>
+    <color name="color_foods_send_few_green">#bbdfa7</color>
+    <color name="color_foods_send_light_oranghe">#f1884f</color>
+    <color name="color_foods_send_light_red">#f07373</color>
+    <!--美食配送-->
 
+    <!--24小时便利店-->
+    <color name="color_24hours_shop_white_bg">#f1f1f1</color>
+    <!--24小时便利店-->
     <!--radio right color-->
     <color name="color_right_yellow">#ffe39e</color>
     <!--radio right color-->

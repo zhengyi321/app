@@ -39,11 +39,27 @@
     <string name="string_dis">距离</string>
     <string name="string_sell">销量</string>
     <string name="string_comment">评分</string>
+
+    <string name="string_test_dongchi">东池便当 (柳市店)</string>
+    <string name="string_16_yuan">¥16</string>
+    <string name="string_begin_send">起送</string>
+    <string name="string_month_sell">月售1921单</string>
+    <string name="string_send_fee">配送费</string>
+    <string name="string_min_meter">32分钟 / 1.13千米</string>
+    <string name="string_four_point_three">4.3</string>
+    <string name="string_plane_to_begin">预定中,09:30分开始配送</string>
+    <string name="string_first">首</string>
+    <string name="string_redus">减</string>
+    <string name="string_new_account_redus_im">(不与其它活动共享)新用户下单立减6元</string>
+    <string name="string_four_activies">4个活动</string>
+    <string name="string_online_pay_redus">在线支付满17减5</string>
     <!--美食配送-->
     <!--24小时便利店-->
     <string name="string_today">今日</string>
     <string name="string_sale">卖点</string>
     <string name="string_goto_send">统一方便全场九折,限量促销,走兔专送</string>
+    <string name="string_service_tel">服务热线:400-662-0202</string>
+    <string name="string_product_support_by_goto_city">货品配送由走兔同城提供支持</string>
     <!--24小时便利店-->
 
     <!--同城快递-->

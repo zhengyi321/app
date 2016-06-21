@@ -8,6 +8,8 @@ import com.gototongcheng.Presenter.CommonTopBarPresenter;
 import com.gototongcheng.Presenter.FoodsFragmentPresenter;
 import com.gototongcheng.application.R;
 
+import butterknife.OnClick;
+
 /**
  * Created by admin on 16/6/13.
  */
@@ -31,18 +33,16 @@ public class FoodsFragment extends BaseFragment {
     @Override
     public void initViews() {
         foodsFragmentPresenter = new FoodsFragmentPresenter(activity);
-        commonTopBarPresenter.topBarSelectWidget.rlyLeft.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                foodsFragmentPresenter.back();
-            }
-        });
+
     }
 
     @Override
     public void initToolBar() {
         commonTopBarPresenter.initTopBar("foods");
     }
-
+    @OnClick(R.id.rly_left_select)
+    public void backOnClick(){
+        foodsFragmentPresenter.back();
+    }
 
 }

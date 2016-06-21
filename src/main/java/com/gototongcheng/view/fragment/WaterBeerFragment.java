@@ -8,13 +8,14 @@ import com.gototongcheng.Presenter.CommonTopBarPresenter;
 import com.gototongcheng.Presenter.WaterBeerFragmentPresenter;
 import com.gototongcheng.application.R;
 
+import butterknife.OnClick;
+
 /**
  * Created by zhyan on 16/6/13.
  */
 public class WaterBeerFragment extends BaseFragment {
 
     private WaterBeerFragmentPresenter waterBeerFragmentPresenter;
-    private Activity activity ;
     private CommonTopBarPresenter commonTopBarPresenter;
     public WaterBeerFragment(){
 
@@ -32,12 +33,6 @@ public class WaterBeerFragment extends BaseFragment {
     @Override
     public void initViews() {
         waterBeerFragmentPresenter = new WaterBeerFragmentPresenter(getActivity());
-        commonTopBarPresenter.topBarSelectWidget.rlyLeft.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                waterBeerFragmentPresenter.back();
-            }
-        });
 
     }
 
@@ -45,6 +40,9 @@ public class WaterBeerFragment extends BaseFragment {
     public void initToolBar() {
         commonTopBarPresenter.initTopBar("waterbeer");
     }
-
+    @OnClick(R.id.rly_left_select)
+    public void backOnclick(){
+        waterBeerFragmentPresenter.back();
+    }
 
 }

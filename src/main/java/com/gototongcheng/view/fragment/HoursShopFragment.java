@@ -10,6 +10,7 @@ import com.gototongcheng.application.R;
 import com.gototongcheng.widget.textview.MaequeeTextView;
 
 import butterknife.Bind;
+import butterknife.OnClick;
 
 /**
  * Created by zhyan on 16/6/13.
@@ -38,12 +39,7 @@ public class HoursShopFragment extends BaseFragment {
     public void initViews() {
         start(getView());
         hoursFragmentPresenter = new HoursFragmentPresenter(activity);
-        commonTopBarPresenter.topBarSelectWidget.rlyLeft.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                hoursFragmentPresenter.back();
-            }
-        });
+
     }
 
     @Override
@@ -58,5 +54,8 @@ public class HoursShopFragment extends BaseFragment {
         maequeeTextView.stopScroll();
     }
 
-
+    @OnClick(R.id.rly_left_select)
+    public void backOnClick(){
+        hoursFragmentPresenter.back();
+    }
 }

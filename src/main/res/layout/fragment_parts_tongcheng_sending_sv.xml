@@ -7,8 +7,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:id="@+id/lly_tongcheng_sending_total"
         >
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:id="@+id/lly_tongcheng_sending_total"
+                >
+
+
+
         <FrameLayout
             android:layout_width="match_parent" android:layout_height="@dimen/dimen_140dp"
             android:background="@color/transparent"
@@ -103,19 +114,20 @@
                     android:textStyle="bold"
                     android:textColor="@color/white"
                     android:layout_marginLeft="@dimen/dimen_20dp"
-                    android:background="@drawable/shape_deep_green_radius"
+                    android:background="@drawable/shape_deep_green_circle_radius"
                     android:paddingLeft="@dimen/dimen_9dp"
                     android:paddingTop="@dimen/dimen_7dp"
                     />
                 <TextView
+                    android:id="@+id/tv_tongcheng_sending_sender_address"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="6"
                     android:hint="@string/string_please_input_sender_detail_address_and_tel"
                     android:textColorHint="@color/gray"
                     android:textSize="@dimen/dimen_15dp"
-                    android:maxLines="1"
-                    android:lines="1"
+                    android:textColor="@color/gray"
+                    android:maxLines="2"
                     android:layout_gravity="center_vertical"
                     android:background="@null"
                     android:layout_marginLeft="@dimen/dimen_10dp"
@@ -157,20 +169,23 @@
                     android:textStyle="bold"
                     android:textColor="@color/white"
                     android:layout_marginLeft="@dimen/dimen_20dp"
-                    android:background="@drawable/shape_black_radius"
+                    android:background="@drawable/shape_black_circle_radius"
                     android:paddingLeft="@dimen/dimen_9dp"
                     android:paddingTop="@dimen/dimen_7dp"
                     />
                 <TextView
+                    android:id="@+id/tv_tongcheng_sending_receiver_address"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="5"
                     android:hint="@string/string_please_input_receive_detail_address_and_tel"
                     android:textColorHint="@color/gray"
+                    android:textColor="@color/gray"
                     android:textSize="@dimen/dimen_15dp"
                     android:layout_gravity="center_vertical"
                     android:background="@null"
                     android:layout_marginLeft="@dimen/dimen_10dp"
+                    android:maxLines="2"
 
                     />
                 <LinearLayout
@@ -206,9 +221,9 @@
             android:orientation="horizontal"
             >
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="4"
+                android:layout_weight="3"
                 android:orientation="vertical"
                 android:layout_marginRight="@dimen/dimen_2dp"
                 >
@@ -230,10 +245,12 @@
                         android:layout_gravity="center_vertical"
                         />
                     <EditText
+                        android:id="@+id/et_tongcheng_sending_weight"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:background="@null"
                         android:layout_gravity="center_vertical"
+                        android:gravity="center_vertical"
                         android:textSize="@dimen/dimen_13dp"
                         android:maxLines="1"
                         android:maxLength="12"
@@ -262,15 +279,17 @@
                         />
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="4"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
                         android:background="@null"
                         android:layout_gravity="center_vertical"
+                        android:gravity="center_vertical"
                         android:textSize="@dimen/dimen_13dp"
                         android:maxLines="1"
                         android:textColor="@color/color_tongcheng_sending_word_bg_black"
                         android:id="@+id/tv_tongcheng_sending_time_to"
                         />
+
                     <ImageView
                         android:layout_width="@dimen/dimen_25dp"
                         android:layout_height="@dimen/dimen_25dp"
@@ -278,14 +297,15 @@
                         android:layout_gravity="center"
                         android:layout_marginRight="@dimen/dimen_10dp"
                         />
+
                 </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/white"
-                android:layout_weight="3"
+                android:layout_weight="5"
                 android:orientation="vertical"
                 >
                 <TextView
@@ -320,7 +340,7 @@
                                 android:id="@+id/tv_tongcheng_sending_spay"
                                 android:layout_width="@dimen/dimen_10dp"
                                 android:layout_height="@dimen/dimen_10dp"
-                                android:background="@drawable/shape_gray_radius"
+                                android:background="@drawable/shape_gray_circle_radius"
                                 android:paddingLeft="@dimen/dimen_1dp"
                                 android:paddingRight="@dimen/dimen_15dp"
                                 android:layout_gravity="center_vertical"
@@ -332,8 +352,8 @@
                                 android:layout_height="match_parent"
                                 android:text="@string/string_send_pay"
                                 android:textColor="@color/color_tongcheng_sending_word_bg_black"
-                                android:button="@drawable/shape_black_radius"
-                                android:drawableLeft="@drawable/shape_black_radius"
+                                android:button="@drawable/shape_black_circle_radius"
+                                android:drawableLeft="@drawable/shape_black_circle_radius"
                                 android:layout_centerVertical="true"
                                 android:layout_marginLeft="@dimen/dimen_5dp"
                                 />
@@ -349,7 +369,7 @@
                                 android:id="@+id/tv_tongcheng_sending_rpay"
                                 android:layout_width="@dimen/dimen_10dp"
                                 android:layout_height="@dimen/dimen_10dp"
-                                android:background="@drawable/shape_gray_radius"
+                                android:background="@drawable/shape_gray_circle_radius"
                                 android:paddingLeft="@dimen/dimen_1dp"
                                 android:paddingRight="@dimen/dimen_15dp"
                                 android:layout_gravity="center_vertical"
@@ -384,7 +404,7 @@
                                 android:id="@+id/tv_tongcheng_sending_month_balance"
                                 android:layout_width="@dimen/dimen_10dp"
                                 android:layout_height="@dimen/dimen_10dp"
-                                android:background="@drawable/shape_gray_radius"
+                                android:background="@drawable/shape_gray_circle_radius"
                                 android:paddingLeft="@dimen/dimen_1dp"
                                 android:paddingRight="@dimen/dimen_15dp"
                                 android:layout_gravity="center_vertical"
@@ -412,7 +432,7 @@
                                 android:id="@+id/tv_tongcheng_sending_recharge"
                                 android:layout_width="@dimen/dimen_10dp"
                                 android:layout_height="@dimen/dimen_10dp"
-                                android:background="@drawable/shape_gray_radius"
+                                android:background="@drawable/shape_gray_circle_radius"
                                 android:paddingLeft="@dimen/dimen_1dp"
                                 android:paddingRight="@dimen/dimen_15dp"
                                 android:layout_gravity="center_vertical"
@@ -443,6 +463,7 @@
             android:layout_marginTop="@dimen/dimen_30dp"
             android:layout_marginBottom="@dimen/dimen_30dp"
             android:layout_gravity="center_horizontal"
+            android:id="@+id/rly_tongcheng_sending_submit"
 
             >
             <TextView
@@ -455,6 +476,8 @@
                 android:textStyle="bold"
                 />
         </RelativeLayout>
-
+            </LinearLayout>
+            <include layout="@layout/common_parts_loading_cpv"/>
+        </FrameLayout>
     </LinearLayout>
 </com.gototongcheng.widget.scrollview.SpringScrollView>

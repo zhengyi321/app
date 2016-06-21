@@ -1,18 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.gototongcheng.widget.scrollview.SpringScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/color_24hours_shop_white_bg"
+    android:fillViewport="false">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         >
+        <!--
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimen_200dp"
             android:background="@mipmap/tf_houts_first_ads"
-            />
+            />-->
+        <FrameLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            >
+            <android.support.v4.view.ViewPager
+                android:id="@+id/vp_hours_circle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_200dp"
+
+                android:overScrollMode="never"/>
+            <com.gototongcheng.widget.LinearLayout.CircleIndicator
+                android:id="@+id/lly_hours_circle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_200dp"
+                />
+            <include layout="@layout/common_parts_loading_cpv"/>
+        </FrameLayout>
 
         <include layout="@layout/ads_text_parts_24_hours_lly"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/dimen_20dp"
+                android:orientation="vertical"
+                >
+                <com.gototongcheng.widget.gridview.NoScroolGridView
+                    android:id="@+id/gv_shouye_hoursshop_first"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:horizontalSpacing="@dimen/dimen_1dp"
+                    android:numColumns="3"
+                    android:verticalSpacing="@dimen/dimen_1dp"
+                    android:listSelector="@color/black"
+                />
+
+                <com.gototongcheng.widget.gridview.NoScroolGridView
+                    android:id="@+id/gv_shouye_hoursshop_second"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:horizontalSpacing="@dimen/dimen_1dp"
+                    android:numColumns="3"
+                    android:verticalSpacing="@dimen/dimen_1dp"
+                    android:listSelector="@color/black"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/string_service_tel"
+                    android:textColor="@color/black"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="@dimen/dimen_13dp"
+                    android:layout_marginTop="@dimen/dimen_30dp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/string_product_support_by_goto_city"
+                    android:textColor="@color/black"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="@dimen/dimen_13dp"
+                    android:layout_marginBottom="@dimen/dimen_20dp"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    />
+
+            </LinearLayout>
+
+        </FrameLayout>
     </LinearLayout>
 </com.gototongcheng.widget.scrollview.SpringScrollView>

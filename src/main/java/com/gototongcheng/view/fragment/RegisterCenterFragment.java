@@ -8,6 +8,8 @@ import com.gototongcheng.Presenter.CommonTopBarPresenter;
 import com.gototongcheng.Presenter.RegisterCenterFragmentPresenter;
 import com.gototongcheng.application.R;
 
+import butterknife.OnClick;
+
 /**
  * Created by admin on 16/6/10.
  */
@@ -35,18 +37,7 @@ public class RegisterCenterFragment extends BaseFragment {
     @Override
     public void initViews() {
         commonTopBarPresenter = new CommonTopBarPresenter(activity);
-        commonTopBarPresenter.topBarCommonWidget.rlyLeft.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                registerCenterFragmentPresenter.back();
-            }
-        });
-        commonTopBarPresenter.topBarCommonWidget.rlyRight.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                registerCenterFragmentPresenter.login();
-            }
-        });
+
         registerCenterFragmentPresenter = new RegisterCenterFragmentPresenter(activity);
     }
 
@@ -54,6 +45,14 @@ public class RegisterCenterFragment extends BaseFragment {
     public void initToolBar() {
         commonTopBarPresenter.initTopBar("register");
     }
+    @OnClick(R.id.rly_left)
+    public void backOnClick(){
+        registerCenterFragmentPresenter.back();
+    }
 
+    @OnClick(R.id.rly_right)
+    public void loginOnclick(){
+        registerCenterFragmentPresenter.login();
+    }
 
 }
