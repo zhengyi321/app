@@ -1,18 +1,25 @@
 package com.gototongcheng.Presenter;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
 import com.gototongcheng.application.R;
+import com.gototongcheng.view.fragment.FoodsFragment;
 import com.gototongcheng.view.fragment.MainShouYeFragment;
+import com.gototongcheng.view.views.ViewsWaterBeerLLY;
 import com.gototongcheng.widget.tab.PluginScrollView;
 import com.gototongcheng.widget.tab.ViewPagerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
+import butterknife.OnPageChange;
 
 /**
  * Created by admin on 16/6/14.
@@ -20,8 +27,9 @@ import java.util.List;
 public class WaterBeerFragmentPresenter extends BasePresenter{
 
     public  WaterBeerWidget widget ;
-    ViewPagerAdapter viewPagerAdapter;
-    List<View> testList;
+    private ViewPagerAdapter viewPagerAdapter;
+    private List<View> viewList;
+    private List<String> dataList;
     public WaterBeerFragmentPresenter(Activity activity){
 
         initViews(activity);
@@ -31,47 +39,53 @@ public class WaterBeerFragmentPresenter extends BasePresenter{
 
     protected void initViews(Activity activity) {
         this.activity = activity;
-
         initTabAndViews();
         mainActivityPresenter = new MainActivityPresenter(activity,R.id.fly_content);
     }
 
     public void back(){
-
         mainActivityPresenter.showFragment(new MainShouYeFragment(activity));
     }
 
 
     private void initTabAndViews(){
         if(widget == null) {
-            widget = new WaterBeerWidget();
+            widget = new WaterBeerWidget(activity);
         }
-        widget.viewPager = (ViewPager) activity.findViewById(R.id.vp_waterbeer) ;
-        widget.mPluginScrollView = (PluginScrollView) activity.findViewById(R.id.horizontalScrollView);
-        preInit();
+
+        initDataList();
+        initViewList();
         //   mTabLayout = (SlidingTabLayout) getView().findViewById(R.id.ctl_waterbeer) ;
         viewPagerAdapter = new ViewPagerAdapter();
-        viewPagerAdapter.setList(testList);
+        viewPagerAdapter.setList(viewList);
         widget.viewPager.setAdapter(viewPagerAdapter);
         widget.viewPager.setCurrentItem(0);
         // mPluginScrollView = new PluginScrollView(this, viewPager, testList);
 
-        widget.mPluginScrollView.setTestList(testList);
+        widget.mPluginScrollView.setDataList(dataList);
         widget.mPluginScrollView.setViewPager(widget.viewPager);
         postInit();
     }
-    private void preInit() {
+    private void initViewList() {
 
-        TextView textView;
-        testList = new ArrayList<View>();
-        for (int i = 0; i < 10; i++) {
-            textView = new TextView(activity);
-            textView.setText("ViewPager ==>" + i);
-            testList.add(textView);
+        ViewsWaterBeerLLY viewsWaterBeerLLY;
+        viewList = new ArrayList<View>();
+        for (int i = 0; i < dataList.size(); i++) {
+     //       pluginScrollView = new PluginScrollView(activity);
+            viewsWaterBeerLLY = new ViewsWaterBeerLLY(activity,activity.getLayoutInflater());
+            viewList.add(viewsWaterBeerLLY);
         }
 
     }
-
+    private void initDataList(){
+        dataList = new ArrayList<String>();
+        dataList.add("快速选酒");
+        dataList.add("白酒");
+        dataList.add("葡萄酒");
+        dataList.add("洋酒");
+        dataList.add("啤酒");
+        dataList.add("黄酒");
+    }
     private void postInit() {
         widget.viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
@@ -100,8 +114,14 @@ public class WaterBeerFragmentPresenter extends BasePresenter{
     }
 
 
+
     public  class WaterBeerWidget{
-        public ViewPager viewPager;
-        public PluginScrollView mPluginScrollView;
+        public WaterBeerWidget(Activity activity){
+            ButterKnife.bind(this,activity);
+        }
+        @Bind(R.id.vp_waterbeer)
+         ViewPager viewPager;
+        @Bind(R.id.horizontalScrollView)
+         PluginScrollView mPluginScrollView;
     }
 }

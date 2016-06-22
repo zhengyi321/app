@@ -45,4 +45,5 @@ public class WaterBeerFragment extends BaseFragment {
         waterBeerFragmentPresenter.back();
     }
 
+
 }

@@ -12,7 +12,7 @@ public class MainShouYeFirstGridViewModel extends BaseModel implements Parcelabl
 
     /*
     数据
-*/
+    */
     public List<ShouYeFirstGVEntity> data;
 
     public List<ShouYeFirstGVEntity> getData() {

@@ -16,20 +16,19 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 /**
- * Created by zhyan on 16/6/21.
+ * Created by admin on 16/6/22.
  */
-public class ShouYeHoursFirstGVAdapter extends BaseAdapter{
-
+public class ShouYeHoursSecondGVAdapter extends BaseAdapter {
+    private Activity activity;
     private List<String> dataList;
-    private Activity activity ;
     private LayoutInflater inflater;
     private Widget widget;
-    public ShouYeHoursFirstGVAdapter(Activity activity,List<String> dataList){
+    public ShouYeHoursSecondGVAdapter(Activity activity,List<String> dataList){
         this.activity = activity;
         this.dataList = dataList;
-        this.inflater = LayoutInflater.from(activity);
-
+        inflater = LayoutInflater.from(activity);
     }
+
 
     @Override
     public int getCount() {
@@ -51,14 +50,13 @@ public class ShouYeHoursFirstGVAdapter extends BaseAdapter{
 
         if(convertView == null)
         {
-            convertView = inflater.inflate(R.layout.item_parts_shouye_hours_first_gv_rly,null);
+            convertView = inflater.inflate(R.layout.item_parts_shouye_hours_second_gv_lly,null);
             widget = new Widget(convertView);
             convertView.setTag(widget);
         }else {
             widget = (Widget)convertView.getTag();
         }
-
-     //   widget.tvGvItem.setText("nihao");
+   //     widget.ivCheapGvItem.setVisibility(View.GONE);
         return convertView;
     }
     public class Widget{
@@ -67,5 +65,6 @@ public class ShouYeHoursFirstGVAdapter extends BaseAdapter{
         }
 
     }
+
 
 }

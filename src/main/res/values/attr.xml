@@ -88,4 +88,24 @@
 
 
     <!--roundimageview-->
+    <!--moneyTextView-->
+    <declare-styleable name="MoneyTextView">
+        <attr name="moneyColor" format="reference|color" />
+        <attr name="moneyRate" format="float" />
+        <attr name="symbol" format="string" />
+        <attr name="symbolRate" format="float" />
+        <attr name="decimalRate" format="float" />
+        <attr name="moneyText" format="reference|string" />
+        <attr name="moneyFont" format="reference|string" />
+        <attr name="moneyFormat" format="enum">
+            <enum name="format_disable" value="0" />
+            <enum name="format_integer" value="1" />
+            <enum name="format_float" value="2" />
+        </attr>
+        <attr name="moneyMode" format="enum">
+            <enum name="all" value="0" />
+            <enum name="digit" value="1" />
+        </attr>
+    </declare-styleable>
+    <!--moneyTextView-->
 </resources>

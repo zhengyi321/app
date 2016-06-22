@@ -45,4 +45,5 @@ public class FoodsFragment extends BaseFragment {
         foodsFragmentPresenter.back();
     }
 
+
 }

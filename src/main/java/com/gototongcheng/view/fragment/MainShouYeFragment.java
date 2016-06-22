@@ -9,6 +9,8 @@ import com.gototongcheng.Presenter.CommonTopBarPresenter;
 import com.gototongcheng.Presenter.MainShouYeFragmentPresenter;
 import com.gototongcheng.application.R;
 
+import butterknife.OnClick;
+
 /**
  * Created by zhyan on 16/6/10.
  */
@@ -57,5 +59,14 @@ public class MainShouYeFragment extends BaseFragment{
         super.onResume();
       //  mainShouYeFragmentPresenter.onDestroy();
         initViews();
+    }
+
+    @OnClick(R.id.rly_left)
+    public void accountOnclick(){
+
+    }
+    @OnClick(R.id.rly_right)
+    public void selectOnclick(){
+
     }
 }

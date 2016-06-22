@@ -202,6 +202,20 @@ public class TongChengFragmentPresenter extends BasePresenter{
 
         }
     }
+    public void onDestroy()
+    {
+        // TODO Auto-generated method stub
+        if (mTimer != null)
+        {
+            mTimer.cancel();
+            mTimer = null;
+        }
+        if (mTimerTask != null)
+        {
+            mTimerTask.cancel();
+            mTimerTask = null;
+        }
+    }
 
     private void showProgress()
     {
@@ -218,20 +232,7 @@ public class TongChengFragmentPresenter extends BasePresenter{
         tongChengWidget.mCircleProgressView.stopSpinning();
         //     mRecyclerView.setVisibility(View.VISIBLE);
     }
-    public void onDestroy()
-    {
-        // TODO Auto-generated method stub
-        if (mTimer != null)
-        {
-            mTimer.cancel();
-            mTimer = null;
-        }
-        if (mTimerTask != null)
-        {
-            mTimerTask.cancel();
-            mTimerTask = null;
-        }
-    }
+
 
 
 

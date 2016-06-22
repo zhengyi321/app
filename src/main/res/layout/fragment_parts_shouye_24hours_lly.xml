@@ -48,21 +48,24 @@
                 <com.gototongcheng.widget.gridview.NoScroolGridView
                     android:id="@+id/gv_shouye_hoursshop_first"
                     android:layout_width="fill_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:horizontalSpacing="@dimen/dimen_1dp"
                     android:numColumns="3"
                     android:verticalSpacing="@dimen/dimen_1dp"
                     android:listSelector="@color/black"
+                    android:columnWidth="@dimen/dimen_70dp"
                 />
 
                 <com.gototongcheng.widget.gridview.NoScroolGridView
                     android:id="@+id/gv_shouye_hoursshop_second"
                     android:layout_width="fill_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:horizontalSpacing="@dimen/dimen_1dp"
                     android:numColumns="3"
                     android:verticalSpacing="@dimen/dimen_1dp"
                     android:listSelector="@color/black"
+                    android:columnWidth="@dimen/dimen_70dp"
+                    android:layout_marginTop="@dimen/dimen_30dp"
                     />
                 <TextView
                     android:layout_width="wrap_content"

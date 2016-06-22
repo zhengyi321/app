@@ -25,8 +25,8 @@ public class PluginScrollView extends RelativeLayout{
 	private int currentSelectedButton = -1;
 	private int singleButtonWidth = 90;
 	private Context context;
-	private List<View> testList;
-	
+//	private List<View> testList;
+	private List<String> dataList;
 	public PluginScrollView(Context context) {
 		super(context);
 		this.context = context;
@@ -37,11 +37,11 @@ public class PluginScrollView extends RelativeLayout{
 		this(context,viewPager,null);
 	}
 	
-	public PluginScrollView(Context context, ViewPager viewPager,List<View> testList) {
+	public PluginScrollView(Context context, ViewPager viewPager,List<String> dataList) {
 		super(context);
 		this.context = context;
 		this.viewpager = viewPager;
-		this.testList = testList;
+		this.dataList = dataList;
 		init();
 	}
 	
@@ -86,23 +86,23 @@ public class PluginScrollView extends RelativeLayout{
 		this.viewpager = viewPager;
 	}
 	
-	public void setTestList(List<View> testList){
-		this.testList = testList;
+	public void setDataList(List<String> dataList){
+		this.dataList = dataList;
 		initButtons();
 	}
 	
-	public List<View> getTestList(){
-		return this.testList;
+	public List<String> getDataList(){
+		return this.dataList;
 	}
 	
 	private void initButtons(){
-		if(testList == null)	return;
+		if(dataList == null)	return;
 		currentSelectedButton = -1;
 		layout.removeAllViews();
-		for(int i=0;i<testList.size();i++){
+		for(int i=0;i<dataList.size();i++){
 			final int j = i;
 			Button mbutton = new Button(context);
-			mbutton.setText("Button"+i);
+			mbutton.setText(dataList.get(i));
 			mbutton.setTextColor(black);
 			mbutton.setBackgroundResource(R.color.white);
 			LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
@@ -117,15 +117,15 @@ public class PluginScrollView extends RelativeLayout{
 			});
 			layout.addView(mbutton);
 		}
-		if(testList.size() > 0){
+		if(dataList.size() > 0){
 			buttonSelected(0);
 		}
 		setIndicatorVisibility(scrollview);
 	}
 	
 	public int size(){
-		if(testList == null)	return 0;
-		return testList.size();
+		if(dataList == null)	return 0;
+		return dataList.size();
 	}
 	
 	public void buttonSelected(int position){
@@ -138,7 +138,20 @@ public class PluginScrollView extends RelativeLayout{
 		}
 		getButtonInLayout(position).setSelected(true);
 		getButtonInLayout(position).setBackgroundResource(R.drawable.layer_list_border_waterbeer_underline_bg);
-
+		getButtonInLayout(position).setTextColor(context.getResources().getColor(R.color.color_water_beer_undline_bg_red));
+		if(dataList.size() > 1) {
+			if (position == 0) {
+				getButtonInLayout(dataList.size() - 1).setTextColor(context.getResources().getColor(R.color.black));
+				getButtonInLayout(1).setTextColor(context.getResources().getColor(R.color.black));
+			}else if(position == (dataList.size() -1)){
+				getButtonInLayout(dataList.size() - 2).setTextColor(context.getResources().getColor(R.color.black));
+				getButtonInLayout(0).setTextColor(context.getResources().getColor(R.color.black));
+			}
+			else {
+				getButtonInLayout(position - 1).setTextColor(context.getResources().getColor(R.color.black));
+				getButtonInLayout(position + 1).setTextColor(context.getResources().getColor(R.color.black));
+			}
+		}
 		currentSelectedButton = position;
 		autoScrollView(position);
 	}

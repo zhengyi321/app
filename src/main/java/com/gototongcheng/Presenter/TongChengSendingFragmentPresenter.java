@@ -28,6 +28,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action0;
+import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
 /**
@@ -122,7 +123,9 @@ public class TongChengSendingFragmentPresenter extends BasePresenter {
                         showProgress();
                         //  }
                     }
-                }).subscribe(new SubscriberCallBack<BaseModel>(new ApiCallback<BaseModel>() {
+                })
+                .cache()
+                .subscribe(new SubscriberCallBack<BaseModel>(new ApiCallback<BaseModel>() {
             @Override
             public void onSuccess(BaseModel model) {
 

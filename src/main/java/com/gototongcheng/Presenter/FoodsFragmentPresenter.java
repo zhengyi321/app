@@ -109,7 +109,6 @@ public class FoodsFragmentPresenter extends BasePresenter{
         };
         foodsFragmentWidget.rvFoods.addOnScrollListener(mAutoLoadOnScrollListener);
 
-        getLatesFoodsData(false);
     }
 
 

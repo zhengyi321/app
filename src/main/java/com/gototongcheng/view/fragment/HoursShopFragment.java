@@ -58,4 +58,5 @@ public class HoursShopFragment extends BaseFragment {
     public void backOnClick(){
         hoursFragmentPresenter.back();
     }
+
 }

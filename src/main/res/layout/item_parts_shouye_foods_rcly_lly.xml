@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -15,13 +16,13 @@
         android:layout_weight="4"
         android:orientation="vertical"
         >
-        <ImageView
+        <com.gototongcheng.widget.imageview.roundedimageview.RoundedImageView
             android:layout_width="@dimen/dimen_50dp"
             android:layout_height="@dimen/dimen_50dp"
-            android:src="@mipmap/default_launch"
+            android:src="@mipmap/ads"
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/dimen_10dp"
-
+            app:riv_corner_radius="@dimen/dimen_30dp"
             />
 
 
@@ -120,7 +121,7 @@
                 android:id="@+id/iv_foods_item_star5"
                 android:layout_width="@dimen/dimen_12dp"
                 android:layout_height="@dimen/dimen_12dp"
-                android:background="@mipmap/start_normal"
+                android:background="@mipmap/half_star"
                 android:layout_marginLeft="@dimen/dimen_2dp"
                 android:layout_toRightOf="@id/iv_foods_item_star4"
                 android:layout_centerVertical="true"
